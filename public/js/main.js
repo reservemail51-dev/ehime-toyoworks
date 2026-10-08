@@ -97,6 +97,11 @@
     pickup.innerHTML = list.length
       ? list.map(workCard).join("")
       : '<p class="works-empty">ただいま準備中です。少しずつ増やしていきます。</p>';
+    // 実績が1件もないときは、トップの「制作実績」のまとまりごと隠す（追加すれば自動で出る）
+    if (!(window.WORKS || []).length) {
+      var worksSec = pickup.closest("section");
+      if (worksSec) worksSec.hidden = true;
+    }
   }
 
   // 実績一覧ページ（works.html）で使う関数を公開

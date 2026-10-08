@@ -19,10 +19,11 @@
 1. 画像を `public/images/works/<id>/` に入れる（`thumb.webp` 800px幅、`pc.webp`・`sp.webp` 1600px幅程度）。
 2. `public/data/works.js` の `window.WORKS` に1件追加する（書式はファイル先頭のコメント参照）。
 3. `type` は受注＝`client`、架空の自主制作＝`sample`、デザイン案＝`design`。`sample` には自動で「架空のお店のサンプルです」が付く。
-4. トップに出したいものは `pickup: true`（最大3件表示）。
+4. トップに出したいものは `pickup: true`（最大3件表示）。実績が0件のときは、トップの「制作実績」セクションは自動で非表示になる
 5. `voice`（お客様の声）は実際にもらったものだけ。
 
 ## 補足
+- `public/samples/<id>/` に架空店舗のサンプルサイト本体を置く（例：`samples/tomoshibi/` ＝ともしび珈琲）。実績データの `url` から「サイトを見る」でリンクする。実在のお店と間違われないよう、各ページに noindex を入れ、`_headers` でも `/samples/*` を noindex にしている。画像は埋め込み（base64）にせず `img/` に分けて置く。
 - `index.html` の head にある `google-site-verification` の meta は Google Search Console の所有確認用。消すと登録が外れるので残す。
 - LINE公式アカウントの友だち追加URL：`https://lin.ee/RsPD66x`（全ページのLINEボタン・自動返信の文面に反映済み）。
 - 制作の料金はプラン1つ（5,000円〜・税込）。ライト／スタンダード／しっかりの3プランは廃止した。実績データの `plan` は「1ページ」などの規模を書く。

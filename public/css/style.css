@@ -713,6 +713,8 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.5; let
 .work-detail__shots figure:nth-child(2) { transform: rotate(1.2deg); }
 .work-detail__shots .dummy { aspect-ratio: 4 / 3; }
 .work-detail__shots figure:nth-child(2) .dummy { aspect-ratio: 9 / 16; }
+.work-detail__shots figure:nth-child(2) { width: min(100%, 280px); justify-self: center; }
+@media (min-width: 768px) { .work-detail__shots figure:nth-child(2) { width: auto; } }
 .work-detail__body { display: grid; gap: 32px; margin-top: 48px; }
 @media (min-width: 768px) { .work-detail__body { grid-template-columns: 1.3fr .7fr; gap: 48px; } }
 .work-detail__body h2 { font-size: 1.25rem; margin-bottom: .7em; }

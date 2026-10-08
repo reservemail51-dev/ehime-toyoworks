@@ -17,3 +17,8 @@
 
 /data/*
   Cache-Control: public, max-age=300
+
+# 架空店舗のサンプルサイト：実在のお店と間違われないよう、画像も含めて検索に出さない
+/samples/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=3600

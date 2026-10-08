@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ともしび珈琲｜西条市の自家焙煎の喫茶店｜架空店舗サンプル</title>
+<meta name="description" content="【架空店舗のサンプルサイト】愛媛東予Worksが制作したホームページの制作例です。愛媛県西条市の喫茶店「ともしび珈琲」という設定の、実在しないお店のサイトです。">
+<meta name="theme-color" content="#F7F1E7">
+<meta property="og:title" content="ともしび珈琲｜架空店舗サンプル">
+<meta property="og:description" content="愛媛東予Worksが制作した、架空のカフェのサンプルサイトです。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ehime-toyoworks.hp-web.workers.dev/samples/tomoshibi/img/photo-01.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!--
+  ==========================================================
+  【構造化データ（JSON-LD / LocalBusiness）】
+  実案件ではここに入れる。
+  このサイトは架空店舗のサンプルのため、検索エンジンに実在の
+  お店として扱われないよう、コメントアウトしています。
+  公開時はコメントを外し、実際の店舗情報に差し替えてください。
+  ==========================================================
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "ともしび珈琲",
+    "alternateName": "tomoshibi coffee",
+    "image": "https://example.com/img/photo-01.webp",
+    "url": "https://example.com/",
+    "telephone": "0897-00-0000",
+    "priceRange": "¥",
+    "servesCuisine": ["コーヒー", "カフェ", "焼き菓子"],
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "000-0000",
+      "addressRegion": "愛媛県",
+      "addressLocality": "西条市",
+      "streetAddress": "ともしび町1-2-3",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ]
+  }
+  </script>
+-->
+
+<style>
+/* =========================================================
+   Design tokens — 店舗ごとにこのブロックを差し替えるだけで再スキンできます
+   ========================================================= */
+:root{
+  /* Color */
+  --color-bg:#F7F1E7;          /* 生成り */
+  --color-bg-alt:#EFE4D2;      /* 生成り（濃） */
+  --color-surface:#FFFBF4;     /* カード面 */
+  --color-text:#3E2F24;        /* 焦げ茶 */
+  --color-text-strong:#2A1E15;
+  --color-text-sub:#6B5646;
+  --color-accent:#D9822B;      /* みかん色（面・装飾用） */
+  --color-accent-ink:#92480F;  /* みかん色（文字用・AA対応） */
+  --color-accent-soft:#F6DDBF;
+  --color-sub:#7C8B6F;         /* くすみ緑（面・装飾用） */
+  --color-sub-ink:#56654A;     /* くすみ緑（文字用・AA対応） */
+  --color-sub-soft:#DFE5D6;
+  --color-line:#E2D5C1;
+  --color-field:#9A8570;
+  --color-chat:#047A38;        /* LINE風ボタン */
+  --color-on-dark:#FFF6EA;
+
+  /* Typography */
+  --font-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Meiryo",sans-serif;
+  --font-head:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font-hand:"Klee One","Zen Maru Gothic",cursive;
+
+  /* Shape & layout */
+  --radius-s:10px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --shadow:0 8px 28px rgba(62,47,36,.08);
+  --container:1120px;
+  --header-h:64px;
+  --notice-h:52px; /* JSで実測値に更新 */
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--notice-h) + var(--header-h) + 12px);
+}
+body{
+  margin:0;
+  padding-top:var(--notice-h);
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.9;
+  letter-spacing:.04em;
+  overflow-wrap:anywhere;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-head);font-weight:700;line-height:1.5;letter-spacing:.06em;margin:0;color:var(--color-text-strong)}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+figure{margin:0}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--color-accent-ink);outline-offset:3px;border-radius:6px}
+
+.container{width:min(100% - 32px, var(--container));margin-inline:auto}
+.container--narrow{width:min(100% - 32px, 860px)}
+@media (min-width:768px){
+  .container{width:min(100% - 64px, var(--container))}
+  .container--narrow{width:min(100% - 64px, 860px)}
+}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:fixed;left:12px;top:-100px;z-index:100;background:var(--color-text-strong);color:var(--color-on-dark);padding:8px 16px;border-radius:8px;text-decoration:none}
+.skip-link:focus{top:calc(var(--notice-h) + 8px)}
+
+/* ---------- 架空表記の帯（固定） ---------- */
+.site-notice{
+  position:fixed;inset:0 0 auto 0;z-index:70;
+  background:var(--color-text-strong);color:var(--color-on-dark);
+  font-size:.75rem;line-height:1.6;letter-spacing:.02em;
+  padding:7px 16px;text-align:center;
+}
+@media (max-width:599px){.site-notice{font-size:.6875rem;line-height:1.5;padding:6px 12px}}
+.site-notice__tag{
+  display:inline-block;margin-right:8px;padding:0 8px;border-radius:999px;
+  background:var(--color-accent);color:var(--color-text-strong);
+  font-weight:700;font-size:.6875rem;letter-spacing:.1em;
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:var(--notice-h);z-index:60;
+  background:rgba(247,241,231,.97);
+  border-bottom:1px solid var(--color-line);
+  transition:transform .35s ease;
+}
+.site-header.is-hidden{transform:translateY(-100%)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--header-h)}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-text-strong)}
+.logo svg{width:30px;height:36px;flex:none}
+.logo__ja{display:block;font-family:var(--font-head);font-weight:700;font-size:1.25rem;letter-spacing:.14em;line-height:1.2}
+.logo__en{display:block;font-family:var(--font-hand);font-size:.6875rem;letter-spacing:.14em;color:var(--color-text-sub);line-height:1.3}
+
+.menu-btn{
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  min-width:48px;min-height:48px;border:0;background:none;color:var(--color-text-strong);
+  cursor:pointer;font-size:.625rem;letter-spacing:.08em;padding:4px;
+}
+.menu-btn__bars,.menu-btn__bars::before,.menu-btn__bars::after{
+  display:block;width:24px;height:2px;border-radius:2px;background:currentColor;transition:transform .3s, background .3s;
+}
+.menu-btn__bars{position:relative;margin-top:6px}
+.menu-btn__bars::before,.menu-btn__bars::after{content:"";position:absolute;left:0}
+.menu-btn__bars::before{top:-7px}
+.menu-btn__bars::after{top:7px}
+.menu-btn[aria-expanded="true"] .menu-btn__bars{background:transparent}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::before{transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-btn__bars::after{transform:translateY(-7px) rotate(-45deg)}
+.menu-btn__label{line-height:1}
+
+.gnav{
+  position:fixed;left:0;right:0;bottom:0;
+  top:calc(var(--notice-h) + var(--header-h));
+  background:var(--color-bg);
+  padding:16px 16px 40px;overflow-y:auto;
+  visibility:hidden;opacity:0;transform:translateY(-8px);
+  transition:opacity .25s, transform .25s, visibility .25s;
+}
+.gnav.is-open{visibility:visible;opacity:1;transform:none}
+.gnav__list a{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 8px;border-bottom:1px dashed var(--color-line);
+  text-decoration:none;font-size:1.0625rem;font-weight:500;
+}
+.gnav__en{font-family:var(--font-hand);font-size:.8125rem;color:var(--color-text-sub);letter-spacing:.1em}
+.gnav__info{margin-top:24px;padding:16px;border-radius:var(--radius-m);background:var(--color-surface);font-size:.875rem;color:var(--color-text-sub)}
+
+@media (min-width:1080px){
+  .menu-btn{display:none}
+  .gnav{position:static;visibility:visible;opacity:1;transform:none;padding:0;background:none;overflow:visible}
+  .gnav__list{display:flex;gap:2px}
+  .gnav__list a{padding:6px 11px;border:0;border-radius:999px;font-size:.875rem;letter-spacing:.06em}
+  .gnav__list a:hover{background:var(--color-bg-alt)}
+  .gnav__en,.gnav__info{display:none}
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:10px 26px;border-radius:999px;border:2px solid transparent;
+  font-weight:700;font-size:.9375rem;letter-spacing:.08em;text-decoration:none;cursor:pointer;
+  transition:background-color .2s, transform .2s, border-color .2s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn--primary{background:var(--color-accent);color:var(--color-text-strong)}
+.btn--primary:hover{background:#E39340}
+.btn--ghost{background:transparent;color:var(--color-text-strong);border-color:var(--color-text-strong)}
+.btn--ghost:hover{background:var(--color-bg-alt)}
+.btn--chat{background:var(--color-chat);color:#fff;width:100%}
+.btn--chat:hover{background:#036A30}
+.btn--dark{background:var(--color-text-strong);color:var(--color-on-dark)}
+.btn--dark:hover{background:#3E2F24}
+
+/* ---------- 画像ダミー（画像が無いときだけラベル表示） ---------- */
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#EBDCC4 0%,#DDBF94 52%,#CFA476 100%)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.is-missing::after{
+  content:"PHOTO： " attr(data-label);
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--font-hand);font-size:.875rem;letter-spacing:.08em;color:var(--color-text-strong);
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative}
+.hero__media{height:60svh;min-height:340px;max-height:560px}
+.hero__media img{object-position:28% 62%}
+.hero__inner{position:relative;margin-top:-72px}
+.hero__card{
+  position:relative;background:var(--color-surface);border-radius:var(--radius-l);
+  padding:28px 24px 26px;box-shadow:var(--shadow);
+}
+.hero__eyebrow{font-family:var(--font-hand);color:var(--color-accent-ink);font-size:.875rem;letter-spacing:.12em;margin-bottom:6px}
+.hero__title{font-size:clamp(1.5rem, 6.4vw, 2.25rem);line-height:1.55;letter-spacing:.08em}
+.hero__lead{margin-top:12px;color:var(--color-text-sub);font-size:.9375rem;line-height:1.9}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.hero__actions .btn{flex:1 1 auto;white-space:nowrap;padding-inline:22px}
+.hero__info{display:flex;align-items:center;gap:8px;margin-top:18px;padding-top:16px;border-top:1px dashed var(--color-line);font-size:.8125rem;color:var(--color-text-sub)}
+.hero__info svg{width:18px;height:18px;flex:none;color:var(--color-accent-ink)}
+@media (min-width:900px){
+  .hero{display:flex;align-items:flex-start;min-height:clamp(560px, calc(100svh - var(--notice-h) - var(--header-h)), 780px)}
+  .hero__media{position:absolute;inset:0;height:auto;max-height:none}
+  .hero__media img{object-position:center 60%}
+  .hero__inner{margin-top:0;padding-block:clamp(40px, 8vh, 96px);display:flex;justify-content:flex-end}
+  .hero__card{max-width:520px;padding:40px 40px 34px;background:rgba(255,251,244,.93)}
+  .hero__actions .btn{flex:0 0 auto}
+}
+
+/* ---------- Section common ---------- */
+.section{padding-block:clamp(72px, 10vw, 120px)}
+.section--alt{background:var(--color-bg-alt)}
+.section--tight-top{padding-top:clamp(56px, 7vw, 88px)}
+.sec-head{text-align:center;margin-bottom:clamp(32px, 5vw, 52px)}
+.sec-head--left{text-align:left}
+.sec-head__en{font-family:var(--font-hand);color:var(--color-accent-ink);font-size:.9375rem;letter-spacing:.18em;line-height:1.4}
+.sec-head__title{display:inline-flex;align-items:center;gap:10px;font-size:clamp(1.5rem, 4.4vw, 2rem)}
+.sec-head__icon{width:20px;height:24px;flex:none}
+.sec-lead{margin-top:14px;color:var(--color-text-sub);font-size:.9375rem}
+.photo{border-radius:var(--radius-l)}
+.hand{font-family:var(--font-hand)}
+
+/* ---------- News ---------- */
+.news-list{border-top:1px dashed var(--color-line)}
+.news-list li{
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:4px 14px;
+  padding:18px 4px;border-bottom:1px dashed var(--color-line);
+}
+.news-list time{font-family:var(--font-hand);color:var(--color-text-sub);font-size:.9375rem;letter-spacing:.06em}
+.news-list p{grid-column:1 / -1}
+.tag{justify-self:start;display:inline-block;min-width:5.5em;text-align:center;font-size:.75rem;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--color-accent-soft);color:var(--color-text-strong)}
+.tag--sub{background:var(--color-sub-soft)}
+.tag--plain{background:var(--color-bg-alt)}
+@media (min-width:768px){
+  .news-list li{grid-template-columns:7.5em 7em 1fr;gap:16px}
+  .news-list p{grid-column:auto}
+}
+
+/* ---------- About ---------- */
+.about__grid{display:grid;gap:40px}
+.about__photo{aspect-ratio:3 / 2}
+.photo-caption{margin-top:12px;font-family:var(--font-hand);font-size:.875rem;color:var(--color-text-sub);text-align:center}
+.about__text p + p{margin-top:1.2em}
+.about__sign{margin-top:22px;text-align:right;font-family:var(--font-hand);color:var(--color-text-sub)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
+.facts li{background:var(--color-surface);border-radius:var(--radius-m);padding:14px 6px;text-align:center;line-height:1.4}
+.facts strong{display:block;font-family:var(--font-head);font-size:1.625rem;color:var(--color-accent-ink)}
+.facts span{font-size:.75rem;color:var(--color-text-sub)}
+@media (min-width:900px){
+  .about__grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:64px}
+}
+
+/* ---------- こだわり ---------- */
+.points{display:grid;gap:24px}
+.point{background:var(--color-surface);border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow)}
+.point__photo{aspect-ratio:4 / 3}
+.point__body{padding:22px 22px 26px}
+.point__num{display:flex;align-items:center;gap:8px;font-family:var(--font-hand);color:var(--color-accent-ink);font-size:.9375rem;letter-spacing:.12em}
+.point__num svg{width:22px;height:22px;color:var(--color-sub-ink)}
+.point h3{font-size:1.25rem;margin:6px 0 10px}
+.point p{font-size:.9375rem;color:var(--color-text-sub);line-height:1.85}
+@media (min-width:600px) and (max-width:899px){
+  .point{display:grid;grid-template-columns:2fr 3fr}
+  .point__photo{aspect-ratio:auto;min-height:230px}
+  .point__body{align-self:center}
+}
+@media (min-width:900px){.points{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- Menu（タブ） ---------- */
+.tabs{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  padding:4px;margin:0 auto 32px;max-width:560px;
+  background:var(--color-surface);border-radius:999px;border:1px solid var(--color-line);
+}
+.tab{
+  appearance:none;border:0;background:none;cursor:pointer;
+  min-height:44px;padding:8px 4px;border-radius:999px;
+  font-weight:700;font-size:.8125rem;letter-spacing:0;color:var(--color-text-sub);white-space:nowrap;
+  transition:background-color .2s, color .2s;
+}
+.tab:hover{color:var(--color-text-strong)}
+.tab[aria-selected="true"]{background:var(--color-text-strong);color:var(--color-on-dark)}
+@media (min-width:480px){.tab{font-size:.9375rem;letter-spacing:.06em}}
+.menu-panel{display:grid;gap:28px}
+.menu-panel[hidden]{display:none}
+.menu-panel__photo{aspect-ratio:1;border-radius:var(--radius-l)}
+.menu-panel__time{display:inline-flex;align-items:center;gap:6px;padding:2px 14px;border-radius:999px;background:var(--color-sub-soft);color:var(--color-sub-ink);font-size:.8125rem;font-weight:700}
+.menu-panel__time svg{width:16px;height:16px}
+.menu-panel h3{font-size:1.375rem;margin:10px 0 6px}
+.menu-list li{padding:14px 0;border-bottom:1px dashed var(--color-line)}
+.menu-item__row{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
+.menu-item__name{font-weight:700;font-size:1.0625rem}
+.menu-item__dots{flex:1;min-width:16px;border-bottom:2px dotted var(--color-line);transform:translateY(-5px)}
+.menu-item__price{margin-left:auto;font-family:var(--font-head);font-weight:700;font-size:1.125rem;white-space:nowrap;color:var(--color-text-strong)}
+.menu-item__price small{font-size:.75rem;margin-left:2px}
+.menu-item__desc{margin-top:2px;font-size:.875rem;color:var(--color-text-sub);line-height:1.75}
+.menu-note{margin-top:14px;font-size:.8125rem;color:var(--color-text-sub)}
+.menu-foot{margin-top:28px;text-align:center;font-size:.8125rem;color:var(--color-text-sub)}
+@media (min-width:768px){
+  .menu-panel{grid-template-columns:5fr 7fr;gap:48px;align-items:start}
+}
+
+/* ---------- 季節のおすすめ ---------- */
+.seasonal__grid{display:grid}
+.seasonal__photo{aspect-ratio:1;border-radius:var(--radius-l)}
+.seasonal__card{
+  position:relative;margin:-56px 14px 0;padding:28px 24px;
+  background:var(--color-surface);border-radius:var(--radius-l);box-shadow:var(--shadow);
+}
+.seasonal__badge{display:inline-block;padding:2px 16px;border-radius:999px;background:var(--color-accent);color:var(--color-text-strong);font-family:var(--font-hand);font-weight:600;font-size:.875rem;transform:rotate(-3deg)}
+.seasonal__name{margin-top:12px;font-size:clamp(1.5rem, 4vw, 2rem)}
+.seasonal__price{font-family:var(--font-head);font-weight:700;font-size:1.5rem;color:var(--color-accent-ink);line-height:1.4}
+.seasonal__price small{font-size:.875rem}
+.seasonal__text{margin-top:12px;color:var(--color-text-sub);font-size:.9375rem}
+.seasonal__term{margin-top:12px;font-size:.8125rem;color:var(--color-text-sub)}
+.seasonal__memo{margin-top:18px;padding-top:14px;border-top:1px dashed var(--color-line);font-family:var(--font-hand);color:var(--color-text)}
+@media (min-width:900px){
+  .seasonal__grid{grid-template-columns:7fr 5fr;align-items:center}
+  .seasonal__photo{aspect-ratio:5 / 4}
+  .seasonal__card{margin:0 0 0 -88px;padding:44px 40px}
+}
+
+/* ---------- お子さま連れ ---------- */
+.kids__grid{display:grid;gap:32px}
+.kids__photo{aspect-ratio:3 / 2}
+.kids-features{display:grid;gap:12px;margin-top:24px}
+.kf{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:var(--radius-m);background:var(--color-surface)}
+.kf__icon{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--color-sub-soft);color:var(--color-sub-ink)}
+.kf__icon svg{width:26px;height:26px}
+.kf h3{font-family:var(--font-body);font-size:1rem;letter-spacing:.04em}
+.kf p{font-size:.875rem;color:var(--color-text-sub);line-height:1.7}
+@media (min-width:600px){.kids-features{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.kids__grid{grid-template-columns:1fr 1.1fr;align-items:center;gap:56px}}
+
+/* ---------- テイクアウト ---------- */
+.takeout__grid{display:grid;gap:32px}
+.takeout__photo{aspect-ratio:1}
+.price-cards{display:grid;gap:12px;margin:24px 0 18px}
+.price-card{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-radius:var(--radius-m);background:var(--color-surface);border:1px solid var(--color-line)}
+.price-card__name{font-weight:700}
+.price-card__name small{display:block;font-weight:400;font-size:.8125rem;color:var(--color-text-sub)}
+.price-card__price{font-family:var(--font-head);font-weight:700;font-size:1.25rem;white-space:nowrap}
+.price-card__price small{font-size:.75rem}
+.note-list li{position:relative;padding-left:1.2em;font-size:.875rem;color:var(--color-text-sub)}
+.note-list li::before{content:"・";position:absolute;left:0}
+@media (min-width:900px){
+  .takeout__grid{grid-template-columns:1fr 1fr;align-items:center;gap:56px}
+  .takeout__photo{order:2;aspect-ratio:5 / 4}
+}
+
+/* ---------- Gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gallery__item{display:block;width:100%;aspect-ratio:1;padding:0;border:0;border-radius:8px;background:none;cursor:zoom-in;overflow:hidden}
+.gallery__item .ph{width:100%;height:100%}
+.gallery__item img{transition:transform .6s ease}
+.gallery__item:hover img{transform:scale(1.05)}
+.gallery-note{margin-top:14px;text-align:center;font-size:.8125rem;color:var(--color-text-sub)}
+@media (min-width:768px){.gallery{gap:12px}.gallery__item{border-radius:14px}}
+
+.lightbox{border:0;padding:0;background:transparent;width:min(92vw, 1100px);max-width:none;max-height:none;overflow:visible}
+.lightbox::backdrop{background:rgba(24,17,12,.95)}
+.lightbox__figure{display:flex;flex-direction:column;align-items:center}
+.lightbox__img{width:auto;max-width:100%;max-height:76vh;border-radius:12px;object-fit:contain}
+.lightbox__caption{margin-top:12px;color:var(--color-on-dark);font-size:.875rem;text-align:center}
+.lightbox__count{display:block;font-family:var(--font-hand);opacity:.85;font-size:.8125rem}
+.lightbox__btn{
+  position:fixed;z-index:2;display:grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;
+  background:rgba(255,251,244,.94);color:var(--color-text-strong);cursor:pointer;
+}
+.lightbox__btn svg{width:22px;height:22px}
+.lightbox__close{top:16px;right:16px}
+.lightbox__prev{left:10px;top:50%;transform:translateY(-50%)}
+.lightbox__next{right:10px;top:50%;transform:translateY(-50%)}
+.lightbox__btn:focus-visible{outline-color:var(--color-accent)}
+
+/* ---------- 営業カレンダー ---------- */
+.cal-status{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  width:fit-content;max-width:100%;margin:0 auto 28px;padding:12px 22px;
+  border-radius:var(--radius-m);background:var(--color-surface);font-weight:700;text-align:left;
+}
+@media (max-width:599px){.cal-status{flex-wrap:nowrap;width:100%;justify-content:flex-start;font-size:.9375rem}}
+.cal-status__dot{width:10px;height:10px;border-radius:50%;background:var(--color-sub);flex:none}
+.cal-status.is-closed .cal-status__dot{background:var(--color-accent)}
+.calendars{display:grid;gap:20px}
+.cal-card{background:var(--color-surface);border-radius:var(--radius-l);padding:18px 12px 14px}
+.cal{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed}
+.cal caption{font-family:var(--font-head);font-weight:700;font-size:1.125rem;color:var(--color-text-strong);padding:0 6px 6px;text-align:left}
+.cal th{font-size:.75rem;font-weight:500;color:var(--color-text-sub);padding:2px 0}
+.cal th.is-sun{color:#A2412F}
+.cal th.is-sat{color:#3F5F80}
+.cal td{height:46px;padding:0;border-radius:10px;text-align:center;vertical-align:middle;font-size:.875rem;line-height:1.2}
+.cal td.is-closed{background:var(--color-accent-soft);color:var(--color-text-strong)}
+.cal td.is-temp{background:var(--color-sub-soft);color:var(--color-text-strong)}
+.cal td.is-today{box-shadow:inset 0 0 0 2px var(--color-text-strong);font-weight:700}
+.cal-mark{display:block;font-size:.625rem;font-weight:700;margin-top:1px}
+.cal-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:20px;font-size:.8125rem}
+.swatch{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+.swatch--closed{background:var(--color-accent-soft);border:1px solid var(--color-accent)}
+.swatch--temp{background:var(--color-sub-soft);border:1px solid var(--color-sub)}
+.swatch--today{box-shadow:inset 0 0 0 2px var(--color-text-strong)}
+.cal-foot{margin-top:10px;text-align:center;font-size:.8125rem;color:var(--color-text-sub)}
+@media (min-width:768px){.calendars{grid-template-columns:1fr 1fr}.cal-card{padding:22px 18px 18px}}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:12px}
+.faq details{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-m)}
+.faq summary{
+  position:relative;display:flex;gap:12px;align-items:flex-start;
+  padding:18px 56px 18px 20px;cursor:pointer;list-style:none;font-weight:700;line-height:1.7;border-radius:var(--radius-m);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--font-head);font-size:1.125rem;color:var(--color-accent-ink);line-height:1.5}
+.faq summary::after{
+  content:"";position:absolute;right:22px;top:50%;width:14px;height:14px;margin-top:-7px;
+  background:
+    linear-gradient(var(--color-text-strong),var(--color-text-strong)) center / 100% 2px no-repeat,
+    linear-gradient(var(--color-text-strong),var(--color-text-strong)) center / 2px 100% no-repeat;
+  transition:transform .25s;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq__a{position:relative;padding:0 20px 20px 50px;color:var(--color-text-sub);font-size:.9375rem}
+.faq__a::before{content:"A";position:absolute;left:21px;top:-1px;font-family:var(--font-head);font-weight:700;font-size:1.125rem;color:var(--color-sub-ink)}
+
+/* ---------- Access ---------- */
+.access__grid{display:grid;gap:28px}
+.info-table{width:100%;border-collapse:collapse;background:var(--color-surface);border-radius:var(--radius-l);overflow:hidden}
+.info-table th,.info-table td{padding:14px 16px;border-bottom:1px solid var(--color-line);text-align:left;vertical-align:top;font-size:.9375rem;line-height:1.75}
+.info-table tr:last-child th,.info-table tr:last-child td{border-bottom:0}
+.info-table th{width:6.5em;white-space:nowrap;font-weight:700;color:var(--color-text-strong);background:#FBF5EC}
+.fictional{display:inline-block;margin-left:4px;font-size:.75rem;font-weight:700;color:var(--color-accent-ink)}
+.map-dummy{position:relative;display:grid;place-items:center;min-height:320px;padding:24px;border-radius:var(--radius-l);overflow:hidden;background:#E9E1D1;text-align:center}
+.map-dummy__bg{position:absolute;inset:0;width:100%;height:100%}
+.map-dummy__label{position:relative;padding:18px 22px;border-radius:var(--radius-m);background:rgba(255,251,244,.95);box-shadow:var(--shadow);font-size:.875rem;line-height:1.7}
+.map-dummy__label strong{display:block;font-family:var(--font-head);font-size:1.0625rem;color:var(--color-text-strong)}
+@media (min-width:900px){.access__grid{grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}.map-dummy{min-height:100%}}
+
+/* ---------- Contact ---------- */
+.contact__grid{display:grid;gap:20px}
+.panel{background:var(--color-surface);border-radius:var(--radius-l);padding:28px 22px}
+.panel h3{font-size:1.25rem;margin-bottom:8px}
+.panel__text{font-size:.9375rem;color:var(--color-text-sub);margin-bottom:18px}
+.contact-tel{margin-top:22px;padding-top:18px;border-top:1px dashed var(--color-line);font-size:.875rem;color:var(--color-text-sub)}
+.contact-tel strong{display:block;font-family:var(--font-head);font-size:1.5rem;color:var(--color-text-strong);letter-spacing:.06em}
+.sample-note{padding:10px 14px;border-radius:var(--radius-s);background:var(--color-sub-soft);color:var(--color-text-strong);font-size:.8125rem;line-height:1.7}
+.form{display:grid;gap:18px}
+.field label{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-weight:700;font-size:.9375rem}
+.req,.opt{font-size:.6875rem;padding:0 8px;border-radius:999px;font-weight:700;line-height:1.7}
+.req{background:var(--color-accent-soft);color:var(--color-text-strong)}
+.opt{background:var(--color-bg-alt);color:var(--color-text-sub)}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 14px;border:1.5px solid var(--color-field);border-radius:12px;
+  background:#fff;color:var(--color-text);font:inherit;font-size:1rem;line-height:1.6;
+}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline-offset:1px;border-color:var(--color-accent-ink)}
+.form-status{min-height:1.5em;font-weight:700;color:var(--color-sub-ink);font-size:.9375rem}
+.form .btn{justify-self:start}
+@media (min-width:900px){.contact__grid{grid-template-columns:5fr 7fr;gap:28px;align-items:start}.panel{padding:36px 34px}}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--color-text-strong);color:var(--color-on-dark);padding:56px 0 28px;font-size:.875rem}
+.site-footer a{color:var(--color-on-dark)}
+.footer-top{display:grid;gap:28px}
+.footer-logo{color:var(--color-on-dark)}
+.footer-logo .logo__en{color:#D9CBB8}
+.footer-info{margin-top:14px;line-height:1.9;color:#E8DCCB}
+.footer-nav ul{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.footer-nav a{text-decoration:none;display:inline-block;padding:4px 0}
+.footer-nav a:hover{text-decoration:underline}
+.footer-notice{margin:32px 0 20px;padding:14px 16px;border:1px solid rgba(255,246,234,.35);border-radius:var(--radius-m);font-size:.8125rem;line-height:1.8}
+.footer-notice p + p{margin-top:4px}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:.75rem;color:#D9CBB8}
+.footer-credit a{color:var(--color-accent);font-weight:700}
+@media (min-width:768px){.footer-top{grid-template-columns:1.2fr 1fr;align-items:start}}
+
+/* ---------- Toast / To-top ---------- */
+.toast{
+  position:fixed;left:50%;bottom:24px;z-index:80;max-width:calc(100% - 32px);
+  padding:12px 22px;border-radius:999px;background:var(--color-text-strong);color:var(--color-on-dark);
+  font-size:.875rem;text-align:center;opacity:0;pointer-events:none;transform:translate(-50%, 16px);
+  transition:opacity .3s, transform .3s;
+}
+.toast.is-show{opacity:1;transform:translate(-50%, 0)}
+.to-top{
+  position:fixed;right:14px;bottom:14px;z-index:55;display:grid;place-items:center;width:48px;height:48px;
+  border-radius:50%;background:var(--color-surface);color:var(--color-text-strong);box-shadow:var(--shadow);
+  border:1px solid var(--color-line);text-decoration:none;opacity:0;visibility:hidden;transition:opacity .3s, visibility .3s;
+}
+.to-top.is-show{opacity:1;visibility:visible}
+.to-top svg{width:22px;height:22px}
+
+/* ---------- Reveal（控えめなフェードイン） ---------- */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease, transform .8s ease}
+.js .reveal.is-visible{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .js .reveal{opacity:1;transform:none}
+  .btn:hover{transform:none}
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<!-- 1. 架空表記の固定帯 -->
+<div class="site-notice" id="siteNotice" role="note">
+  <p><span class="site-notice__tag">SAMPLE</span>このサイトは愛媛東予Worksが制作した架空の店舗のサンプルサイトです。店名・住所・電話番号・メニューはすべて架空です。</p>
+</div>
+
+<!-- SVGアイコン -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-lamp" viewBox="0 0 40 48">
+    <path d="M20 1.5v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M8 25.5C8 16.8 13.4 11 20 11s12 5.8 12 14.5z" fill="currentColor"/>
+    <path d="M5 25.5h30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="20" cy="32" r="5.2" style="fill:var(--color-accent)"/>
+    <path d="M20 41v4M10.5 37.5l-2.6 2.6M29.5 37.5l2.6 2.6" fill="none" style="stroke:var(--color-accent)" stroke-width="2.2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.6 4.6 6 7.9 6 11.1a6 6 0 0 1-12 0C6 10.9 8.4 7.6 12 3z"/><path d="M9.3 14.6a2.8 2.8 0 0 0 2.4 2.6"/></g></symbol>
+  <symbol id="i-bean" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="6.2" ry="8.8" transform="rotate(32 12 12)"/><path d="M8.2 5.6c3.4 3.2-.2 9.4 7.6 12.8"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 10.5 10.2 5 19 5c0 8.8-5.5 14-14 14z"/><path d="M5 19l8.5-8.5"/></g></symbol>
+  <symbol id="i-zashiki" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 14h14"/><path d="M7 14v3.5M17 14v3.5"/><path d="M10 11.5h4l-.5 2.5h-3z"/><path d="M11 9.5c0-1 1-1 1-2M13 9.5c0-1 1-1 1-2"/></g></symbol>
+  <symbol id="i-stroller" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5h2.2l1.8 8.5h11"/><path d="M12 3.5a6.5 6.5 0 0 1 6.5 6.5H12z"/><path d="M6.5 13.5c.2 1.4 1.3 2.5 2.8 2.5h6.4a2.8 2.8 0 0 0 2.8-2.5"/><circle cx="8.5" cy="19" r="1.8"/><circle cx="16.5" cy="19" r="1.8"/></g></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h17v2.3a8.5 8.5 0 0 1-17 0z"/><path d="M3.5 7.5l3.2 3.4M20.5 7.5l-3.2 3.4"/><path d="M10 14.5c.6.5 1.3.8 2 .8s1.4-.3 2-.8"/></g></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="7.5"/><circle cx="12" cy="14" r="3.6"/><path d="M12 10.4V2.5l3.6 1.6L12 5.7"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c5 0 9 3.2 9 7.2s-4 7.2-9 7.2c-.9 0-1.8-.1-2.6-.3L5 20.5l.9-3.7C4.1 15.5 3 13.4 3 11.2 3 7.2 7 4 12 4z"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.4 7-12a7 7 0 0 0-14 0c0 5.6 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="10" r="2.6" fill="#FFFBF4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- 2. ヘッダー -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="logo" href="#top">
+      <svg aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>
+      <span>
+        <span class="logo__ja">ともしび珈琲</span>
+        <span class="logo__en">tomoshibi coffee</span>
+      </span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="globalNav">
+      <span class="menu-btn__bars" aria-hidden="true"></span>
+      <span class="menu-btn__label">MENU</span>
+      <span class="visually-hidden">サイト内メニューを開く</span>
+    </button>
+    <nav class="gnav" id="globalNav" aria-label="サイト内メニュー">
+      <ul class="gnav__list">
+        <li><a href="#news">お知らせ<span class="gnav__en" aria-hidden="true">News</span></a></li>
+        <li><a href="#about">ともしびについて<span class="gnav__en" aria-hidden="true">About</span></a></li>
+        <li><a href="#menu">メニュー<span class="gnav__en" aria-hidden="true">Menu</span></a></li>
+        <li><a href="#kids">お子さま連れ<span class="gnav__en" aria-hidden="true">Kids</span></a></li>
+        <li><a href="#takeout">テイクアウト<span class="gnav__en" aria-hidden="true">Take out</span></a></li>
+        <li><a href="#calendar">営業日<span class="gnav__en" aria-hidden="true">Calendar</span></a></li>
+        <li><a href="#access">アクセス<span class="gnav__en" aria-hidden="true">Access</span></a></li>
+        <li><a href="#contact">お問い合わせ<span class="gnav__en" aria-hidden="true">Contact</span></a></li>
+      </ul>
+      <div class="gnav__info">
+        営業時間 8:00〜17:00<br>定休日 毎週水曜・第3木曜
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 3. ヒーロー -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__media ph" data-label="hero.webp">
+      <img src="img/photo-01.webp" width="1536" height="1024" fetchpriority="high"
+           alt="朝の光が差し込む窓際の木のテーブル。コーヒーと焼き菓子が置かれている"
+           onerror="this.parentNode.classList.add('is-missing');this.remove()">
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__card">
+        <p class="hero__eyebrow">since 2019 ・ 愛媛県西条市</p>
+        <h1 class="hero__title" id="hero-title">ただいま、って<br>言いたくなる喫茶店。</h1>
+        <p class="hero__lead">朝のひかりと、焼き菓子のにおい。<br>西条の町の小さな灯りです。</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#menu">メニューを見る</a>
+          <a class="btn btn--ghost" href="#access">アクセス</a>
+        </div>
+        <p class="hero__info">
+          <svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+          8:00〜17:00 ／ 毎週水曜・第3木曜 定休
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. お知らせ -->
+  <section class="section section--tight-top" id="news" aria-labelledby="news-title">
+    <div class="container--narrow container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">News</p>
+        <h2 class="sec-head__title" id="news-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>お知らせ</h2>
+      </div>
+      <ul class="news-list reveal">
+        <li>
+          <time datetime="2026-09-20">2026.09.20</time>
+          <span class="tag">季節限定</span>
+          <p>秋の「季節の柑橘タルト」がはじまりました。</p>
+        </li>
+        <li>
+          <time datetime="2026-09-12">2026.09.12</time>
+          <span class="tag tag--sub">お休み</span>
+          <p>10月8日（木）・9日（金）は臨時休業いたします。</p>
+        </li>
+        <li>
+          <time datetime="2026-09-05">2026.09.05</time>
+          <span class="tag tag--plain">ギフト</span>
+          <p>焼き菓子ギフトのご予約を承っています。お祝いや手みやげにどうぞ。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. ともしび珈琲について -->
+  <section class="section section--alt" id="about" aria-labelledby="about-title">
+    <div class="container about__grid">
+      <figure class="reveal">
+        <div class="about__photo photo ph" data-label="exterior.webp">
+          <img src="img/photo-02.webp" width="1536" height="1024" loading="lazy"
+               alt="瓦屋根の古民家を改装したお店の外観。木の引き戸と軒先のランプ"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <figcaption class="photo-caption">築50年の民家を、少しずつ手直しして。</figcaption>
+      </figure>
+      <div class="about__text reveal">
+        <div class="sec-head sec-head--left">
+          <p class="sec-head__en">About</p>
+          <h2 class="sec-head__title" id="about-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>ともしび珈琲について</h2>
+        </div>
+        <p>「ただいま」と入ってきて、「いってきます」と帰っていく。そんなふうに、毎日の暮らしのすぐそばにある店をつくりたくて、2019年、ふたりで西条に帰ってきました。</p>
+        <p>築50年の民家を自分たちの手で直しながら開いた、小さな喫茶店です。コーヒーは夫が店の奥で焙煎し、焼き菓子は妻が毎朝焼いています。</p>
+        <p>朝いちばんのモーニングも、ひと息つきたい午後も。どうぞ、ゆっくりしていってください。</p>
+        <p class="about__sign">焙煎担当の夫と、焼き菓子担当の妻より</p>
+        <ul class="facts">
+          <li><strong>2019</strong><span>オープン</span></li>
+          <li><strong>24</strong><span>席（座敷6席）</span></li>
+          <li><strong>8</strong><span>台 駐車場</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 3つのこだわり -->
+  <section class="section" id="kodawari" aria-labelledby="kodawari-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Our Way</p>
+        <h2 class="sec-head__title" id="kodawari-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>3つのこだわり</h2>
+      </div>
+      <div class="points">
+        <article class="point reveal">
+          <div class="point__photo ph" data-label="coffee.webp">
+            <img src="img/photo-03.webp" width="667" height="1000" loading="lazy"
+                 alt="カウンターでコーヒーをハンドドリップしている手元"
+                 onerror="this.parentNode.classList.add('is-missing');this.remove()">
+          </div>
+          <div class="point__body">
+            <p class="point__num"><svg aria-hidden="true" focusable="false"><use href="#i-drop"/></svg>01</p>
+            <h3>うちぬきの水</h3>
+            <p>西条のまちのあちこちで湧き出る、石鎚山系の伏流水「うちぬき」。まろやかな水で淹れると、豆の甘みがすっと引き立ちます。</p>
+          </div>
+        </article>
+        <article class="point reveal">
+          <div class="point__photo ph" data-label="roasting.webp">
+            <img src="img/photo-04.webp" width="667" height="1000" loading="lazy"
+                 alt="焙煎機から焙煎したてのコーヒー豆が冷却トレーに流れ出るようす"
+                 onerror="this.parentNode.classList.add('is-missing');this.remove()">
+          </div>
+          <div class="point__body">
+            <p class="point__num"><svg aria-hidden="true" focusable="false"><use href="#i-bean"/></svg>02</p>
+            <h3>自家焙煎</h3>
+            <p>店の奥の小さな焙煎機で、週に2回、少しずつ。いちばんおいしい時期の豆だけを使っています。</p>
+          </div>
+        </article>
+        <article class="point reveal">
+          <div class="point__photo ph" data-label="sweets.webp">
+            <img src="img/photo-05.webp" width="1000" height="1000" loading="lazy"
+                 alt="木のボードに並んだスコーン、パウンドケーキ、クッキー"
+                 onerror="this.parentNode.classList.add('is-missing');this.remove()">
+          </div>
+          <div class="point__body">
+            <p class="point__num"><svg aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg>03</p>
+            <h3>地元の素材</h3>
+            <p>愛媛のはだか麦、東予の柑橘、近くの農家さんの野菜。顔の見える素材で、毎日のごはんとお菓子をつくっています。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. メニュー -->
+  <section class="section section--alt" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Menu</p>
+        <h2 class="sec-head__title" id="menu-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>メニュー</h2>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="メニューの種類">
+        <button class="tab" type="button" role="tab" id="tab-morning" aria-controls="panel-morning" aria-selected="true">モーニング</button>
+        <button class="tab" type="button" role="tab" id="tab-lunch" aria-controls="panel-lunch" aria-selected="false" tabindex="-1">ランチ</button>
+        <button class="tab" type="button" role="tab" id="tab-drink" aria-controls="panel-drink" aria-selected="false" tabindex="-1">ドリンク</button>
+        <button class="tab" type="button" role="tab" id="tab-sweets" aria-controls="panel-sweets" aria-selected="false" tabindex="-1">スイーツ</button>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="panel-morning" aria-labelledby="tab-morning" tabindex="0">
+        <div class="menu-panel__photo ph" data-label="morning.webp">
+          <img src="img/photo-06.webp" width="1000" height="1000" loading="lazy"
+               alt="トレーにのったモーニングセット。厚切りトースト、ゆで卵、サラダ、コーヒー"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <div>
+          <p class="menu-panel__time"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>8:00〜10:30</p>
+          <h3>モーニング</h3>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">ともしびモーニング</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price"><small>ドリンク代</small>＋250<small>円</small></span></div>
+              <p class="menu-item__desc">厚切りトースト・ゆで卵・小さなサラダ。お好きなドリンクにプラスしてどうぞ。</p>
+            </li>
+          </ul>
+          <p class="menu-note">焼きたての厚切りトーストに、バターをたっぷりのせて。一日のはじまりに。</p>
+        </div>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="panel-lunch" aria-labelledby="tab-lunch" tabindex="0" hidden>
+        <div class="menu-panel__photo ph" data-label="lunch.webp">
+          <img src="img/photo-07.webp" width="1000" height="1000" loading="lazy"
+               alt="雑穀ごはんと季節野菜のおかずが盛られた週替わりランチプレートとスープ"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <div>
+          <p class="menu-panel__time"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>11:30〜14:00 L.O.</p>
+          <h3>ランチ</h3>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">週替わりプレート</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">1,200<small>円</small></span></div>
+              <p class="menu-item__desc">雑穀ごはんに、季節の野菜を中心にしたおかずを数種。スープつき。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">はだか麦のキーマカレー</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">1,000<small>円</small></span></div>
+              <p class="menu-item__desc">愛媛のはだか麦を合わせた、ぷちぷち食感のキーマカレー。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">キッズプレート</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">600<small>円</small></span></div>
+              <p class="menu-item__desc">小さなおにぎり、おかず、果物をひと皿に（小学生以下）。</p>
+            </li>
+          </ul>
+          <p class="menu-note">なくなり次第終了です。</p>
+        </div>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="panel-drink" aria-labelledby="tab-drink" tabindex="0" hidden>
+        <div class="menu-panel__photo ph" data-label="coffee.webp">
+          <img src="img/photo-03.webp" width="667" height="1000" loading="lazy"
+               alt="陶器のドリッパーでコーヒーを淹れているところ"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <div>
+          <p class="menu-panel__time"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>終日</p>
+          <h3>ドリンク</h3>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">ともしびブレンド</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">480<small>円</small></span></div>
+              <p class="menu-item__desc">中煎り。まろやかで、毎日飲みたくなる味。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">深煎りブレンド</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">500<small>円</small></span></div>
+              <p class="menu-item__desc">ほろ苦くコクのある、焼き菓子に合う一杯。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">カフェオレ</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">550<small>円</small></span></div>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">ほうじ茶ラテ</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">550<small>円</small></span></div>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">地元柑橘のジュース</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">500<small>円</small></span></div>
+              <p class="menu-item__desc">季節によって柑橘の種類が変わります。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu-panel" role="tabpanel" id="panel-sweets" aria-labelledby="tab-sweets" tabindex="0" hidden>
+        <div class="menu-panel__photo ph" data-label="sweets.webp">
+          <img src="img/photo-05.webp" width="1000" height="1000" loading="lazy"
+               alt="焼きたてのスコーンとパウンドケーキ、クッキー"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <div>
+          <p class="menu-panel__time"><svg aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>終日</p>
+          <h3>スイーツ</h3>
+          <ul class="menu-list">
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">はだか麦のスコーン</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">350<small>円</small></span></div>
+              <p class="menu-item__desc">香ばしくて素朴。コーヒーによく合います。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">季節の柑橘タルト</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">520<small>円</small></span></div>
+              <p class="menu-item__desc">東予の柑橘をたっぷりのせた、季節限定のタルト。</p>
+            </li>
+            <li>
+              <div class="menu-item__row"><span class="menu-item__name">自家製かためプリン</span><span class="menu-item__dots" aria-hidden="true"></span><span class="menu-item__price">450<small>円</small></span></div>
+              <p class="menu-item__desc">昔ながらのかためプリン。ほろ苦いカラメルで。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="menu-foot">※表示価格はすべて税込です（架空の価格です）。</p>
+    </div>
+  </section>
+
+  <!-- 8. 季節のおすすめ -->
+  <section class="section" id="seasonal" aria-labelledby="seasonal-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Seasonal</p>
+        <h2 class="sec-head__title" id="seasonal-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>季節のおすすめ</h2>
+      </div>
+      <div class="seasonal__grid">
+        <div class="seasonal__photo ph reveal" data-label="tart.webp">
+          <img src="img/photo-08.webp" width="1000" height="1000" loading="lazy"
+               alt="みかんの房を花びらのように並べた季節の柑橘タルト"
+               onerror="this.parentNode.classList.add('is-missing');this.remove()">
+        </div>
+        <div class="seasonal__card reveal">
+          <span class="seasonal__badge">今だけ</span>
+          <h3 class="seasonal__name">季節の柑橘タルト</h3>
+          <p class="seasonal__price">520<small>円</small></p>
+          <p class="seasonal__text">東予の農家さんから届く、その時季いちばんの柑橘を、ひと房ずつていねいに並べました。やさしい甘さのカスタードと、さくっと焼いたタルト生地で。</p>
+          <p class="seasonal__term">提供期間：10月〜3月ごろ（柑橘がなくなり次第終了）</p>
+          <p class="seasonal__memo">深煎りブレンドと合わせるのが、店主のおすすめです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. お子さま連れの方へ -->
+  <section class="section section--alt" id="kids" aria-labelledby="kids-title">
+    <div class="container kids__grid">
+      <div class="kids__photo photo ph reveal" data-label="kids.webp">
+        <img src="img/photo-09.webp" width="1536" height="1024" loading="lazy"
+             alt="絵本と木のおもちゃが置かれた、小上がりの座敷席"
+             onerror="this.parentNode.classList.add('is-missing');this.remove()">
+      </div>
+      <div class="reveal">
+        <div class="sec-head sec-head--left">
+          <p class="sec-head__en">With Kids</p>
+          <h2 class="sec-head__title" id="kids-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>お子さま連れの方へ</h2>
+          <p class="sec-lead">小さなお子さまとご一緒でも、気兼ねなく過ごしていただけるように。赤ちゃんから大歓迎です。</p>
+        </div>
+        <ul class="kids-features">
+          <li class="kf">
+            <span class="kf__icon"><svg aria-hidden="true" focusable="false"><use href="#i-zashiki"/></svg></span>
+            <div><h3>小上がりの座敷</h3><p>6席の畳のお席。絵本とおもちゃもあります。</p></div>
+          </li>
+          <li class="kf">
+            <span class="kf__icon"><svg aria-hidden="true" focusable="false"><use href="#i-stroller"/></svg></span>
+            <div><h3>ベビーカーOK</h3><p>入口はスロープ。通路も広めにとっています。</p></div>
+          </li>
+          <li class="kf">
+            <span class="kf__icon"><svg aria-hidden="true" focusable="false"><use href="#i-baby"/></svg></span>
+            <div><h3>おむつ替え台</h3><p>化粧室におむつ替え台をご用意しています。</p></div>
+          </li>
+          <li class="kf">
+            <span class="kf__icon"><svg aria-hidden="true" focusable="false"><use href="#i-plate"/></svg></span>
+            <div><h3>キッズプレート</h3><p>600円。取り分け用の小皿とスプーンもどうぞ。</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. テイクアウト・ギフト -->
+  <section class="section" id="takeout" aria-labelledby="takeout-title">
+    <div class="container takeout__grid">
+      <div class="takeout__photo photo ph reveal" data-label="takeout.webp">
+        <img src="img/photo-10.webp" width="1000" height="1000" loading="lazy"
+             alt="クラフト紙の箱に詰めた焼き菓子のギフトセット"
+             onerror="this.parentNode.classList.add('is-missing');this.remove()">
+      </div>
+      <div class="reveal">
+        <div class="sec-head sec-head--left">
+          <p class="sec-head__en">Take out &amp; Gift</p>
+          <h2 class="sec-head__title" id="takeout-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>テイクアウト・ギフト</h2>
+          <p class="sec-lead">お店の味を、おうちでも。ちょっとした手みやげや、お祝いの贈りものにもどうぞ。</p>
+        </div>
+        <ul class="price-cards">
+          <li class="price-card">
+            <span class="price-card__name">焼き菓子詰め合わせ<small>クッキー・フィナンシェ・パウンドケーキなど</small></span>
+            <span class="price-card__price">1,500<small>円〜</small></span>
+          </li>
+          <li class="price-card">
+            <span class="price-card__name">コーヒー豆 100g<small>ブレンド・シングルオリジン</small></span>
+            <span class="price-card__price">750<small>円〜</small></span>
+          </li>
+        </ul>
+        <ul class="note-list">
+          <li>ギフトの詰め合わせは、3日前までのご予約で確実にご用意できます。</li>
+          <li>ギフト包装・のしは無料で承ります。</li>
+          <li>豆はご希望の挽き方でお渡しします。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. ギャラリー -->
+  <section class="section section--alt" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Gallery</p>
+        <h2 class="sec-head__title" id="gallery-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>ギャラリー</h2>
+      </div>
+      <ul class="gallery reveal" id="gallery-list">
+        <li><button class="gallery__item" type="button" data-index="0"><span class="ph" data-label="exterior.webp"><img src="img/photo-02.webp" width="1536" height="1024" loading="lazy" alt="瓦屋根の古民家を改装したお店の外観" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="1"><span class="ph" data-label="hero.webp"><img src="img/photo-01.webp" width="1536" height="1024" loading="lazy" alt="朝の光が差し込む窓際のテーブル席" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="2"><span class="ph" data-label="coffee.webp"><img src="img/photo-03.webp" width="667" height="1000" loading="lazy" alt="コーヒーをハンドドリップしている手元" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="3"><span class="ph" data-label="morning.webp"><img src="img/photo-06.webp" width="1000" height="1000" loading="lazy" alt="厚切りトーストのモーニングセット" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="4"><span class="ph" data-label="lunch.webp"><img src="img/photo-07.webp" width="1000" height="1000" loading="lazy" alt="季節野菜の週替わりランチプレート" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="5"><span class="ph" data-label="tart.webp"><img src="img/photo-08.webp" width="1000" height="1000" loading="lazy" alt="季節の柑橘タルト" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="6"><span class="ph" data-label="sweets.webp"><img src="img/photo-05.webp" width="1000" height="1000" loading="lazy" alt="スコーンとパウンドケーキ、クッキー" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="7"><span class="ph" data-label="kids.webp"><img src="img/photo-09.webp" width="1536" height="1024" loading="lazy" alt="絵本とおもちゃのある小上がりの座敷" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+        <li><button class="gallery__item" type="button" data-index="8"><span class="ph" data-label="roasting.webp"><img src="img/photo-04.webp" width="667" height="1000" loading="lazy" alt="焙煎したてのコーヒー豆" onerror="this.parentNode.classList.add('is-missing');this.remove()"></span><span class="visually-hidden">拡大して見る</span></button></li>
+      </ul>
+      <p class="gallery-note">写真をタップすると大きく表示されます。</p>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="写真の拡大表示">
+    <button class="lightbox__btn lightbox__close" type="button" id="lightboxClose" aria-label="閉じる"><svg aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      <figcaption class="lightbox__caption"><span id="lightboxCaption"></span><span class="lightbox__count" id="lightboxCount"></span></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__prev" type="button" id="lightboxPrev" aria-label="前の写真"><svg aria-hidden="true" focusable="false"><use href="#i-prev"/></svg></button>
+    <button class="lightbox__btn lightbox__next" type="button" id="lightboxNext" aria-label="次の写真"><svg aria-hidden="true" focusable="false"><use href="#i-next"/></svg></button>
+  </dialog>
+
+  <!-- 12. 営業カレンダー -->
+  <section class="section" id="calendar" aria-labelledby="calendar-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Calendar</p>
+        <h2 class="sec-head__title" id="calendar-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>営業カレンダー</h2>
+      </div>
+      <p class="cal-status reveal" id="calStatus" aria-live="polite"><span class="cal-status__dot" aria-hidden="true"></span><span id="calStatusText">営業時間 8:00〜17:00</span></p>
+      <div class="calendars reveal" id="calendars">
+        <noscript><p class="cal-foot">定休日：毎週水曜・第3木曜</p></noscript>
+      </div>
+      <div class="cal-legend">
+        <span><span class="swatch swatch--closed" aria-hidden="true"></span>定休日</span>
+        <span><span class="swatch swatch--temp" aria-hidden="true"></span>臨時休業</span>
+        <span><span class="swatch swatch--today" aria-hidden="true"></span>今日</span>
+      </div>
+      <p class="cal-foot">定休日：毎週水曜・第3木曜 ／ 臨時休業はお知らせでもご案内します。</p>
+    </div>
+  </section>
+
+  <!-- 13. よくある質問 -->
+  <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+    <div class="container--narrow container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">FAQ</p>
+        <h2 class="sec-head__title" id="faq-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>よくある質問</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>予約はできますか？</summary>
+          <p class="faq__a">座敷席のみ、前日までお電話で承ります。テーブル席・カウンター席は、ご来店順のご案内です。</p>
+        </details>
+        <details>
+          <summary>駐車場はありますか？</summary>
+          <p class="faq__a">お店の前と横に、あわせて8台分の駐車場があります。満車の際は、少し時間をずらしてお越しいただけると助かります。</p>
+        </details>
+        <details>
+          <summary>子ども連れでも大丈夫ですか？</summary>
+          <p class="faq__a">もちろんです。座敷席、ベビーカーでの入店、おむつ替え台、キッズプレートをご用意しています。離乳食の持ち込みもどうぞ。</p>
+        </details>
+        <details>
+          <summary>支払い方法を教えてください。</summary>
+          <p class="faq__a">現金のほか、クレジットカード、交通系IC、QRコード決済がご利用いただけます。</p>
+        </details>
+        <details>
+          <summary>テイクアウトはできますか？</summary>
+          <p class="faq__a">焼き菓子、コーヒー豆、一部のドリンクがテイクアウトできます。ギフトの詰め合わせは3日前までのご予約がおすすめです。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. アクセス -->
+  <section class="section" id="access" aria-labelledby="access-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Access</p>
+        <h2 class="sec-head__title" id="access-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>アクセス</h2>
+      </div>
+      <div class="access__grid">
+        <table class="info-table reveal">
+          <caption class="visually-hidden">店舗情報</caption>
+          <tbody>
+            <tr><th scope="row">店名</th><td>ともしび珈琲（tomoshibi coffee）</td></tr>
+            <tr><th scope="row">住所</th><td>〒000-0000<br>愛媛県西条市ともしび町1-2-3<span class="fictional">（架空）</span></td></tr>
+            <tr><th scope="row">電話</th><td>0897-00-0000<span class="fictional">（架空）</span></td></tr>
+            <tr><th scope="row">営業時間</th><td>8:00〜17:00<br>モーニング 8:00〜10:30<br>ランチ 11:30〜14:00 L.O.</td></tr>
+            <tr><th scope="row">定休日</th><td>毎週水曜・第3木曜</td></tr>
+            <tr><th scope="row">席数</th><td>24席（カウンター4・テーブル14・小上がり座敷6）</td></tr>
+            <tr><th scope="row">駐車場</th><td>8台</td></tr>
+          </tbody>
+        </table>
+        <div class="map-dummy reveal" role="img" aria-label="地図のダミー表示。実案件ではGoogleマップを埋め込みます">
+          <svg class="map-dummy__bg" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <rect width="400" height="320" fill="#E9E1D1"/>
+            <path d="M-10 250C90 220 150 250 230 200S350 120 410 130" fill="none" stroke="#C9D6E0" stroke-width="16"/>
+            <path d="M0 90h400M0 180h400M120 0v320M280 0v320" stroke="#FFFBF4" stroke-width="10"/>
+            <path d="M40 0l90 320M330 0l-60 320" stroke="#FFFBF4" stroke-width="5"/>
+            <rect x="140" y="104" width="120" height="62" rx="6" fill="#DCE3D2"/>
+            <rect x="20" y="196" width="80" height="48" rx="6" fill="#DCE3D2"/>
+            <rect x="300" y="20" width="80" height="56" rx="6" fill="#E3D6C1"/>
+          </svg>
+          <div class="map-dummy__label">
+            <svg width="28" height="28" style="color:var(--color-accent-ink);margin:0 auto 6px;display:block" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>
+            <strong>地図エリア（ダミー）</strong>
+            実案件ではGoogleマップを埋め込みます
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. お問い合わせ -->
+  <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">Contact</p>
+        <h2 class="sec-head__title" id="contact-title"><svg class="sec-head__icon" aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>お問い合わせ</h2>
+        <p class="sec-lead">座敷のご予約やギフトのご相談など、お気軽にどうぞ。</p>
+      </div>
+      <div class="contact__grid">
+        <div class="panel reveal">
+          <h3>LINEでのお問い合わせ</h3>
+          <p class="panel__text">友だち追加で、ギフトのご予約や臨時休業のお知らせを受け取れます。</p>
+          <button class="btn btn--chat" type="button" id="chatBtn">
+            <svg aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>LINEで問い合わせる
+          </button>
+          <p class="contact-tel">お電話でのお問い合わせ<strong>0897-00-0000<span class="fictional">（架空）</span></strong>受付 8:00〜17:00（水曜・第3木曜を除く）</p>
+        </div>
+        <div class="panel reveal">
+          <h3>メールフォーム</h3>
+          <p class="sample-note">サンプルサイトのため、このフォームは実際には送信されません。</p>
+          <form class="form" id="contactForm" novalidate style="margin-top:18px">
+            <div class="field">
+              <label for="f-name">お名前<span class="req">必須</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">メールアドレス<span class="req">必須</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            </div>
+            <div class="field">
+              <label for="f-tel">電話番号<span class="opt">任意</span></label>
+              <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <div class="field">
+              <label for="f-type">ご用件<span class="req">必須</span></label>
+              <select id="f-type" name="type" required>
+                <option value="">選択してください</option>
+                <option>座敷席の予約</option>
+                <option>焼き菓子ギフトの予約・相談</option>
+                <option>その他のお問い合わせ</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">お問い合わせ内容<span class="req">必須</span></label>
+              <textarea id="f-message" name="message" required></textarea>
+            </div>
+            <button class="btn btn--dark" type="submit">送信内容を確認する</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 16. フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="logo footer-logo" href="#top">
+          <svg aria-hidden="true" focusable="false"><use href="#i-lamp"/></svg>
+          <span><span class="logo__ja">ともしび珈琲</span><span class="logo__en">tomoshibi coffee</span></span>
+        </a>
+        <p class="footer-info">
+          〒000-0000 愛媛県西条市ともしび町1-2-3（架空）<br>
+          TEL 0897-00-0000（架空）<br>
+          8:00〜17:00 ／ 毎週水曜・第3木曜 定休
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <ul>
+          <li><a href="#news">お知らせ</a></li>
+          <li><a href="#about">ともしびについて</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#kids">お子さま連れの方へ</a></li>
+          <li><a href="#takeout">テイクアウト・ギフト</a></li>
+          <li><a href="#calendar">営業カレンダー</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-notice" role="note">
+      <p>このサイトは愛媛東予Worksが制作した架空の店舗のサンプルサイトです。店名・住所・電話番号・メニューはすべて架空です。</p>
+      <p>掲載している写真はAIで生成したイメージです。</p>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-credit">制作：<a href="https://ehime-toyoworks.hp-web.workers.dev/" target="_blank" rel="noopener">愛媛東予Works</a></p>
+      <p><small>&copy; <span id="year">2026</span> tomoshibi coffee（架空店舗）</small></p>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" id="toTop" aria-label="ページの先頭へ戻る"><svg aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   店舗設定 — 店舗ごとにここを書き換えればカレンダーに反映されます
+   ========================================================= */
+const STORE = {
+  hours: '8:00〜17:00',
+  closedWeekdays: [3],                       // 0=日 … 3=水
+  closedNthWeekdays: [{ weekday: 4, nth: 3 }], // 第3木曜
+  temporaryClosed: ['2026-10-08', '2026-10-09'] // 臨時休業日（YYYY-MM-DD）
+};
+
+(() => {
+  const root = document.documentElement;
+  const header = document.getElementById('siteHeader');
+  const notice = document.getElementById('siteNotice');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- 架空表記の帯の高さを実測してレイアウトに反映 ---- */
+  const setNoticeHeight = () => root.style.setProperty('--notice-h', notice.offsetHeight + 'px');
+  setNoticeHeight();
+  if ('ResizeObserver' in window) new ResizeObserver(setNoticeHeight).observe(notice);
+  else window.addEventListener('resize', setNoticeHeight);
+
+  /* ---- ハンバーガーメニュー ---- */
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('globalNav');
+  const menuLabel = menuBtn.querySelector('.visually-hidden');
+  const isMobileNav = () => getComputedStyle(menuBtn).display !== 'none';
+  const setMenu = (open) => {
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuLabel.textContent = open ? 'サイト内メニューを閉じる' : 'サイト内メニューを開く';
+    nav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) { header.classList.remove('is-hidden'); setTimeout(() => nav.querySelector('a').focus(), 60); }
+  };
+  menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a') && isMobileNav()) setMenu(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+  });
+  window.matchMedia('(min-width:1080px)').addEventListener('change', () => setMenu(false));
+
+  /* ---- スクロールでヘッダーを隠す／戻すとき表示 ---- */
+  const toTop = document.getElementById('toTop');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (!nav.classList.contains('is-open')) {
+      if (y > lastY && y > 240) header.classList.add('is-hidden');
+      else if (y < lastY - 4) header.classList.remove('is-hidden');
+    }
+    toTop.classList.toggle('is-show', y > 700);
+    lastY = y;
+  }, { passive: true });
+  header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
+
+  /* ---- メニューのタブ切り替え（WAI-ARIA Tabs） ---- */
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const selectTab = (tab, focus) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', (e) => {
+      const map = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 };
+      if (!(e.key in map)) return;
+      e.preventDefault();
+      selectTab(tabs[(map[e.key] + tabs.length) % tabs.length], true);
+    });
+  });
+
+  /* ---- 営業カレンダー ---- */
+  const WEEK = ['日', '月', '火', '水', '木', '金', '土'];
+  const pad = (n) => String(n).padStart(2, '0');
+  const toKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const closedType = (d) => {
+    if (STORE.temporaryClosed.includes(toKey(d))) return 'temp';
+    if (STORE.closedWeekdays.includes(d.getDay())) return 'closed';
+    if (STORE.closedNthWeekdays.some((r) => r.weekday === d.getDay() && Math.ceil(d.getDate() / 7) === r.nth)) return 'closed';
+    return null;
+  };
+  const today = new Date();
+  const renderMonth = (year, month) => {
+    const first = new Date(year, month, 1);
+    const days = new Date(year, month + 1, 0).getDate();
+    let html = `<div class="cal-card"><table class="cal"><caption>${year}年${month + 1}月</caption><thead><tr>`;
+    WEEK.forEach((w, i) => { html += `<th scope="col" class="${i === 0 ? 'is-sun' : i === 6 ? 'is-sat' : ''}"><abbr title="${w}曜日" style="text-decoration:none">${w}</abbr></th>`; });
+    html += '</tr></thead><tbody><tr>';
+    for (let i = 0; i < first.getDay(); i++) html += '<td></td>';
+    for (let day = 1; day <= days; day++) {
+      const d = new Date(year, month, day);
+      const type = closedType(d);
+      const isToday = toKey(d) === toKey(today);
+      const cls = [type === 'closed' ? 'is-closed' : '', type === 'temp' ? 'is-temp' : '', isToday ? 'is-today' : ''].join(' ').trim();
+      const mark = type === 'closed' ? '<span class="cal-mark" aria-hidden="true">休</span><span class="visually-hidden">定休日</span>'
+                 : type === 'temp' ? '<span class="cal-mark" aria-hidden="true">臨休</span><span class="visually-hidden">臨時休業</span>' : '';
+      html += `<td${cls ? ` class="${cls}"` : ''}>${day}${mark}${isToday ? '<span class="visually-hidden">（今日）</span>' : ''}</td>`;
+      if (d.getDay() === 6 && day !== days) html += '</tr><tr>';
+    }
+    const last = new Date(year, month, days).getDay();
+    for (let i = last; i < 6; i++) html += '<td></td>';
+    return html + '</tr></tbody></table></div>';
+  };
+  const next = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  document.getElementById('calendars').innerHTML =
+    renderMonth(today.getFullYear(), today.getMonth()) + renderMonth(next.getFullYear(), next.getMonth());
+  const todayType = closedType(today);
+  const statusEl = document.getElementById('calStatus');
+  const label = `本日 ${today.getMonth() + 1}月${today.getDate()}日（${WEEK[today.getDay()]}）は`;
+  document.getElementById('calStatusText').textContent =
+    todayType === 'closed' ? `${label}定休日です` :
+    todayType === 'temp' ? `${label}臨時休業です` :
+    `${label}営業日です（${STORE.hours}）`;
+  statusEl.classList.toggle('is-closed', !!todayType);
+
+  /* ---- ギャラリー（拡大表示） ---- */
+  const dialog = document.getElementById('lightbox');
+  const items = [...document.querySelectorAll('.gallery__item')];
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCap = document.getElementById('lightboxCaption');
+  const lbCount = document.getElementById('lightboxCount');
+  let current = 0, opener = null;
+  const show = (i) => {
+    current = (i + items.length) % items.length;
+    const img = items[current].querySelector('img');
+    const ph = items[current].querySelector('.ph');
+    const src = img ? img.getAttribute('src') : '';
+    const alt = img ? img.alt : `画像未設定（${ph.dataset.label}）`;
+    lbImg.src = src; lbImg.alt = alt; lbImg.hidden = !img;
+    lbCap.textContent = alt;
+    lbCount.textContent = `${current + 1} / ${items.length}`;
+  };
+  if (typeof dialog.showModal === 'function') {
+    items.forEach((btn, i) => btn.addEventListener('click', () => { opener = btn; show(i); dialog.showModal(); }));
+    document.getElementById('lightboxPrev').addEventListener('click', () => show(current - 1));
+    document.getElementById('lightboxNext').addEventListener('click', () => show(current + 1));
+    document.getElementById('lightboxClose').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+  }
+
+  /* ---- トースト ---- */
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  const showToast = (msg) => {
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-show'), 3200);
+  };
+  document.getElementById('chatBtn').addEventListener('click', () => showToast('サンプルサイトのため、LINEには移動しません'));
+
+  /* ---- フォーム（送信しない） ---- */
+  const form = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      formStatus.textContent = '未入力の必須項目があります。';
+      return;
+    }
+    formStatus.textContent = 'ありがとうございます。サンプルサイトのため、実際には送信されません。';
+  });
+
+  /* ---- 控えめなフェードイン ---- */
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach((el) => io.observe(el));
+  }
+
+  document.getElementById('year').textContent = today.getFullYear();
+})();
+</script>
+</body>
+</html>

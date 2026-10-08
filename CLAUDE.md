@@ -23,7 +23,7 @@
 5. `voice`（お客様の声）は実際にもらったものだけ。
 
 ## 補足
-- `public/samples/<id>/` に架空店舗のサンプルサイト本体を置く（`samples/tomoshibi/` ＝ともしび珈琲、`samples/kohaku/` ＝洋食 こはく、`samples/hiuchi/` ＝酒と肴 ひうち）。実績データの `url` から「サイトを見る」でリンクする。実在のお店と間違われないよう、各ページに noindex を入れ、`_headers` でも `/samples/*` を noindex にしている。画像は埋め込み（base64）にせず `img/` に分けて置く。シェア画像は各 `img/ogp.jpg`（1200×630）。`type: "sample"` の実績は、カードに「※実在しない架空の店舗です」、詳細ページの見出し下に架空である旨の囲みが自動で出る。`area` も「架空の店舗（〇〇市という設定）」と書く。
+- `public/samples/<id>/` に架空店舗のサンプルサイト本体を置く（`samples/tomoshibi/` ＝ともしび珈琲、`samples/kohaku/` ＝洋食 こはく、`samples/hiuchi/` ＝酒と肴 ひうち、`samples/soyogi/` ＝hair room そよぎ、`samples/shizuku/` ＝しずく洋菓子店、`samples/mizunowa/` ＝みずのわベーカリー）。実績データの `url` から「サイトを見る」でリンクする。実在のお店と間違われないよう、各ページに noindex を入れ、`_headers` でも `/samples/*` を noindex にしている。画像は埋め込み（base64）にせず `img/` に分けて置く。シェア画像は各 `img/ogp.jpg`（1200×630）。`type: "sample"` の実績は、カードに「※実在しない架空の店舗です」、詳細ページの見出し下に架空である旨の囲みが自動で出る。`area` も「架空の店舗（〇〇市という設定）」と書く。
 - `index.html` の head にある `google-site-verification` の meta は Google Search Console の所有確認用。消すと登録が外れるので残す。
 - LINE公式アカウントの友だち追加URL：`https://lin.ee/RsPD66x`（全ページのLINEボタン・自動返信の文面に反映済み）。
 - 制作の料金はプラン1つ（5,000円〜・税込）。ライト／スタンダード／しっかりの3プランは廃止した。実績データの `plan` は「1ページ」などの規模を書く。

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>みずのわベーカリー｜西条のうちぬき水で仕込む、毎日のパン（制作サンプル）</title>
+<meta name="description" content="愛媛東予Worksの制作サンプルです。愛媛県西条市の架空のパン屋「みずのわベーカリー」のホームページ。店舗名・住所・電話番号・商品・人物はすべて架空のものです。">
+<meta property="og:url" content="https://ehime-toyoworks.hp-web.workers.dev/samples/mizunowa/">
+<meta property="og:image" content="https://ehime-toyoworks.hp-web.workers.dev/samples/mizunowa/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- 架空の店舗が検索結果に実在店として表示されないようにする -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f7f1e6">
+<script>document.documentElement.classList.add('js');</script>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="みずのわベーカリー（制作サンプル）">
+<meta property="og:description" content="西条のうちぬき水で仕込む、毎日のパン。愛媛東予Worksが制作した架空のパン屋のサンプルサイトです。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+
+<!--
+  ▼ 構造化データ（JSON-LD）の見本
+  実案件では、以下を <script type="application/ld+json"> ～ </script> で囲んで有効化します。
+  このサイトは架空の店舗のため、検索エンジンに誤った情報を渡さないよう、あえてコメントアウトしています。
+
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "みずのわベーカリー",
+    "alternateName": "Mizunowa Bakery",
+    "description": "西条のうちぬき水で仕込む、毎日のパン。",
+    "image": "https://example.com/images/hero.webp",
+    "url": "https://example.com/",
+    "telephone": "0897-00-0000",
+    "priceRange": "¥",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "793-0000",
+      "addressRegion": "愛媛県",
+      "addressLocality": "西条市",
+      "streetAddress": "みずのわ町1-2-3",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "17:00"
+    }],
+    "paymentAccepted": "現金, QRコード決済, 交通系IC",
+    "servesCuisine": "パン"
+  }
+-->
+
+<style>
+/* =========================================================
+   デザイントークン（ここを書き換えると店舗ごとに色替えできます）
+   ========================================================= */
+:root{
+  --c-bg:#f7f1e6;          /* 生成り */
+  --c-surface:#fffaf2;     /* 明るい生成り（カード） */
+  --c-paper:#efe5d3;       /* 少し濃い生成り（帯・区切り） */
+  --c-wheat:#c8924a;       /* 小麦色（装飾） */
+  --c-wheat-soft:#ecd3a9;  /* 淡い小麦色 */
+  --c-wheat-deep:#8a5a22;  /* 小麦色（文字用・コントラスト確保） */
+  --c-ink:#3b2a1e;         /* 焦げ茶（本文） */
+  --c-ink-soft:#6b5544;    /* 焦げ茶（補足） */
+  --c-water:#d6eaee;       /* うちぬき水の淡い水色 */
+  --c-water-deep:#2f6f7e;  /* 水色（文字用） */
+  --c-line:#e3d6c0;
+  --c-closed-bg:#f3dcd2;
+  --c-closed-ink:#97412b;
+  --c-line-app:#06c755;
+
+  --ff-serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --ff-sans:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+
+  --radius-s:10px;
+  --radius:18px;
+  --radius-l:28px;
+  --shadow:0 10px 30px -12px rgba(59,42,30,.25);
+  --container:1120px;
+  --gutter:20px;
+  --top-h:0px; /* 上部固定エリアの高さ（JSで設定） */
+}
+
+/* =========================================================
+   ベース
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--c-bg);color:var(--c-ink);
+  font-family:var(--ff-sans);font-size:16px;line-height:1.9;letter-spacing:.03em;
+  overflow-x:hidden;
+}
+/* 紙のようなごく薄いテクスチャ */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .35 0 0 0 0 .25 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main,header,footer,.site-top{position:relative;z-index:1}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--ff-serif);font-weight:700;line-height:1.5;letter-spacing:.06em;margin:0}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--c-water-deep);outline-offset:3px;border-radius:6px}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;background:var(--c-ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:100;text-decoration:none}
+.skip:focus{top:12px}
+
+/* 画像枠：画像がなくても崩れないよう aspect-ratio＋グラデーション */
+.ph{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:linear-gradient(135deg,#ecd3a9 0%,#d9b27a 45%,#c8924a 100%);
+  aspect-ratio:3/2;
+}
+.ph.sq{aspect-ratio:1/1}
+.ph img{width:100%;height:100%;object-fit:cover}
+
+/* =========================================================
+   上部固定：サンプル表記帯＋ヘッダー
+   ========================================================= */
+.site-top{position:sticky;top:0;z-index:50}
+.sample-bar{
+  background:var(--c-ink);color:#fbf3e4;font-size:12px;line-height:1.6;letter-spacing:.02em;
+  padding:7px var(--gutter);text-align:center;
+}
+.sample-bar strong{color:var(--c-wheat-soft);font-weight:700}
+.header{
+  background:rgba(247,241,230,.92);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid var(--c-line);
+}
+.header .container{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:36px;height:36px;flex:none}
+.logo-text{display:flex;flex-direction:column;line-height:1.2}
+.logo-ja{font-family:var(--ff-serif);font-weight:700;font-size:19px;letter-spacing:.08em}
+.logo-en{font-size:10px;letter-spacing:.22em;color:var(--c-wheat-deep);text-transform:uppercase}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+.gnav a{display:block;padding:8px 12px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:500}
+.gnav a:hover{background:var(--c-paper)}
+.gnav .nav-cta{background:var(--c-ink);color:#fff;margin-left:6px}
+.gnav .nav-cta:hover{background:#5a4231}
+.menu-btn{display:none}
+
+@media (max-width:899px){
+  .menu-btn{
+    display:inline-flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+    width:46px;height:46px;border-radius:12px;border:1px solid var(--c-line);background:var(--c-surface);cursor:pointer;
+  }
+  .menu-btn span{display:block;width:20px;height:2px;background:var(--c-ink);border-radius:2px;transition:transform .3s,opacity .3s}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .gnav{
+    position:fixed;left:0;right:0;top:var(--top-h);bottom:0;background:var(--c-bg);
+    padding:24px var(--gutter) 120px;overflow-y:auto;
+    opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility .3s;
+  }
+  .gnav.is-open{opacity:1;visibility:visible;transform:none}
+  .gnav ul{flex-direction:column;gap:0}
+  .gnav li{border-bottom:1px solid var(--c-line)}
+  .gnav a{padding:16px 6px;font-size:17px;border-radius:0}
+  .gnav .nav-cta{margin:20px 0 0;text-align:center;border-radius:999px;padding:14px}
+  .gnav li:last-child{border-bottom:0}
+}
+
+/* =========================================================
+   共通パーツ
+   ========================================================= */
+.section{padding:88px 0}
+.section.alt{background:var(--c-surface)}
+.sec-head{margin-bottom:44px;text-align:center}
+.sec-en{
+  display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--c-wheat-deep);font-weight:700;margin-bottom:8px;
+}
+.sec-en::before,.sec-en::after{content:"";width:22px;height:1px;background:var(--c-wheat)}
+.sec-title{font-size:clamp(24px,4.6vw,34px)}
+.sec-lead{margin:14px auto 0;max-width:36em;color:var(--c-ink-soft)}
+.wave{display:block;margin:14px auto 0;width:64px;height:10px;color:var(--c-water-deep);opacity:.6}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;
+  border-radius:999px;border:1.5px solid var(--c-ink);text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.06em;
+  cursor:pointer;transition:background .2s,color .2s,transform .2s;background:transparent;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--c-ink);color:#fff}
+.btn-primary:hover{background:#5a4231}
+.btn-ghost:hover{background:var(--c-paper)}
+.btn-line{background:var(--c-line-app);border-color:var(--c-line-app);color:#fff}
+.btn-line:hover{background:#05b04b}
+
+.badge{
+  display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:3px 10px;border-radius:999px;line-height:1.6;
+}
+.badge-pop{background:var(--c-ink);color:#fff}
+.badge-limit{background:var(--c-closed-bg);color:var(--c-closed-ink)}
+.badge-season{background:var(--c-water);color:var(--c-water-deep)}
+.badge-res{background:var(--c-wheat-soft);color:#6a4316}
+
+/* ふわっと表示（JSが有効なときだけ） */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* =========================================================
+   ファーストビュー
+   ========================================================= */
+.hero{position:relative}
+.hero-media{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#ecd3a9,#c8924a)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:72% center}
+.hero-body{position:relative;margin-top:-56px}
+.hero-card{
+  background:var(--c-surface);border-radius:var(--radius-l);padding:28px 24px 30px;box-shadow:var(--shadow);
+}
+.status{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+  background:var(--c-water);color:var(--c-water-deep);padding:6px 14px;border-radius:999px;margin-bottom:16px;
+}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(47,111,126,.18)}
+.status.is-closed{background:var(--c-closed-bg);color:var(--c-closed-ink)}
+.status.is-closed::before{box-shadow:0 0 0 3px rgba(151,65,43,.15)}
+.hero-title{font-size:clamp(24px,6.6vw,48px);line-height:1.5;letter-spacing:.08em}
+.hero-title .nw{display:inline-block;white-space:nowrap}
+.hero-title .accent{color:var(--c-wheat-deep)}
+.hero-lead{margin:18px 0 26px;color:var(--c-ink-soft)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;font-size:13px;color:var(--c-ink-soft)}
+.hero-meta span{display:inline-flex;align-items:center;gap:6px}
+.hero-meta svg{width:15px;height:15px;color:var(--c-wheat-deep)}
+
+@media (min-width:900px){
+  .hero{min-height:min(calc(100vh - var(--top-h)),760px);display:flex;align-items:center}
+  .hero-media{position:absolute;inset:0;aspect-ratio:auto}
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(247,241,230,.97) 0%,rgba(247,241,230,.9) 30%,rgba(247,241,230,.35) 55%,rgba(247,241,230,0) 70%);
+  }
+  .hero-media img{object-position:center}
+  .hero-body{margin-top:0;width:100%}
+  .hero-card{background:none;box-shadow:none;padding:0;max-width:540px}
+}
+
+/* =========================================================
+   お知らせ
+   ========================================================= */
+.news{padding:56px 0 24px}
+.news-box{
+  display:grid;gap:18px;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:26px 24px;
+}
+.news-box h2{font-size:20px;display:flex;align-items:baseline;gap:12px}
+.news-box h2 small{font-family:var(--ff-sans);font-size:11px;letter-spacing:.24em;color:var(--c-wheat-deep)}
+.news-list{list-style:none;margin:0;padding:0}
+.news-list li{display:grid;gap:2px;padding:14px 0;border-top:1px dashed var(--c-line)}
+.news-list li:first-child{border-top:0;padding-top:0}
+.news-list time{font-size:13px;color:var(--c-wheat-deep);font-weight:700;letter-spacing:.08em}
+.news-list .tag{font-size:11px;margin-left:8px}
+@media (min-width:760px){
+  .news-box{grid-template-columns:180px 1fr;padding:30px 36px;align-items:start}
+  .news-box h2{flex-direction:column;gap:2px}
+  .news-list li{grid-template-columns:150px 1fr;gap:16px}
+}
+
+/* =========================================================
+   こだわり
+   ========================================================= */
+.concept-list{display:grid;gap:56px}
+.concept{display:grid;gap:22px;align-items:center}
+.concept-num{
+  font-family:var(--ff-serif);font-size:13px;color:var(--c-water-deep);letter-spacing:.2em;font-weight:700;
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;
+}
+.concept-num::after{content:"";flex:0 0 40px;height:1px;background:var(--c-water-deep);opacity:.5}
+.concept h3{font-size:clamp(21px,3.6vw,27px);margin-bottom:14px}
+.concept p{color:var(--c-ink-soft)}
+.concept .note{
+  display:inline-block;font-size:13px;background:var(--c-water);color:var(--c-water-deep);
+  padding:6px 14px;border-radius:var(--radius-s);margin-top:4px;
+}
+@media (min-width:860px){
+  .concept{grid-template-columns:1.1fr 1fr;gap:56px}
+  .concept:nth-child(even) .concept-media{order:2}
+}
+
+/* =========================================================
+   焼き上がり時間
+   ========================================================= */
+.bake{background:linear-gradient(180deg,var(--c-water) 0%,#e7f2f2 100%)}
+.bake .sec-en{color:var(--c-water-deep)}
+.bake .sec-en::before,.bake .sec-en::after{background:var(--c-water-deep)}
+.timeline{list-style:none;margin:0 auto;padding:0;max-width:720px;position:relative}
+.timeline::before{content:"";position:absolute;left:78px;top:10px;bottom:10px;width:2px;background:rgba(47,111,126,.25)}
+.timeline li{display:grid;grid-template-columns:64px 1fr;gap:32px;padding:14px 0;position:relative}
+.timeline li::before{
+  content:"";position:absolute;left:72px;top:26px;width:14px;height:14px;border-radius:50%;
+  background:var(--c-surface);border:3px solid var(--c-water-deep);
+}
+.tl-time{font-family:var(--ff-serif);font-weight:700;font-size:22px;color:var(--c-water-deep);text-align:right;line-height:1.7}
+.tl-body{background:var(--c-surface);border-radius:var(--radius);padding:16px 20px;box-shadow:0 6px 20px -14px rgba(47,111,126,.6)}
+.tl-body h3{font-family:var(--ff-sans);font-size:16px;letter-spacing:.04em;margin-bottom:4px}
+.tl-body p{margin:0;font-size:14px;color:var(--c-ink-soft)}
+.tl-next{display:none;font-size:11px;font-weight:700;background:var(--c-water-deep);color:#fff;border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:2px;letter-spacing:.06em}
+.timeline li.is-next .tl-next{display:inline-block}
+.timeline li.is-next::before{background:var(--c-water-deep)}
+.bake-note{text-align:center;margin-top:28px;font-size:14px;color:var(--c-ink-soft)}
+
+/* =========================================================
+   パンのご紹介
+   ========================================================= */
+.tabs{display:flex;justify-content:center;gap:8px;margin-bottom:34px;flex-wrap:wrap}
+.tab{
+  min-height:46px;padding:10px 22px;border-radius:999px;border:1.5px solid var(--c-line);background:var(--c-surface);
+  font-weight:700;font-size:15px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;
+}
+.tab:hover{border-color:var(--c-wheat)}
+.tab[aria-selected="true"]{background:var(--c-ink);color:#fff;border-color:var(--c-ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{
+  background:var(--c-surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--c-line);
+  display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .ph{border-radius:0}
+.card-badges{position:absolute;top:12px;left:12px;display:flex;flex-wrap:wrap;gap:6px}
+.card-body{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:var(--ff-sans);font-size:17px;letter-spacing:.04em;margin-bottom:6px}
+.card p{font-size:14px;color:var(--c-ink-soft);margin-bottom:14px;line-height:1.8}
+.price{margin-top:auto;font-family:var(--ff-serif);font-weight:700;font-size:20px;color:var(--c-wheat-deep)}
+.price small{font-family:var(--ff-sans);font-size:12px;color:var(--c-ink-soft);font-weight:500;margin-left:4px}
+.season-term{font-size:12px;color:var(--c-ink-soft);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.season-now{display:none;font-size:11px;font-weight:700;color:#fff;background:var(--c-water-deep);padding:1px 9px;border-radius:999px}
+.card.is-now .season-now{display:inline-block}
+.card.is-off{opacity:.72}
+.card.is-off .ph img{filter:saturate(.6)}
+.card-wide{grid-column:1/-1;display:grid}
+.eatin{
+  background:var(--c-paper);border-radius:var(--radius);padding:26px 24px;display:grid;gap:12px;align-content:center;
+}
+.eatin h3{font-size:20px}
+.eatin p{margin:0;color:var(--c-ink-soft);font-size:15px}
+.menu-note{margin-top:28px;text-align:center;font-size:13px;color:var(--c-ink-soft)}
+[role="tabpanel"][hidden]{display:none}
+@media (max-width:599px){
+  .cards{grid-template-columns:repeat(2,1fr);gap:14px}
+  .card-body{padding:14px 14px 16px}
+  .card h3{font-size:15px;line-height:1.5}
+  .card p{font-size:12.5px;line-height:1.75;margin-bottom:10px}
+  .price{font-size:18px}
+  .card-badges{top:8px;left:8px;gap:4px}
+  .card-badges .badge{font-size:10px;padding:2px 8px}
+  .season-term{flex-wrap:wrap;gap:4px}
+  .eatin{grid-column:1/-1}
+  #panel-drink{grid-template-columns:1fr}
+  #panel-drink .ph{aspect-ratio:3/2}
+}
+
+/* =========================================================
+   取り置き予約
+   ========================================================= */
+.steps{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:18px;counter-reset:step}
+.step{
+  background:var(--c-bg);border-radius:var(--radius);padding:24px 22px 22px;position:relative;counter-increment:step;
+  border:1px solid var(--c-line);
+}
+.step::before{
+  content:"STEP " counter(step);display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:#fff;background:var(--c-wheat-deep);padding:3px 12px;border-radius:999px;margin-bottom:12px;
+}
+.step-icon{position:absolute;right:20px;top:18px;width:44px;height:44px;color:var(--c-wheat)}
+.step h3{font-family:var(--ff-sans);font-size:17px;margin-bottom:6px}
+.step p{margin:0;font-size:14px;color:var(--c-ink-soft)}
+@media (min-width:860px){
+  .steps{grid-template-columns:repeat(3,1fr);gap:28px}
+  .step:not(:last-child)::after{
+    content:"";position:absolute;right:-20px;top:50%;width:12px;height:12px;
+    border-top:2px solid var(--c-wheat);border-right:2px solid var(--c-wheat);transform:translateY(-50%) rotate(45deg);
+  }
+}
+.reserve-box{
+  background:var(--c-ink);color:#fbf3e4;border-radius:var(--radius-l);padding:32px 24px;text-align:center;
+}
+.reserve-box h3{font-size:22px;margin-bottom:8px}
+.reserve-box p{color:#e6d8c3;font-size:14px}
+.reserve-actions{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:20px}
+.reserve-actions .btn{width:100%;max-width:340px}
+.reserve-box .btn-ghost{border-color:#fbf3e4;color:#fbf3e4}
+.reserve-box .btn-ghost:hover{background:rgba(255,255,255,.08)}
+.tel-num{display:block;font-family:var(--ff-serif);font-size:13px;opacity:.85}
+@media (min-width:700px){.reserve-actions{flex-direction:row;justify-content:center}}
+
+/* =========================================================
+   お店の話
+   ========================================================= */
+.story{display:grid;gap:34px;align-items:center}
+.story-media{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.story-media .ph:first-child{grid-column:1/-1}
+.story-text h3{font-size:clamp(22px,4vw,30px);margin-bottom:20px;line-height:1.6}
+.story-text p{color:var(--c-ink-soft)}
+.story-sign{margin-top:24px;font-family:var(--ff-serif);font-weight:700;color:var(--c-ink);font-size:15px}
+.story-sign small{display:block;font-family:var(--ff-sans);font-weight:400;font-size:12px;color:var(--c-ink-soft)}
+@media (min-width:900px){.story{grid-template-columns:1fr 1fr;gap:64px}}
+
+/* =========================================================
+   店舗情報・アクセス
+   ========================================================= */
+.info-grid{display:grid;gap:28px}
+.info-table{width:100%;border-collapse:collapse;font-size:15px}
+.info-table th,.info-table td{padding:14px 4px;border-bottom:1px solid var(--c-line);text-align:left;vertical-align:top}
+.info-table th{width:7.5em;font-weight:700;color:var(--c-wheat-deep);white-space:nowrap}
+.info-table td small{display:block;color:var(--c-ink-soft);font-size:13px}
+.panel{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:22px 20px}
+.panel h3{font-size:18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cal{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed;font-size:14px}
+.cal th{font-size:12px;font-weight:700;color:var(--c-ink-soft);padding:4px 0}
+.cal th:first-child{color:var(--c-closed-ink)}
+.cal th:last-child{color:var(--c-water-deep)}
+.cal td{text-align:center;padding:8px 0;border-radius:8px;background:var(--c-bg);line-height:1.4}
+.cal td.empty{background:transparent}
+.cal td.closed{background:var(--c-closed-bg);color:var(--c-closed-ink);font-weight:700}
+.cal td.today{outline:2px solid var(--c-ink);outline-offset:-2px;font-weight:700}
+.cal-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:12px;color:var(--c-ink-soft)}
+.cal-legend span{display:inline-flex;align-items:center;gap:6px}
+.cal-legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.map-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--c-line);background:#f3ead9}
+.map-wrap svg{display:block;width:100%;height:auto}
+.map-cap{font-size:12px;color:var(--c-ink-soft);margin-top:8px}
+@media (min-width:900px){
+  .info-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+
+/* =========================================================
+   よくある質問
+   ========================================================= */
+.faq{max-width:800px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--c-bg);border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden}
+.faq summary{
+  list-style:none;cursor:pointer;padding:18px 56px 18px 20px;font-weight:700;position:relative;display:flex;gap:12px;align-items:baseline;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .q{font-family:var(--ff-serif);color:var(--c-wheat-deep);font-size:18px;flex:none}
+.faq summary::after{
+  content:"";position:absolute;right:22px;top:50%;width:10px;height:10px;margin-top:-7px;
+  border-right:2px solid var(--c-ink);border-bottom:2px solid var(--c-ink);transform:rotate(45deg);transition:transform .3s;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-2px}
+.faq .a{padding:0 20px 20px 50px;color:var(--c-ink-soft);font-size:15px}
+.faq .a p:last-child{margin:0}
+
+/* =========================================================
+   フッター
+   ========================================================= */
+.footer{background:var(--c-ink);color:#e9dcc7;padding:56px 0 36px;font-size:14px}
+.footer .logo-ja{color:#fff}
+.footer .logo-en{color:var(--c-wheat-soft)}
+.footer-grid{display:grid;gap:28px}
+.footer-info p{margin:0 0 4px}
+.footer-notice{
+  border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:18px 20px;font-size:13px;line-height:1.8;
+}
+.footer-notice strong{color:var(--c-wheat-soft)}
+.footer-maker{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:10px}
+.footer-maker a{color:#fff;font-weight:700;text-underline-offset:4px}
+.copy{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:12px;color:#bfae96;text-align:center}
+@media (min-width:860px){.footer-grid{grid-template-columns:1fr 1.2fr;gap:48px}}
+
+/* =========================================================
+   スマホ下部の固定ボタン
+   ========================================================= */
+.fixed-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(3,1fr);
+  background:rgba(255,250,242,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-top:1px solid var(--c-line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px;
+}
+.fixed-bar a,.fixed-bar button{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;
+  border-radius:14px;border:0;background:var(--c-bg);text-decoration:none;font-size:12px;font-weight:700;cursor:pointer;
+}
+.fixed-bar svg{width:22px;height:22px}
+.fixed-bar .fb-line{background:var(--c-line-app);color:#fff}
+.fixed-bar .fb-tel{background:var(--c-ink);color:#fff}
+body{padding-bottom:84px}
+@media (min-width:900px){
+  .fixed-bar{display:none}
+  body{padding-bottom:0}
+}
+
+/* トースト（ダミーボタン用のお知らせ） */
+.toast{
+  position:fixed;left:50%;bottom:104px;transform:translate(-50%,20px);z-index:60;
+  background:var(--c-ink);color:#fff;font-size:14px;padding:12px 20px;border-radius:999px;box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;width:max-content;max-width:calc(100% - 40px);text-align:center;
+}
+.toast.is-show{opacity:1;transform:translate(-50%,0)}
+@media (min-width:900px){.toast{bottom:40px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<!-- 上部固定：サンプル表記＋ヘッダー -->
+<div class="site-top" id="siteTop">
+  <p class="sample-bar" role="note"><strong>このサイトは愛媛東予Worksの制作サンプルです。</strong>店舗名・住所・電話番号・商品・人物はすべて架空のものです。</p>
+  <header class="header">
+    <div class="container">
+      <a href="#top" class="logo" aria-label="みずのわベーカリー トップへ">
+        <!-- 小麦と水滴を組み合わせたマーク -->
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3C20 3 7 17.5 7 25.5a13 13 0 0 0 26 0C33 17.5 20 3 20 3Z" fill="#d6eaee" stroke="#2f6f7e" stroke-width="1.6"/>
+          <path d="M20 35V15" stroke="#8a5a22" stroke-width="1.6" stroke-linecap="round"/>
+          <g fill="#c8924a">
+            <ellipse cx="17" cy="19" rx="2.1" ry="3.6" transform="rotate(-30 17 19)"/>
+            <ellipse cx="23" cy="19" rx="2.1" ry="3.6" transform="rotate(30 23 19)"/>
+            <ellipse cx="17" cy="25" rx="2.1" ry="3.6" transform="rotate(-30 17 25)"/>
+            <ellipse cx="23" cy="25" rx="2.1" ry="3.6" transform="rotate(30 23 25)"/>
+            <ellipse cx="20" cy="14" rx="1.9" ry="3.2"/>
+          </g>
+        </svg>
+        <span class="logo-text"><span class="logo-ja">みずのわベーカリー</span><span class="logo-en">Mizunowa Bakery</span></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="gnav" id="gnav" aria-label="ページ内メニュー">
+        <ul>
+          <li><a href="#concept">こだわり</a></li>
+          <li><a href="#bake">焼き上がり時間</a></li>
+          <li><a href="#menu">パンのご紹介</a></li>
+          <li><a href="#story">お店の話</a></li>
+          <li><a href="#access">店舗情報</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#reserve" class="nav-cta">取り置き予約</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+
+  <!-- ファーストビュー -->
+  <section class="hero" id="top" aria-labelledby="heroTitle">
+    <div class="hero-media">
+      <img src="img/photo-01.webp" width="1536" height="1024" fetchpriority="high"
+           alt="朝日が差し込む店内。木の棚に焼きたての角食パンとカンパーニュ、カゴに塩バターロールが並んでいる"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="hero-body">
+      <div class="container">
+        <div class="hero-card">
+          <p class="status" id="todayStatus" role="status">本日の営業 7:00〜17:00</p>
+          <h1 class="hero-title" id="heroTitle"><span class="nw">西条の<span class="accent">うちぬき水</span>で</span><br><span class="nw">仕込む、毎日のパン。</span></h1>
+          <p class="hero-lead">朝7時、焼きたての香りとともに。<br>石鎚山系から湧き出る水と愛媛の麦で、<br>毎朝ていねいに焼いています。</p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">パンを見る</a>
+            <a href="#reserve" class="btn btn-ghost">取り置き予約</a>
+          </div>
+          <div class="hero-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7:00〜17:00</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>定休日 月・火</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg>駐車場 6台</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="news" aria-labelledby="newsTitle">
+    <div class="container">
+      <div class="news-box reveal">
+        <h2 id="newsTitle">お知らせ<small>NEWS</small></h2>
+        <ul class="news-list">
+          <li><time datetime="2026-10-01">2026.10.01</time><span>秋限定「西条の干し柿とくるみのパン」の販売をはじめました。<span class="badge badge-season tag">季節限定</span></span></li>
+          <li><time datetime="2026-09-24">2026.09.24</time><span>10月18日（日）は、店主の研修のため臨時休業いたします。ご迷惑をおかけします。</span></li>
+          <li><time datetime="2026-09-10">2026.09.10</time><span>食パンのお取り置きを、LINEでも受け付けるようになりました。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- こだわり -->
+  <section class="section" id="concept" aria-labelledby="conceptTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Concept</p>
+        <h2 class="sec-title" id="conceptTitle">3つのこだわり</h2>
+        <svg class="wave" viewBox="0 0 64 10" aria-hidden="true"><path d="M1 5c5-5 10-5 15 0s10 5 15 0 10-5 15 0 10 5 15 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="concept-list">
+        <article class="concept reveal">
+          <div class="concept-media ph">
+            <img src="img/photo-02.webp" width="1536" height="1024" loading="lazy"
+                 alt="打ち粉をした作業台でパン生地をこねる職人の手元。横に澄んだ水の入ったガラスピッチャー"
+                 onerror="this.style.display='none'">
+          </div>
+          <div>
+            <p class="concept-num">01</p>
+            <h3>うちぬきの水</h3>
+            <p>西条のまちのあちこちで湧き出る地下水「うちぬき」。一年を通して水温が安定したやわらかな水で仕込むと、生地がしっとりとまとまり、口あたりのやさしいパンに焼き上がります。</p>
+            <p class="note">仕込み水はすべて、うちぬきの水を使っています</p>
+          </div>
+        </article>
+        <article class="concept reveal">
+          <div class="concept-media ph">
+            <img src="img/photo-03.webp" width="800" height="800" loading="lazy"
+                 alt="粉をふった表面にクープの入った、はだか麦のカンパーニュ。半分にカットした断面が見える"
+                 onerror="this.style.display='none'">
+          </div>
+          <div>
+            <p class="concept-num">02</p>
+            <h3>愛媛の麦</h3>
+            <p>愛媛県は、はだか麦の生産量が日本一。東予で育った香ばしいはだか麦を、カンパーニュや一部のパンに配合しています。噛むほどに広がる、麦本来の甘みを味わってください。</p>
+            <p class="note">はだか麦の生産量、愛媛県が日本一</p>
+          </div>
+        </article>
+        <article class="concept reveal">
+          <div class="concept-media ph">
+            <img src="img/photo-04.webp" width="800" height="800" loading="lazy"
+                 alt="湯種製法の角食パン。2枚スライスされ、しっとりとした白い断面が見える"
+                 onerror="this.style.display='none'">
+          </div>
+          <div>
+            <p class="concept-num">03</p>
+            <h3>毎朝4時からの仕込み</h3>
+            <p>まだ暗い朝4時、工房に灯りをともして一日がはじまります。作り置きはせず、その日の分をその日の朝に。開店の7時には、焼きたての食パンと塩バターロールが並びます。</p>
+            <p class="note">前日の売れ残りは、お店に並べません</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焼き上がり時間 -->
+  <section class="section bake" id="bake" aria-labelledby="bakeTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Baking Time</p>
+        <h2 class="sec-title" id="bakeTitle">焼き上がり時間</h2>
+        <p class="sec-lead">焼きたてをねらうなら、この時間がおすすめです。</p>
+      </div>
+      <ol class="timeline reveal" id="timeline">
+        <li data-time="7:00"><span class="tl-time">7:00</span><div class="tl-body"><h3>食パン・塩バターロール<span class="tl-next">次の焼き上がり</span></h3><p>開店と同時に。うちぬき食パンの1回目が並びます。</p></div></li>
+        <li data-time="8:30"><span class="tl-time">8:30</span><div class="tl-body"><h3>惣菜パン・おやつパン<span class="tl-next">次の焼き上がり</span></h3><p>揚げたてのカレーパン、あんバターなど。</p></div></li>
+        <li data-time="11:00"><span class="tl-time">11:00</span><div class="tl-body"><h3>デニッシュ・カンパーニュ<span class="tl-next">次の焼き上がり</span></h3><p>伊予柑ピールのデニッシュ、はだか麦のカンパーニュ、季節限定パン。</p></div></li>
+        <li data-time="13:00"><span class="tl-time">13:00</span><div class="tl-body"><h3>うちぬき食パン（2回目）<span class="tl-next">次の焼き上がり</span></h3><p>午後のお買いものにも、焼きたてを。</p></div></li>
+      </ol>
+      <p class="bake-note">※焼き上がり時間は目安です。日によって前後します。<br>当日の焼き上がり情報はInstagramでお知らせしています。</p>
+    </div>
+  </section>
+
+  <!-- パンのご紹介 -->
+  <section class="section" id="menu" aria-labelledby="menuTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Menu</p>
+        <h2 class="sec-title" id="menuTitle">パンのご紹介</h2>
+        <p class="sec-lead">毎日の定番から、季節の素材を使った限定パンまで。価格はすべて税込です。</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="パンのカテゴリ">
+        <button class="tab" type="button" role="tab" id="tab-regular" aria-controls="panel-regular" aria-selected="true">定番</button>
+        <button class="tab" type="button" role="tab" id="tab-season" aria-controls="panel-season" aria-selected="false" tabindex="-1">季節限定</button>
+        <button class="tab" type="button" role="tab" id="tab-drink" aria-controls="panel-drink" aria-selected="false" tabindex="-1">ドリンク</button>
+      </div>
+
+      <!-- 定番 -->
+      <div class="cards" role="tabpanel" id="panel-regular" aria-labelledby="tab-regular" tabindex="0">
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-04.webp" width="800" height="800" loading="lazy" alt="湯種製法のうちぬき食パン。しっとりした白い断面" onerror="this.style.display='none'">
+            <div class="card-badges"><span class="badge badge-pop">人気No.1</span><span class="badge badge-res">予約推奨</span></div>
+          </div>
+          <div class="card-body">
+            <h3>うちぬき食パン（1斤）</h3>
+            <p>湯種製法で、もっちり・しっとり。トーストすると耳までサクッと香ばしく。お昼すぎには売り切れることも。</p>
+            <p class="price">380<small>円</small></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-05.webp" width="800" height="800" loading="lazy" alt="表面がつややかに焼けた塩バターロール3個" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <h3>塩バターロール</h3>
+            <p>発酵バターを巻き込み、底はカリッと。粗塩がアクセントの、朝いちばんの人気者です。</p>
+            <p class="price">140<small>円</small></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-03.webp" width="800" height="800" loading="lazy" alt="はだか麦のカンパーニュ。粉をふった表面と半分に切った断面" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <h3>はだか麦のカンパーニュ（1/2）</h3>
+            <p>愛媛県産のはだか麦を配合。香ばしく、噛むほどに甘みが広がります。スープやチーズと一緒に。</p>
+            <p class="price">420<small>円</small></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-06.webp" width="800" height="800" loading="lazy" alt="オレンジ色の伊予柑ピールをのせた、層がサクサクのデニッシュ" onerror="this.style.display='none'">
+            <div class="card-badges"><span class="badge badge-limit">数量限定</span></div>
+          </div>
+          <div class="card-body">
+            <h3>伊予柑ピールのデニッシュ</h3>
+            <p>自家製の伊予柑ピールをたっぷりと。ほろ苦さと甘さ、サクサクの生地のバランスを楽しんで。</p>
+            <p class="price">260<small>円</small></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-07.webp" width="800" height="800" loading="lazy" alt="揚げたてのカレーパン。半分に割って中のカレーが見える" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <h3>自家製カレーパン</h3>
+            <p>野菜をじっくり煮込んだ、ほんのり甘口のカレー。揚げたては8時半ごろから並びます。</p>
+            <p class="price">230<small>円</small></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-08.webp" width="800" height="800" loading="lazy" alt="横に切ったパンに、粒あんと厚切りバターを挟んだあんバター" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <h3>あんバター</h3>
+            <p>香ばしいパンに、甘さ控えめの粒あんと厚切りバター。おやつにも、ちょっと贅沢な朝ごはんにも。</p>
+            <p class="price">220<small>円</small></p>
+          </div>
+        </article>
+      </div>
+
+      <!-- 季節限定 -->
+      <div class="cards" role="tabpanel" id="panel-season" aria-labelledby="tab-season" tabindex="0" hidden>
+        <article class="card" data-months="6,7,8">
+          <div class="ph sq">
+            <img src="img/photo-09.webp" width="800" height="800" loading="lazy" alt="輪切りの長なすと味噌だれ、ローズマリーをのせたフォカッチャ" onerror="this.style.display='none'">
+            <div class="card-badges"><span class="badge badge-season">季節限定</span></div>
+          </div>
+          <div class="card-body">
+            <p class="season-term">夏｜6〜8月<span class="season-now">販売中</span></p>
+            <h3>絹かわなすと味噌のフォカッチャ</h3>
+            <p>西条の夏野菜・絹かわなすを、甘めの合わせ味噌で。とろりとしたなすと、ふんわり生地の相性が抜群です。</p>
+            <p class="price">280<small>円</small></p>
+          </div>
+        </article>
+        <article class="card" data-months="9,10,11">
+          <div class="ph sq">
+            <img src="img/photo-10.webp" width="800" height="800" loading="lazy" alt="干し柿とくるみを練り込んだハード系パンの断面" onerror="this.style.display='none'">
+            <div class="card-badges"><span class="badge badge-season">季節限定</span></div>
+          </div>
+          <div class="card-body">
+            <p class="season-term">秋｜9〜11月<span class="season-now">販売中</span></p>
+            <h3>西条の干し柿とくるみのパン</h3>
+            <p>西条産の干し柿のねっとりした甘さと、ローストしたくるみの香ばしさ。薄く切って、少し温めるのがおすすめ。</p>
+            <p class="price">320<small>円</small></p>
+          </div>
+        </article>
+        <article class="card" data-months="12,1,2">
+          <div class="ph sq">
+            <img src="img/photo-11.webp" width="800" height="800" loading="lazy" alt="半分に割ったクリームパン。なめらかなみかん色のクリームが見える" onerror="this.style.display='none'">
+            <div class="card-badges"><span class="badge badge-season">季節限定</span></div>
+          </div>
+          <div class="card-body">
+            <p class="season-term">冬｜12〜2月<span class="season-now">販売中</span></p>
+            <h3>みかんクリームパン</h3>
+            <p>愛媛のみかん果汁を炊き込んだ、さわやかなカスタード。冬のあいだだけの、やさしい甘さです。</p>
+            <p class="price">240<small>円</small></p>
+          </div>
+        </article>
+      </div>
+
+      <!-- ドリンク -->
+      <div class="cards" role="tabpanel" id="panel-drink" aria-labelledby="tab-drink" tabindex="0" hidden>
+        <article class="card">
+          <div class="ph sq">
+            <img src="img/photo-12.webp" width="800" height="800" loading="lazy" alt="湯気の立つ白いマグカップのドリップ珈琲と、小さな丸パン" onerror="this.style.display='none'">
+          </div>
+          <div class="card-body">
+            <h3>ドリップ珈琲</h3>
+            <p>パンに合う、まろやかな中深煎り。一杯ずつ淹れています。イートインでも、テイクアウトでも。</p>
+            <p class="price">300<small>円</small> <small>／ パンと一緒なら 250円</small></p>
+          </div>
+        </article>
+        <div class="eatin">
+          <h3>店内でゆっくりも</h3>
+          <p>窓際のカウンターとテーブルで、イートイン4席をご用意しています。焼きたてのパンと珈琲で、ひと息ついていってください。</p>
+          <p>※混雑時はお時間の制限をお願いすることがあります。</p>
+        </div>
+      </div>
+
+      <p class="menu-note">※写真はイメージです。仕入れ状況により、内容や価格が変わることがあります。</p>
+    </div>
+  </section>
+
+  <!-- 取り置き予約 -->
+  <section class="section alt" id="reserve" aria-labelledby="reserveTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Reservation</p>
+        <h2 class="sec-title" id="reserveTitle">お取り置き予約</h2>
+        <p class="sec-lead">「確実に食パンがほしい」という方は、前日までのご予約がおすすめです。</p>
+      </div>
+      <ol class="steps reveal">
+        <li class="step">
+          <svg class="step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6h8l3 9-5 3a24 24 0 0 0 10 10l3-5 9 3v8a3 3 0 0 1-3 3A33 33 0 0 1 11 9a3 3 0 0 1 3-3Z"/></svg>
+          <h3>電話またはLINEで連絡</h3>
+          <p>前日の17時まで受け付けています。当日のご予約は、お電話でご相談ください。</p>
+        </li>
+        <li class="step">
+          <svg class="step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M17 16h14M17 24h14M17 32h8"/></svg>
+          <h3>商品・個数・受取時間を伝える</h3>
+          <p>お名前と、ほしいパン・個数・受け取りたい時間をお知らせください。</p>
+        </li>
+        <li class="step">
+          <svg class="step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20h32l-3 20H11L8 20Z"/><path d="M17 20l4-12M31 20l-4-12"/></svg>
+          <h3>当日ご来店・お支払い</h3>
+          <p>受取時間内にご来店ください。お支払いは受け取りのときにお願いします。</p>
+        </li>
+      </ol>
+      <div class="reserve-box reveal">
+        <h3>ご予約・お問い合わせ</h3>
+        <p>電話受付 7:00〜17:00（月・火曜は定休日）</p>
+        <div class="reserve-actions">
+          <button type="button" class="btn btn-ghost js-dummy" data-msg="サンプルサイトのため、電話はかかりません" aria-label="電話で予約する（サンプルのため発信しません）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3h3l1.5 4.5L9 9a12 12 0 0 0 6 6l1.5-2.5L21 14v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg>
+            <span>電話で予約<span class="tel-num">0897-00-0000（架空）</span></span>
+          </button>
+          <button type="button" class="btn btn-line js-dummy" data-msg="サンプルサイトのため、LINEには移動しません" aria-label="LINEで予約する（サンプルのため移動しません）">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3 0 .7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+            LINEで予約
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お店の話 -->
+  <section class="section" id="story" aria-labelledby="storyTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Our Story</p>
+        <h2 class="sec-title" id="storyTitle">お店の話</h2>
+      </div>
+      <div class="story">
+        <div class="story-media reveal">
+          <div class="ph">
+            <img src="img/photo-13.webp" width="1536" height="1024" loading="lazy" alt="白い漆喰の壁と木の扉の、小さな平屋のパン屋の外観。店先に黒板の立て看板" onerror="this.style.display='none'">
+          </div>
+          <div class="ph">
+            <img src="img/photo-14.webp" width="1536" height="1024" loading="lazy" alt="窓際の木のカウンター席とテーブルがあるイートインスペース" onerror="this.style.display='none'">
+          </div>
+          <div class="ph">
+            <img src="img/photo-12.webp" width="800" height="800" loading="lazy" alt="木のトレーにのった湯気の立つドリップ珈琲と小さな丸パン" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="story-text reveal">
+          <h3>生まれ育った西条で、<br>毎日の「おいしい」を焼く。</h3>
+          <p>店主は大阪のベーカリーで10年間修業を積んだのち、生まれ育った西条へUターンしました。子どものころから当たり前に飲んでいた、うちぬきの水。その水でパンを焼いてみたら、生地の手ざわりがまるで違ったことが、この店のはじまりです。</p>
+          <p>2019年、夫婦ふたりで「みずのわベーカリー」を開きました。店名には、水がつなぐ人の輪のように、まちの人が気軽に集まれる場所になれたら、という思いを込めています。</p>
+          <p>接客と焼き菓子は妻の担当。レジ横には、日替わりのクッキーやマフィンも並びます。通勤前に、部活帰りに、お散歩のついでに。どうぞ気軽にのぞいてみてください。</p>
+          <p class="story-sign">みずのわベーカリー 店主夫婦<small>（人物は架空の設定です）</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店舗情報・アクセス -->
+  <section class="section alt" id="access" aria-labelledby="accessTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">Shop Info</p>
+        <h2 class="sec-title" id="accessTitle">店舗情報・アクセス</h2>
+      </div>
+      <div class="info-grid">
+        <div class="reveal">
+          <table class="info-table">
+            <tbody>
+              <tr><th scope="row">店名</th><td>みずのわベーカリー（Mizunowa Bakery）</td></tr>
+              <tr><th scope="row">住所</th><td>〒793-0000<br>愛媛県西条市みずのわ町1-2-3<small>※架空の住所です</small></td></tr>
+              <tr><th scope="row">電話</th><td>0897-00-0000<small>※架空の電話番号です</small></td></tr>
+              <tr><th scope="row">営業時間</th><td>7:00〜17:00<small>売り切れ次第終了</small></td></tr>
+              <tr><th scope="row">定休日</th><td>月曜・火曜<small>臨時休業はお知らせ・カレンダーでご案内します</small></td></tr>
+              <tr><th scope="row">駐車場</th><td>店舗前に6台</td></tr>
+              <tr><th scope="row">店内</th><td>イートイン4席（ドリップ珈琲あり）</td></tr>
+              <tr><th scope="row">お支払い</th><td>現金・各種QR決済・交通系IC</td></tr>
+            </tbody>
+          </table>
+          <div class="panel" style="margin-top:28px">
+            <h3><span id="calTitle">営業カレンダー</span></h3>
+            <table class="cal" aria-labelledby="calTitle">
+              <thead><tr><th scope="col">日</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th></tr></thead>
+              <tbody id="calBody"></tbody>
+            </table>
+            <div class="cal-legend">
+              <span><i style="background:var(--c-closed-bg)"></i>定休日・臨時休業</span>
+              <span><i style="background:var(--c-bg);outline:2px solid var(--c-ink);outline-offset:-2px"></i>今日</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="map-wrap">
+            <!-- 実在の場所を指さない、イラスト風のダミー地図 -->
+            <svg viewBox="0 0 480 400" role="img" aria-labelledby="mapTitle mapDesc">
+              <title id="mapTitle">みずのわベーカリー周辺のイメージ地図（架空）</title>
+              <desc id="mapDesc">駅から大通りを北へ歩き、みずのわ公園の角を東に曲がった先にお店がある、架空のイメージ図です。</desc>
+              <rect width="480" height="400" fill="#f3ead9"/>
+              <!-- 街区 -->
+              <g fill="#ebdfc9">
+                <rect x="20" y="20" width="150" height="110" rx="10"/>
+                <rect x="20" y="170" width="150" height="90" rx="10"/>
+                <rect x="20" y="300" width="150" height="80" rx="10"/>
+                <rect x="220" y="20" width="110" height="110" rx="10"/>
+                <rect x="370" y="20" width="90" height="110" rx="10"/>
+                <rect x="370" y="170" width="90" height="90" rx="10"/>
+                <rect x="220" y="300" width="240" height="80" rx="10"/>
+              </g>
+              <!-- 公園 -->
+              <rect x="220" y="170" width="110" height="90" rx="12" fill="#d5e4c4"/>
+              <g fill="#a9c58f"><circle cx="248" cy="196" r="9"/><circle cx="272" cy="230" r="11"/><circle cx="305" cy="200" r="8"/></g>
+              <!-- 湧き水の小川 -->
+              <path d="M0 150c60-14 90 18 150 4s70-26 110-10 80 34 130 10 70-12 90-4" fill="none" stroke="#bfdfe6" stroke-width="10" stroke-linecap="round"/>
+              <!-- 道路 -->
+              <g stroke="#fffaf2" stroke-linecap="round" fill="none">
+                <path d="M195 0v400" stroke-width="26"/>
+                <path d="M0 280h480" stroke-width="20"/>
+                <path d="M195 150h285" stroke-width="16"/>
+                <path d="M350 0v280" stroke-width="14"/>
+              </g>
+              <!-- 線路と駅 -->
+              <path d="M0 392h480" stroke="#8b7a68" stroke-width="4" stroke-dasharray="14 8"/>
+              <rect x="160" y="372" width="70" height="26" rx="6" fill="#3b2a1e"/>
+              <text x="195" y="390" text-anchor="middle" font-size="12" fill="#fff" font-family="Zen Maru Gothic, sans-serif" font-weight="700">駅</text>
+              <!-- 道順 -->
+              <path d="M195 368V150h155" fill="none" stroke="#2f6f7e" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
+              <!-- ラベル -->
+              <g font-family="Zen Maru Gothic, sans-serif" font-size="12" fill="#6b5544">
+                <text x="275" y="252" text-anchor="middle">みずのわ公園</text>
+                <text x="95" y="138" text-anchor="middle" fill="#2f6f7e">湧き水の小径</text>
+                <text x="210" y="60" transform="rotate(90 210 60)">大通り</text>
+                <text x="95" y="215" text-anchor="middle">小学校</text>
+                <text x="415" y="215" text-anchor="middle">コンビニ</text>
+              </g>
+              <!-- 駐車場 -->
+              <rect x="388" y="108" width="22" height="22" rx="5" fill="#2f6f7e"/>
+              <text x="399" y="124" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="sans-serif">P</text>
+              <!-- お店のピン -->
+              <g transform="translate(370 78)">
+                <path d="M0 0c-14 0-24 10-24 23 0 17 24 37 24 37s24-20 24-37C24 10 14 0 0 0Z" fill="#8a5a22" transform="translate(0 0)"/>
+                <circle cx="0" cy="23" r="9" fill="#fffaf2"/>
+              </g>
+              <rect x="258" y="42" width="140" height="28" rx="14" fill="#3b2a1e"/>
+              <text x="328" y="61" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Zen Maru Gothic, sans-serif">みずのわベーカリー</text>
+            </svg>
+          </div>
+          <p class="map-cap">※架空のお店のイメージ図です。実際の地図ではありません。<br>駅から徒歩約8分（という設定です）。お車の方は店舗前の駐車場（6台）をご利用ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- よくある質問 -->
+  <section class="section" id="faq" aria-labelledby="faqTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-en">FAQ</p>
+        <h2 class="sec-title" id="faqTitle">よくある質問</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary><span class="q">Q</span>予約は何日前までできますか？</summary>
+          <div class="a"><p>前日の17時まで、お電話またはLINEで受け付けています。うちぬき食パンは人気のため、確実にお求めになりたい方はご予約がおすすめです。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>駐車場はありますか？</summary>
+          <div class="a"><p>店舗前に6台分の駐車場がございます。満車の際は、少しお待ちいただくか、時間をずらしてお越しください。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>どんな支払い方法が使えますか？</summary>
+          <div class="a"><p>現金のほか、各種QRコード決済、交通系ICカードがご利用いただけます。クレジットカードには対応しておりません。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>アレルギー表示はありますか？</summary>
+          <div class="a"><p>店頭のプライスカードに、特定原材料（小麦・卵・乳など）を表示しています。同じ工房で製造しているため、微量の混入の可能性があります。ご心配な方はスタッフにお声がけください。</p></div>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>店内で食べることはできますか？</summary>
+          <div class="a"><p>はい、イートインスペース（4席）がございます。ドリップ珈琲（パンと一緒なら250円）もご用意しています。</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <a href="#top" class="logo" aria-label="みずのわベーカリー トップへ" style="margin-bottom:16px">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 3C20 3 7 17.5 7 25.5a13 13 0 0 0 26 0C33 17.5 20 3 20 3Z" fill="#d6eaee" stroke="#d6eaee" stroke-width="1.6"/>
+            <path d="M20 35V15" stroke="#8a5a22" stroke-width="1.6" stroke-linecap="round"/>
+            <g fill="#c8924a">
+              <ellipse cx="17" cy="19" rx="2.1" ry="3.6" transform="rotate(-30 17 19)"/>
+              <ellipse cx="23" cy="19" rx="2.1" ry="3.6" transform="rotate(30 23 19)"/>
+              <ellipse cx="17" cy="25" rx="2.1" ry="3.6" transform="rotate(-30 17 25)"/>
+              <ellipse cx="23" cy="25" rx="2.1" ry="3.6" transform="rotate(30 23 25)"/>
+              <ellipse cx="20" cy="14" rx="1.9" ry="3.2"/>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-ja">みずのわベーカリー</span><span class="logo-en">Mizunowa Bakery</span></span>
+        </a>
+        <p>〒793-0000 愛媛県西条市みずのわ町1-2-3（架空）</p>
+        <p>TEL 0897-00-0000（架空）</p>
+        <p>営業 7:00〜17:00 ／ 定休日 月・火曜</p>
+        <p><button type="button" class="js-dummy" data-msg="サンプルサイトのため、Instagramには移動しません" style="background:none;border:0;padding:0;color:#fff;text-decoration:underline;text-underline-offset:4px;cursor:pointer" aria-label="Instagram（サンプルのため移動しません）">Instagram</button></p>
+      </div>
+      <div>
+        <div class="footer-notice" role="note">
+          <p style="margin:0 0 8px"><strong>このサイトは愛媛東予Worksの制作サンプルです。</strong></p>
+          <p style="margin:0">店舗名・住所・電話番号・商品・人物はすべて架空のものです。実在の店舗・団体・人物とは関係ありません。写真はAIで生成したイメージです。</p>
+          <div class="footer-maker">
+            <span>制作：愛媛東予Works</span>
+            <a href="https://ehime-toyoworks.hp-web.workers.dev/" target="_blank" rel="noopener">ホームページ制作のご相談はこちら</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="copy">© Mizunowa Bakery（架空の店舗）／ Sample site by 愛媛東予Works</p>
+  </div>
+</footer>
+
+<!-- スマホ下部の固定ボタン -->
+<nav class="fixed-bar" aria-label="お問い合わせ・アクセス">
+  <button type="button" class="fb-tel js-dummy" data-msg="サンプルサイトのため、電話はかかりません" aria-label="電話する（サンプルのため発信しません）">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3h3l1.5 4.5L9 9a12 12 0 0 0 6 6l1.5-2.5L21 14v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg>電話
+  </button>
+  <button type="button" class="fb-line js-dummy" data-msg="サンプルサイトのため、LINEには移動しません" aria-label="LINEで連絡する（サンプルのため移動しません）">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3 0 .7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINE
+  </button>
+  <a href="#access" aria-label="店舗情報・アクセスへ移動">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>アクセス
+  </a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  /* ---------- 日本時間の「今」 ---------- */
+  function nowJST(){
+    var parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',hour12:false,weekday:'short'}).formatToParts(new Date());
+    var o = {}; parts.forEach(function(p){ o[p.type] = p.value; });
+    var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+    return {y:+o.year, m:+o.month, d:+o.day, h:(+o.hour)%24, min:+o.minute, wd:wd};
+  }
+  var now = nowJST();
+
+  /* ---------- 休業日の設定（定休日＋臨時休業） ---------- */
+  var REGULAR_CLOSED = [1,2];              // 月・火
+  var EXTRA_CLOSED = ['2026-10-18'];        // 臨時休業（お知らせと連動）
+  function pad(n){ return (n<10?'0':'')+n; }
+  function isClosed(y,m,d){
+    var wd = new Date(y,m-1,d).getDay();
+    return REGULAR_CLOSED.indexOf(wd) > -1 || EXTRA_CLOSED.indexOf(y+'-'+pad(m)+'-'+pad(d)) > -1;
+  }
+
+  /* ---------- 上部固定エリアの高さ ---------- */
+  var top = document.getElementById('siteTop');
+  function setTopH(){ document.documentElement.style.setProperty('--top-h', top.offsetHeight+'px'); }
+  setTopH(); window.addEventListener('resize', setTopH);
+  document.documentElement.style.scrollPaddingTop = 'calc(var(--top-h) + 12px)';
+
+  /* ---------- 本日の営業バッジ ---------- */
+  var st = document.getElementById('todayStatus');
+  var mins = now.h*60 + now.min;
+  if (isClosed(now.y,now.m,now.d)) {
+    st.textContent = '本日は定休日です';
+    st.classList.add('is-closed');
+  } else if (mins < 7*60) {
+    st.textContent = '本日 7:00 オープン';
+  } else if (mins < 17*60) {
+    st.textContent = '営業中｜本日 17:00 まで';
+  } else {
+    st.textContent = '本日の営業は終了しました';
+    st.classList.add('is-closed');
+  }
+
+  /* ---------- 次の焼き上がり ---------- */
+  if (!isClosed(now.y,now.m,now.d) && mins < 17*60) {
+    var items = document.querySelectorAll('#timeline li');
+    for (var i=0;i<items.length;i++){
+      var t = items[i].getAttribute('data-time').split(':');
+      if (+t[0]*60 + +t[1] > mins) { items[i].classList.add('is-next'); break; }
+    }
+  }
+
+  /* ---------- 季節限定：販売中の判定 ---------- */
+  document.querySelectorAll('[data-months]').forEach(function(card){
+    var ms = card.getAttribute('data-months').split(',').map(Number);
+    card.classList.add(ms.indexOf(now.m) > -1 ? 'is-now' : 'is-off');
+  });
+
+  /* ---------- 営業カレンダー（当月） ---------- */
+  var body = document.getElementById('calBody');
+  document.getElementById('calTitle').textContent = now.y + '年' + now.m + '月の営業カレンダー';
+  var first = new Date(now.y, now.m-1, 1).getDay();
+  var last = new Date(now.y, now.m, 0).getDate();
+  var html = '<tr>', cell = 0;
+  for (var e=0;e<first;e++){ html += '<td class="empty"></td>'; cell++; }
+  for (var d=1; d<=last; d++){
+    var cls = [];
+    if (isClosed(now.y,now.m,d)) cls.push('closed');
+    if (d === now.d) cls.push('today');
+    var label = now.m+'月'+d+'日' + (isClosed(now.y,now.m,d) ? ' 休業日' : ' 営業日') + (d===now.d?'（今日）':'');
+    html += '<td class="'+cls.join(' ')+'" aria-label="'+label+'">'+d+'</td>';
+    cell++;
+    if (cell%7===0 && d<last) html += '</tr><tr>';
+  }
+  while (cell%7!==0){ html += '<td class="empty"></td>'; cell++; }
+  body.innerHTML = html + '</tr>';
+
+  /* ---------- ハンバーガーメニュー ---------- */
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('gnav');
+  function closeMenu(){ nav.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','メニューを開く'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') !== 'true';
+    nav.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && nav.classList.contains('is-open')) { closeMenu(); btn.focus(); } });
+  window.addEventListener('resize', function(){ if (window.innerWidth >= 900) closeMenu(); });
+
+  /* ---------- タブ（矢印キー対応） ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(tab, focus){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key==='ArrowRight') n = tabs[(i+1)%tabs.length];
+      if (e.key==='ArrowLeft') n = tabs[(i-1+tabs.length)%tabs.length];
+      if (e.key==='Home') n = tabs[0];
+      if (e.key==='End') n = tabs[tabs.length-1];
+      if (n){ e.preventDefault(); selectTab(n, true); }
+    });
+  });
+
+  /* ---------- ダミーボタン（電話・LINE・Instagram） ---------- */
+  var toast = document.getElementById('toast'), timer;
+  document.querySelectorAll('.js-dummy').forEach(function(b){
+    b.addEventListener('click', function(){
+      toast.textContent = b.getAttribute('data-msg');
+      toast.classList.add('is-show');
+      clearTimeout(timer);
+      timer = setTimeout(function(){ toast.classList.remove('is-show'); }, 2600);
+    });
+  });
+
+  /* ---------- スクロールでふわっと表示 ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+    }, {rootMargin:'0px 0px -10% 0px', threshold:.08});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

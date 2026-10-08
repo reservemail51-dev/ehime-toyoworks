@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hair room そよぎ｜制作サンプル｜愛媛東予Works</title>
+<meta name="description" content="愛媛東予Worksによるホームページ制作サンプルです。新居浜の架空の美容室「hair room そよぎ」を想定したサイトで、店舗・住所・電話番号・人物はすべて架空です。">
+<!-- 架空店舗のサンプルのため、検索エンジンに登録しない -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F7F4EF">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="hair room そよぎ｜制作サンプル｜愛媛東予Works">
+<meta property="og:description" content="愛媛東予Worksの制作サンプル。新居浜の架空の美容室を想定したホームページです（店舗・人物はすべて架空）。">
+
+<meta property="og:url" content="https://ehime-toyoworks.hp-web.workers.dev/samples/soyogi/">
+<meta property="og:image" content="https://ehime-toyoworks.hp-web.workers.dev/samples/soyogi/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   デザイントークン（他店舗へ流用するときはここを差し替え）
+   ========================================================= */
+:root{
+  /* 色 */
+  --c-bg:#F7F4EF;          /* ベース：生成りの白 */
+  --c-bg-alt:#EFEAE2;      /* 交互セクション背景 */
+  --c-surface:#FFFFFF;
+  --c-main:#B8ADA0;        /* メイン：グレージュ */
+  --c-accent:#8A9A86;      /* アクセント：くすみセージ（装飾用） */
+  --c-accent-ink:#5B6B57;  /* アクセントの文字用（AA対応の濃いめ） */
+  --c-ink:#3A3632;         /* 文字：墨色 */
+  --c-ink-sub:#6B645D;     /* 補足文字 */
+  --c-line:#DDD5CA;        /* 罫線 */
+  --c-cta:#C07A5E;         /* CTA：くすみテラコッタ（装飾・ホバー用） */
+  --c-cta-strong:#A55F42;  /* CTAボタン背景（白文字でAA対応） */
+  --c-on-dark:#FFFFFF;
+
+  /* 画像フォールバック */
+  --ph-warm:linear-gradient(135deg,#E9E1D6 0%,#D8CCBD 55%,#C9BBAA 100%);
+  --ph-sage:linear-gradient(135deg,#E3E7DF 0%,#C9D1C4 60%,#AEBBA9 100%);
+
+  /* 文字 */
+  --f-body:"Zen Kaku Gothic New",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+  --f-head:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-en:"Cormorant Garamond","Times New Roman",serif;
+
+  /* 形・余白 */
+  --radius:6px;
+  --gutter:20px;
+  --maxw:1120px;
+  --sec-pad:88px;
+  --header-h:64px;
+  --band-h:30px;
+  --shadow:0 10px 30px -18px rgba(58,54,50,.35);
+}
+@media (min-width:768px){
+  :root{ --gutter:40px; --sec-pad:128px; --header-h:76px; }
+}
+
+/* =========================================================
+   ベース
+   ========================================================= */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--c-bg); color:var(--c-ink);
+  font-family:var(--f-body); font-size:15px; line-height:1.9; letter-spacing:.04em;
+  font-feature-settings:"palt" 0;
+}
+@media (min-width:768px){ body{ font-size:16px; } }
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; }
+h1,h2,h3,p,ul,ol,dl,dd,figure{ margin:0; }
+ul,ol{ padding:0; list-style:none; }
+:focus-visible{ outline:2px solid var(--c-cta-strong); outline-offset:3px; border-radius:2px; }
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.skip{ position:absolute; left:8px; top:-60px; z-index:100; background:var(--c-ink); color:#fff; padding:8px 14px; border-radius:var(--radius); }
+.skip:focus{ top:8px; }
+
+.container{ width:100%; max-width:calc(var(--maxw) + var(--gutter)*2); margin:0 auto; padding:0 var(--gutter); }
+section{ padding:var(--sec-pad) 0; scroll-margin-top:var(--top-h, calc(var(--header-h) + var(--band-h))); }
+.bg-alt{ background:var(--c-bg-alt); }
+
+/* 画像枠：画像がなくてもグラデーションで形を保つ */
+.ph{ position:relative; overflow:hidden; border-radius:var(--radius); background:var(--ph-warm); }
+.ph.sage{ background:var(--ph-sage); }
+.ph img{ width:100%; height:100%; object-fit:cover; }
+.r-16x9{ aspect-ratio:16/9; } .r-4x3{ aspect-ratio:4/3; } .r-4x5{ aspect-ratio:4/5; }
+
+/* 見出し */
+.sec-head{ margin-bottom:44px; }
+.sec-head .en{
+  display:block; font-family:var(--f-en); font-style:italic; font-weight:400;
+  font-size:17px; letter-spacing:.12em; color:var(--c-accent-ink); margin-bottom:6px;
+}
+.sec-head .en::before{ content:""; display:inline-block; width:28px; height:1px; background:var(--c-accent); vertical-align:middle; margin-right:12px; }
+.sec-head h2{ font-family:var(--f-head); font-weight:600; font-size:clamp(24px,5.6vw,34px); line-height:1.5; letter-spacing:.08em; }
+.sec-head p{ margin-top:18px; color:var(--c-ink-sub); max-width:40em; }
+.sec-head.center{ text-align:center; }
+.sec-head.center p{ margin-left:auto; margin-right:auto; }
+
+/* ボタン */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:52px; padding:0 28px; border-radius:999px; text-decoration:none;
+  font-weight:700; font-size:15px; letter-spacing:.08em; border:1.5px solid transparent;
+  transition:background-color .2s, color .2s, transform .2s;
+}
+.btn svg{ width:20px; height:20px; flex:none; }
+.btn-cta{ background:var(--c-cta-strong); color:var(--c-on-dark); }
+.btn-cta:hover{ background:#8F4F35; }
+.btn-line{ background:transparent; color:var(--c-ink); border-color:var(--c-ink); }
+.btn-line:hover{ background:var(--c-ink); color:#fff; }
+.btn-light{ background:transparent; color:#fff; border-color:rgba(255,255,255,.85); }
+.btn-light:hover{ background:#fff; color:var(--c-ink); }
+
+/* =========================================================
+   サンプル表記帯＋ヘッダー（常に上部に表示）
+   ========================================================= */
+.site-top{ position:sticky; top:0; z-index:50; }
+.demo-band{
+  background:var(--c-ink); color:#fff; font-size:11.5px; line-height:1.5; letter-spacing:.03em;
+  min-height:var(--band-h); padding:6px var(--gutter); text-align:center;
+  display:flex; align-items:center; justify-content:center;
+}
+.demo-band strong{ color:#F2D3C4; font-weight:700; margin-right:.3em; }
+.header{
+  height:var(--header-h); background:rgba(247,244,239,.94);
+  backdrop-filter:saturate(1.2) blur(8px); -webkit-backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid rgba(221,213,202,.8);
+}
+.header .container{ height:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo{ text-decoration:none; display:flex; flex-direction:column; line-height:1.15; }
+.logo .en{ font-family:var(--f-en); font-size:13px; letter-spacing:.24em; color:var(--c-ink-sub); }
+.logo .ja{ font-family:var(--f-head); font-weight:600; font-size:21px; letter-spacing:.18em; }
+.gnav{ display:none; }
+.gnav ul{ display:flex; gap:26px; }
+.gnav a{ text-decoration:none; font-size:14px; letter-spacing:.08em; padding:6px 0; background:linear-gradient(var(--c-accent),var(--c-accent)) left bottom/0 1px no-repeat; transition:background-size .25s; }
+.gnav a:hover{ background-size:100% 1px; }
+.header-actions{ display:flex; align-items:center; gap:10px; }
+.header .btn{ min-height:42px; padding:0 18px; font-size:13px; }
+.menu-btn{
+  width:44px; height:44px; border:0; background:transparent; padding:0; cursor:pointer;
+  display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:var(--c-ink);
+}
+.menu-btn span{ display:block; width:24px; height:1.5px; background:currentColor; transition:transform .3s, opacity .3s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+@media (max-width:420px){ .header .btn-cta .label-long{ display:none; } }
+@media (min-width:1024px){ .gnav{ display:block; } .menu-btn{ display:none; } }
+
+/* SPメニュー */
+.drawer{
+  position:fixed; inset:var(--top-h, calc(var(--header-h) + var(--band-h))) 0 0 0; z-index:40;
+  background:var(--c-bg); padding:32px var(--gutter) 120px; overflow-y:auto;
+  visibility:hidden; opacity:0; transform:translateY(-8px); transition:opacity .25s, transform .25s, visibility 0s .25s;
+}
+.drawer.is-open{ visibility:visible; opacity:1; transform:none; transition:opacity .25s, transform .25s; }
+.drawer ul{ border-top:1px solid var(--c-line); }
+.drawer li{ border-bottom:1px solid var(--c-line); }
+.drawer a{ display:flex; justify-content:space-between; align-items:baseline; padding:18px 4px; text-decoration:none; font-size:16px; }
+.drawer a .en{ font-family:var(--f-en); font-style:italic; color:var(--c-accent-ink); font-size:15px; }
+.drawer .drawer-note{ margin-top:28px; font-size:12px; color:var(--c-ink-sub); }
+
+/* =========================================================
+   ヒーロー
+   ========================================================= */
+.hero{ position:relative; padding:0; min-height:calc(100svh - var(--top-h, calc(var(--header-h) + var(--band-h)))); display:flex; align-items:flex-end; color:#fff; overflow:hidden; background:var(--ph-warm); }
+.hero-media{ position:absolute; inset:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:40% center; }
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(40,34,30,.05) 0%,rgba(40,34,30,.38) 38%,rgba(40,34,30,.62) 62%,rgba(40,34,30,.8) 100%);
+}
+@media (min-width:768px){
+  .hero::after{ background:
+    linear-gradient(90deg,rgba(40,34,30,.62) 0%,rgba(40,34,30,.34) 42%,rgba(40,34,30,0) 70%),
+    linear-gradient(180deg,rgba(40,34,30,0) 40%,rgba(40,34,30,.45) 100%); }
+}
+.hero .sub, .hero .lead{ text-shadow:0 1px 10px rgba(0,0,0,.35); }
+.hero-inner{ position:relative; z-index:1; width:100%; padding-top:120px; padding-bottom:56px; }
+.hero .sub{ font-size:13px; letter-spacing:.14em; margin-bottom:18px; display:flex; align-items:center; gap:12px; }
+.hero .sub::before{ content:""; width:28px; height:1px; background:currentColor; }
+.hero h1{ font-family:var(--f-head); font-weight:600; font-size:clamp(28px,7.4vw,52px); line-height:1.6; letter-spacing:.1em; text-shadow:0 2px 18px rgba(0,0,0,.25); }
+.hero .lead{ margin-top:18px; font-size:14px; line-height:2; max-width:28em; }
+.hero .cta-row{ margin-top:30px; display:flex; flex-wrap:wrap; gap:12px; }
+.hero .scroll{ position:absolute; right:var(--gutter); bottom:56px; z-index:1; writing-mode:vertical-rl; font-family:var(--f-en); font-size:13px; letter-spacing:.3em; display:none; }
+.hero .scroll::after{ content:""; display:block; width:1px; height:60px; background:rgba(255,255,255,.7); margin:12px auto 0; }
+@media (min-width:768px){
+  .hero-inner{ padding-bottom:88px; }
+  .hero .lead{ font-size:15px; }
+  .hero .scroll{ display:block; }
+}
+
+/* =========================================================
+   コンセプト
+   ========================================================= */
+.concept-grid{ display:grid; gap:40px; align-items:center; }
+.concept-text .catch{ font-family:var(--f-head); font-size:clamp(20px,4.6vw,26px); line-height:1.8; letter-spacing:.08em; margin-bottom:24px; }
+.concept-text p + p{ margin-top:1.2em; }
+.concept-points{ margin-top:32px; display:flex; flex-wrap:wrap; gap:10px; }
+.concept-points li{ font-size:13px; padding:6px 14px; border:1px solid var(--c-main); border-radius:999px; background:var(--c-surface); }
+@media (min-width:900px){ .concept-grid{ grid-template-columns:1.1fr 1fr; gap:72px; } .concept-grid .ph{ order:2; } }
+
+/* =========================================================
+   3つのこだわり
+   ========================================================= */
+.features{ display:grid; gap:20px; }
+.feature{ background:var(--c-surface); border-radius:var(--radius); padding:34px 28px 30px; box-shadow:var(--shadow); position:relative; }
+.feature .num{ font-family:var(--f-en); font-style:italic; font-size:44px; line-height:1; color:var(--c-main); position:absolute; top:20px; right:24px; }
+.feature .icon{ width:52px; height:52px; border-radius:50%; background:#E6EBE3; color:var(--c-accent-ink); display:grid; place-items:center; margin-bottom:20px; }
+.feature .icon svg{ width:26px; height:26px; }
+.feature h3{ font-family:var(--f-head); font-size:19px; line-height:1.6; letter-spacing:.06em; margin-bottom:12px; }
+.feature p{ font-size:14px; color:var(--c-ink-sub); line-height:1.95; }
+@media (min-width:900px){ .features{ grid-template-columns:repeat(3,1fr); gap:28px; } }
+
+/* =========================================================
+   メニュー
+   ========================================================= */
+.menu-layout{ display:grid; gap:40px; }
+.menu-group + .menu-group{ margin-top:36px; }
+.menu-group h3{ font-family:var(--f-head); font-size:18px; letter-spacing:.1em; padding-bottom:10px; border-bottom:1px solid var(--c-ink); margin-bottom:6px; display:flex; justify-content:space-between; align-items:baseline; }
+.menu-group h3 .en{ font-family:var(--f-en); font-style:italic; font-weight:400; font-size:15px; color:var(--c-accent-ink); letter-spacing:.1em; }
+.price-list li{ display:flex; align-items:baseline; gap:10px; padding:14px 0; border-bottom:1px dashed var(--c-line); }
+.price-list .name{ flex:1 1 auto; }
+.price-list .name small{ display:block; font-size:12px; color:var(--c-ink-sub); letter-spacing:.02em; line-height:1.6; }
+.price-list .price{ flex:none; font-weight:500; letter-spacing:.04em; font-variant-numeric:tabular-nums; }
+.price-list .price .yen{ font-size:12px; margin-left:1px; }
+.menu-note{ margin-top:28px; font-size:13px; color:var(--c-ink-sub); padding:16px 18px; background:var(--c-surface); border-left:3px solid var(--c-accent); border-radius:0 var(--radius) var(--radius) 0; }
+.menu-side .ph{ margin-bottom:18px; }
+.menu-side .caption{ font-family:var(--f-head); font-size:17px; margin-bottom:8px; }
+.menu-side p{ font-size:14px; color:var(--c-ink-sub); }
+@media (min-width:900px){ .menu-layout{ grid-template-columns:1.35fr 1fr; gap:72px; align-items:start; } }
+
+/* =========================================================
+   スタイルギャラリー
+   ========================================================= */
+.gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px 14px; }
+.gallery figcaption{ margin-top:12px; }
+.gallery .g-name{ font-family:var(--f-head); font-size:15px; line-height:1.6; letter-spacing:.04em; }
+.gallery .g-tag{ display:inline-block; font-size:11px; letter-spacing:.06em; color:var(--c-accent-ink); margin-bottom:4px; }
+.gallery .g-comment{ font-size:12.5px; color:var(--c-ink-sub); line-height:1.8; margin-top:4px; }
+.gallery .ph img{ transition:transform .6s ease; }
+.gallery figure:hover img{ transform:scale(1.03); }
+@media (min-width:900px){ .gallery{ grid-template-columns:repeat(3,1fr); gap:44px 32px; } .gallery .g-name{ font-size:17px; } .gallery .g-comment{ font-size:13.5px; } }
+
+/* =========================================================
+   スタッフ
+   ========================================================= */
+.staff{ display:grid; gap:36px; align-items:center; }
+.staff .role{ font-size:13px; color:var(--c-accent-ink); letter-spacing:.1em; }
+.staff .name{ font-family:var(--f-head); font-size:26px; letter-spacing:.14em; margin:6px 0 2px; }
+.staff .name-en{ font-family:var(--f-en); font-style:italic; color:var(--c-ink-sub); letter-spacing:.12em; }
+.staff dl{ margin-top:24px; display:grid; grid-template-columns:5.5em 1fr; gap:10px 16px; font-size:14px; border-top:1px solid var(--c-line); padding-top:20px; }
+.staff dt{ color:var(--c-ink-sub); }
+.staff .message{ margin-top:28px; padding:24px 24px 22px; background:var(--c-surface); border-radius:var(--radius); position:relative; }
+.staff .message::before{ content:"“"; font-family:var(--f-en); font-size:64px; line-height:1; color:var(--c-main); position:absolute; top:6px; left:14px; }
+.staff .message p{ font-size:14.5px; padding-top:18px; }
+.staff .fictional{ margin-top:12px; font-size:12px; color:var(--c-ink-sub); }
+@media (min-width:900px){ .staff{ grid-template-columns:0.9fr 1.1fr; gap:72px; } }
+
+/* =========================================================
+   季節のご案内
+   ========================================================= */
+.season{ display:grid; gap:32px; }
+.season-cards{ display:grid; gap:18px; }
+.s-card{ background:var(--c-surface); border-radius:var(--radius); padding:28px 26px; box-shadow:var(--shadow); }
+.s-card .label{ display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em; color:#fff; background:var(--c-cta-strong); padding:3px 12px; border-radius:999px; margin-bottom:14px; }
+.s-card.alt .label{ background:var(--c-accent-ink); }
+.s-card h3{ font-family:var(--f-head); font-size:19px; line-height:1.6; margin-bottom:10px; }
+.s-card p{ font-size:14px; color:var(--c-ink-sub); }
+.s-card ul{ margin-top:14px; font-size:14px; }
+.s-card li{ padding-left:1.2em; position:relative; }
+.s-card li::before{ content:""; position:absolute; left:2px; top:.8em; width:6px; height:6px; border-radius:50%; background:var(--c-accent); }
+@media (min-width:900px){ .season{ grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; } }
+
+/* =========================================================
+   お子さま連れの方へ
+   ========================================================= */
+.kids{ display:grid; gap:36px; align-items:center; }
+.kids-list{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
+.kids-list li{ background:var(--c-surface); border-radius:var(--radius); padding:16px 14px; font-size:13.5px; line-height:1.7; display:flex; gap:10px; align-items:flex-start; }
+.kids-list svg{ width:22px; height:22px; flex:none; color:var(--c-accent-ink); margin-top:1px; }
+.kids p.note{ margin-top:18px; font-size:13px; color:var(--c-ink-sub); }
+@media (min-width:900px){ .kids{ grid-template-columns:1.1fr 1fr; gap:72px; } .kids .ph{ order:2; } }
+
+/* =========================================================
+   はじめての方へ（流れ）
+   ========================================================= */
+.flow{ display:grid; gap:16px; counter-reset:step; }
+.flow li{ background:var(--c-surface); border-radius:var(--radius); padding:26px 24px; position:relative; box-shadow:var(--shadow); }
+.flow .step{ font-family:var(--f-en); font-style:italic; font-size:14px; letter-spacing:.14em; color:var(--c-accent-ink); }
+.flow .step b{ font-size:34px; font-weight:500; margin-left:6px; color:var(--c-ink); font-style:normal; }
+.flow h3{ font-family:var(--f-head); font-size:18px; margin:6px 0 8px; }
+.flow p{ font-size:14px; color:var(--c-ink-sub); }
+@media (min-width:900px){
+  .flow{ grid-template-columns:repeat(4,1fr); gap:24px; }
+  .flow li:not(:last-child)::after{ content:""; position:absolute; top:50%; right:-17px; width:10px; height:10px; border-top:1.5px solid var(--c-main); border-right:1.5px solid var(--c-main); transform:translateY(-50%) rotate(45deg); }
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq{ max-width:820px; margin:0 auto; border-top:1px solid var(--c-line); }
+.faq details{ border-bottom:1px solid var(--c-line); }
+.faq summary{ list-style:none; cursor:pointer; padding:22px 44px 22px 0; position:relative; font-weight:500; display:flex; gap:14px; align-items:baseline; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary .q, .faq .a-body .a{ font-family:var(--f-en); font-size:22px; line-height:1; flex:none; }
+.faq summary .q{ color:var(--c-accent-ink); }
+.faq summary::after{ content:""; position:absolute; right:10px; top:50%; width:12px; height:12px; border-right:1.5px solid var(--c-ink); border-bottom:1.5px solid var(--c-ink); transform:translateY(-70%) rotate(45deg); transition:transform .25s; }
+.faq details[open] summary::after{ transform:translateY(-30%) rotate(-135deg); }
+.faq .a-body{ display:flex; gap:14px; padding:0 8px 24px 0; font-size:14.5px; color:var(--c-ink-sub); }
+.faq .a-body .a{ color:var(--c-cta-strong); }
+
+/* =========================================================
+   アクセス
+   ========================================================= */
+.access{ display:grid; gap:36px; }
+.shop-info{ display:grid; grid-template-columns:6em 1fr; font-size:14.5px; border-top:1px solid var(--c-line); }
+.shop-info dt, .shop-info dd{ padding:14px 0; border-bottom:1px solid var(--c-line); }
+.shop-info dt{ color:var(--c-ink-sub); font-size:13.5px; }
+.shop-info .tag{ display:inline-block; font-size:11px; color:var(--c-ink-sub); border:1px solid var(--c-line); border-radius:4px; padding:0 6px; margin-left:6px; vertical-align:2px; line-height:1.7; }
+.map{ background:#EEF0E9; border-radius:var(--radius); position:relative; overflow:hidden; }
+.map svg{ display:block; width:100%; height:auto; }
+.map .map-note{ position:absolute; left:10px; bottom:10px; font-size:11.5px; background:rgba(255,255,255,.92); padding:3px 10px; border-radius:4px; }
+.access-media{ display:grid; gap:16px; }
+@media (min-width:900px){ .access{ grid-template-columns:1fr 1fr; gap:64px; align-items:start; } }
+
+/* =========================================================
+   予約CTA
+   ========================================================= */
+.reserve{ position:relative; color:#fff; text-align:center; background:var(--c-ink); overflow:hidden; }
+.reserve .bgimg{ position:absolute; inset:0; opacity:.28; }
+.reserve .bgimg img{ width:100%; height:100%; object-fit:cover; }
+.reserve .container{ position:relative; }
+.reserve .en{ font-family:var(--f-en); font-style:italic; letter-spacing:.2em; font-size:17px; }
+.reserve h2{ font-family:var(--f-head); font-size:clamp(22px,5vw,30px); letter-spacing:.1em; margin:8px 0 16px; line-height:1.6; }
+.reserve p{ font-size:14px; }
+.reserve .cta-row{ margin-top:32px; display:flex; flex-direction:column; gap:12px; align-items:center; }
+.reserve .btn{ width:100%; max-width:320px; }
+.reserve .hours{ margin-top:22px; font-size:13px; opacity:.9; }
+@media (min-width:600px){ .reserve .cta-row{ flex-direction:row; justify-content:center; } .reserve .btn{ width:auto; min-width:240px; } }
+
+/* =========================================================
+   フッター
+   ========================================================= */
+.footer{ background:#2F2C29; color:#E9E4DD; padding:56px 0 40px; font-size:13px; }
+.footer .logo .en{ color:#BDB4A9; }
+.footer .logo .ja{ color:#fff; }
+.footer-notice{ margin:28px 0; padding:18px 20px; border:1px solid rgba(255,255,255,.25); border-radius:var(--radius); line-height:1.9; }
+.footer-notice strong{ color:#F2D3C4; }
+.footer-bottom{ display:flex; flex-direction:column; gap:10px; color:#BDB4A9; font-size:12px; }
+.footer-bottom a{ color:#fff; }
+@media (min-width:768px){ .footer-bottom{ flex-direction:row; justify-content:space-between; } }
+
+/* =========================================================
+   SP固定バー
+   ========================================================= */
+.fixed-bar{
+  position:fixed; left:0; right:0; bottom:0; z-index:45; display:grid; grid-template-columns:1fr 1fr;
+  background:var(--c-surface); box-shadow:0 -6px 20px -10px rgba(0,0,0,.25);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.fixed-bar a{ display:flex; align-items:center; justify-content:center; gap:8px; min-height:58px; text-decoration:none; font-weight:700; font-size:14px; letter-spacing:.06em; }
+.fixed-bar svg{ width:20px; height:20px; }
+.fixed-bar .fb-line{ background:var(--c-cta-strong); color:#fff; }
+.fixed-bar .fb-tel{ color:var(--c-ink); }
+body{ padding-bottom:calc(58px + env(safe-area-inset-bottom)); }
+@media (min-width:1024px){ .fixed-bar{ display:none; } body{ padding-bottom:0; } }
+
+/* =========================================================
+   トースト
+   ========================================================= */
+.toast{
+  position:fixed; left:50%; bottom:calc(76px + env(safe-area-inset-bottom)); z-index:60;
+  transform:translate(-50%,16px); opacity:0; pointer-events:none;
+  background:var(--c-ink); color:#fff; padding:14px 20px; border-radius:var(--radius);
+  font-size:13.5px; line-height:1.6; width:max-content; max-width:calc(100% - 32px); text-align:center;
+  box-shadow:0 12px 30px -10px rgba(0,0,0,.4); transition:opacity .25s, transform .25s;
+}
+.toast.is-show{ opacity:1; transform:translate(-50%,0); }
+@media (min-width:1024px){ .toast{ bottom:32px; } }
+
+/* =========================================================
+   ふわっと表示
+   ========================================================= */
+.js .reveal{ opacity:0; transform:translateY(20px); transition:opacity .9s ease, transform .9s ease; }
+.js .reveal.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .js .reveal{ opacity:1; transform:none; transition:none; }
+  *,*::before,*::after{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<!-- 上部固定：サンプル表記帯＋ヘッダー -->
+<div class="site-top">
+  <p class="demo-band" role="note"><span><strong>※このサイトは愛媛東予Worksの制作サンプルです。</strong>掲載の店舗・住所・電話番号・人物はすべて架空です。</span></p>
+  <header class="header">
+    <div class="container">
+      <a class="logo" href="#top" aria-label="hair room そよぎ トップへ">
+        <span class="en">hair room</span>
+        <span class="ja">そよぎ</span>
+      </a>
+      <nav class="gnav" aria-label="メインメニュー">
+        <ul>
+          <li><a href="#concept">コンセプト</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#style">スタイル</a></li>
+          <li><a href="#staff">スタッフ</a></li>
+          <li><a href="#kids">お子さま連れの方へ</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#access">アクセス</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-cta" href="#" data-dummy>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/></svg>
+          <span>LINE<span class="label-long">で予約</span></span>
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="メニューを開く">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- SPメニュー -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav aria-label="メニュー（スマートフォン）">
+    <ul>
+      <li><a href="#concept">コンセプト<span class="en">Concept</span></a></li>
+      <li><a href="#menu">メニュー・料金<span class="en">Menu</span></a></li>
+      <li><a href="#style">スタイル<span class="en">Style</span></a></li>
+      <li><a href="#staff">スタッフ紹介<span class="en">Staff</span></a></li>
+      <li><a href="#season">季節のご案内<span class="en">Season</span></a></li>
+      <li><a href="#kids">お子さま連れの方へ<span class="en">With Kids</span></a></li>
+      <li><a href="#flow">はじめての方へ<span class="en">First Visit</span></a></li>
+      <li><a href="#faq">よくある質問<span class="en">FAQ</span></a></li>
+      <li><a href="#access">アクセス<span class="en">Access</span></a></li>
+    </ul>
+    <p class="drawer-note">※このサイトは制作サンプルです。店舗は実在しません。</p>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- 1. ヒーロー -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="img/photo-01.jpg" alt="自然光が差し込む店内。白い壁と木のセット面、丸い鏡が並ぶ" width="1600" height="900" fetchpriority="high" onerror="this.style.display='none'">
+  </div>
+  <div class="container hero-inner">
+    <p class="sub">新居浜・そよかぜ町の小さな美容室</p>
+    <h1 id="hero-title">髪も、気持ちも、<br>そよぐように軽く。</h1>
+    <p class="lead">完全予約制・マンツーマン。<br>はじめから終わりまで、同じスタイリストが担当します。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="#" data-dummy>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/></svg>
+        LINEで予約する
+      </a>
+      <a class="btn btn-light" href="#menu">メニューを見る</a>
+    </div>
+  </div>
+  <span class="scroll" aria-hidden="true">Scroll</span>
+</section>
+
+<!-- 2. コンセプト -->
+<section id="concept" aria-labelledby="concept-title">
+  <div class="container concept-grid">
+    <div class="ph r-4x3 reveal">
+      <img src="img/photo-02.jpg" alt="スタイリストが鏡越しにお客さまと笑顔で話している様子" width="1448" height="1086" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="concept-text reveal">
+      <div class="sec-head">
+        <span class="en">Concept</span>
+        <h2 id="concept-title">小さな店だから、<br>できること。</h2>
+      </div>
+      <p class="catch">急かされない時間と、<br>ちょうどいい距離感を。</p>
+      <p>セット面は3席だけ。ご予約はおひとりずつお受けしているので、ほかのお客さまと重なることはほとんどありません。</p>
+      <p>「最近、白髪が気になって」「朝のセットをもっと楽にしたい」。そんな話をゆっくり聞かせてください。暮らしに合う、無理のない髪型を一緒に考えます。</p>
+      <ul class="concept-points" aria-label="お店の特徴">
+        <li>完全予約制</li><li>マンツーマン施術</li><li>無料駐車場5台</li><li>お子さま連れOK</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 3つのこだわり -->
+<section class="bg-alt" id="features" aria-labelledby="features-title">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="en">Our Promise</span>
+      <h2 id="features-title">そよぎの、3つのこだわり</h2>
+    </div>
+    <div class="features">
+      <article class="feature reveal">
+        <span class="num" aria-hidden="true">01</span>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5" stroke-linecap="round"/></svg></div>
+        <h3>最初から最後まで、<br>同じ人が担当します</h3>
+        <p>カウンセリングから仕上げまで、担当が途中で代わることはありません。前回の話の続きから始められるのも、小さな店ならではです。</p>
+      </article>
+      <article class="feature reveal">
+        <span class="num" aria-hidden="true">02</span>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="7" r="2.6"/><circle cx="16.5" cy="10" r="2"/><path d="M3.5 20c.4-3.4 2.2-5.4 4.5-5.4s4.1 2 4.5 5.4M13 20c.3-2.4 1.6-3.9 3.5-3.9s3.2 1.5 3.5 3.9" stroke-linecap="round"/></svg></div>
+        <h3>お子さま連れでも、<br>気兼ねなく</h3>
+        <p>キッズスペースと授乳・おむつ替えスペースがあります。ベビーカーのままご入店いただけます。「子どもがいるから」と美容室をあきらめないでください。</p>
+      </article>
+      <article class="feature reveal">
+        <span class="num" aria-hidden="true">03</span>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c3.5 3.6 5.5 6.6 5.5 9.5A5.5 5.5 0 0 1 6.5 12.5C6.5 9.6 8.5 6.6 12 3z" stroke-linejoin="round"/><path d="M9.5 13.5a2.6 2.6 0 0 0 2.5 2.5" stroke-linecap="round"/></svg></div>
+        <h3>大人の髪の悩みに、<br>しっかり向き合います</h3>
+        <p>白髪ぼかしハイライト、髪質改善トリートメント、ヘッドスパ。年齢とともに変わる髪に合わせて、今のあなたにちょうどいい方法をご提案します。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. メニュー・料金 -->
+<section id="menu" aria-labelledby="menu-title">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="en">Menu &amp; Price</span>
+      <h2 id="menu-title">メニュー・料金</h2>
+      <p>表示価格はすべて税込です。</p>
+    </div>
+    <div class="menu-layout">
+      <div class="reveal">
+        <div class="menu-group">
+          <h3>カット<span class="en">Cut</span></h3>
+          <ul class="price-list">
+            <li><span class="name">カット<small>シャンプー・ブロー込み</small></span><span class="price">4,400<span class="yen">円</span></span></li>
+            <li><span class="name">学生カット<small>中学生・高校生</small></span><span class="price">3,300<span class="yen">円</span></span></li>
+            <li><span class="name">キッズカット<small>小学生以下</small></span><span class="price">2,200<span class="yen">円</span></span></li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3>カラー<span class="en">Color</span></h3>
+          <ul class="price-list">
+            <li><span class="name">カラー（リタッチ）<small>根元の伸びた部分のみ</small></span><span class="price">5,500<span class="yen">円〜</span></span></li>
+            <li><span class="name">フルカラー</span><span class="price">6,600<span class="yen">円〜</span></span></li>
+            <li><span class="name">白髪ぼかしハイライト<small>白髪を活かして、明るくなじませます</small></span><span class="price">11,000<span class="yen">円〜</span></span></li>
+            <li><span class="name">カット＋カラー</span><span class="price">9,900<span class="yen">円〜</span></span></li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3>ケア・ストレート<span class="en">Care</span></h3>
+          <ul class="price-list">
+            <li><span class="name">髪質改善トリートメント</span><span class="price">7,700<span class="yen">円〜</span></span></li>
+            <li><span class="name">縮毛矯正<small>カット込み</small></span><span class="price">15,400<span class="yen">円〜</span></span></li>
+            <li><span class="name">ヘッドスパ（30分）</span><span class="price">3,850<span class="yen">円</span></span></li>
+            <li><span class="name">ヘッドスパ（50分）</span><span class="price">5,500<span class="yen">円</span></span></li>
+          </ul>
+        </div>
+        <div class="menu-group">
+          <h3>着付け・ヘアセット<span class="en">Set</span></h3>
+          <ul class="price-list">
+            <li><span class="name">着付け・ヘアセット<small>七五三・成人式・卒入学など</small></span><span class="price">5,500<span class="yen">円〜</span></span></li>
+            <li><span class="name">秋祭り早朝ヘアセット<small>10月中旬・5:00から受付（要予約）</small></span><span class="price">4,400<span class="yen">円</span></span></li>
+          </ul>
+        </div>
+        <p class="menu-note">※料金は髪の長さ・状態により変わります。カウンセリングで事前にお伝えします。</p>
+      </div>
+      <aside class="menu-side reveal" aria-label="おすすめメニュー">
+        <div class="ph r-4x3 sage">
+          <img src="img/photo-03.jpg" alt="シャンプー台でヘッドスパを受けているお客さま" width="1448" height="1086" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <p class="caption">おすすめ｜ヘッドスパ</p>
+        <p>頭皮をやさしくほぐして、血行を促します。子育てや家事の合間の、ひと休みの時間にどうぞ。カットやカラーにもプラスできます。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 5. スタイルギャラリー -->
+<section class="bg-alt" id="style" aria-labelledby="style-title">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="en">Style</span>
+      <h2 id="style-title">スタイルギャラリー</h2>
+      <p>毎日のお手入れまで考えた、暮らしになじむスタイルです。</p>
+    </div>
+    <div class="gallery">
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-04.jpg" alt="白髪ぼかしハイライトを入れたグレージュのショートボブ" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#白髪ぼかし</span><p class="g-name">グレージュ・ショートボブ</p><p class="g-comment">白髪をハイライトでなじませて、伸びてきても目立ちにくく。</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-05.jpg" alt="クセ毛を活かしたふんわりミディアムレイヤー" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#クセ毛を活かす</span><p class="g-name">ふんわりミディアムレイヤー</p><p class="g-comment">うねりをそのまま動きに。乾かすだけでまとまります。</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-06.jpg" alt="透明感のあるベージュカラーのゆるいウェーブロング" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#透明感カラー</span><p class="g-name">ベージュのゆるウェーブロング</p><p class="g-comment">やわらかなベージュで、軽さと透け感をプラス。</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-07.jpg" alt="上品なグレイヘアの耳かけショート" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#グレイヘア</span><p class="g-name">グレイヘアの耳かけショート</p><p class="g-comment">白髪染めを卒業したい方に。手入れが楽で、上品に。</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-08.jpg" alt="ツヤのあるストレートのミディアムヘア" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#髪質改善</span><p class="g-name">ツヤストレート・ミディアム</p><p class="g-comment">パサつきや広がりをおさえて、指通りのいい髪へ。</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph r-4x5"><img src="img/photo-09.jpg" alt="前髪ありの肩上ボブの女の子" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'"></div>
+        <figcaption><span class="g-tag">#キッズカット</span><p class="g-name">前髪ありの肩上ボブ</p><p class="g-comment">結ばなくてもまとまる長さ。朝の支度がぐっと楽に。</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. スタッフ紹介 -->
+<section id="staff" aria-labelledby="staff-title">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="en">Staff</span>
+      <h2 id="staff-title">スタッフ紹介</h2>
+    </div>
+    <div class="staff">
+      <div class="ph r-4x5 reveal">
+        <img src="img/photo-10.jpg" alt="店内の窓辺で微笑むオーナースタイリスト（架空の人物）" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="reveal">
+        <p class="role">オーナースタイリスト</p>
+        <p class="name">佐伯 灯</p>
+        <p class="name-en">Akari Saeki</p>
+        <dl>
+          <dt>出身</dt><dd>愛媛県新居浜市</dd>
+          <dt>経歴</dt><dd>松山・大阪のサロンで12年勤務。2019年に地元へ戻り「hair room そよぎ」を開業。</dd>
+          <dt>得意</dt><dd>白髪ぼかしハイライト、クセ毛を活かしたショート・ボブ</dd>
+          <dt>ひとこと</dt><dd>二児の母です。子育て中のお客さまの「わかる！」がたくさんあります。</dd>
+        </dl>
+        <div class="message">
+          <p>生まれ育った新居浜で、近所の人がふらっと来られる美容室をつくりたくて、この店を開きました。<br>美容室に来る時間が、少しでも肩の力を抜けるひとときになればうれしいです。髪のこと、どんなに小さなことでも気軽にご相談ください。</p>
+        </div>
+        <p class="fictional">※掲載の人物・経歴は架空のものです（写真はAIで生成したイメージです）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 季節のご案内 -->
+<section class="bg-alt" id="season" aria-labelledby="season-title">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="en">Season</span>
+      <h2 id="season-title">季節のご案内</h2>
+      <p>地域の行事や、家族の節目の日も、髪から支度をお手伝いします。</p>
+    </div>
+    <div class="season">
+      <div class="ph r-4x5 reveal">
+        <img src="img/photo-11.jpg" alt="早朝の店内で、法被姿のお客さまのまとめ髪を仕上げている様子" width="1122" height="1402" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="season-cards">
+        <article class="s-card reveal">
+          <span class="label">10月中旬</span>
+          <h3>秋祭りの早朝ヘアセット</h3>
+          <p>お祭りの朝は早いもの。祭り期間中は朝5:00から受付します。崩れにくいまとめ髪で、一日しっかり楽しめるように仕上げます。</p>
+          <ul>
+            <li>受付：5:00〜（完全予約制）</li>
+            <li>料金：4,400円（税込）</li>
+            <li>ご予約は9月上旬から受付します。枠に限りがあるため、お早めにどうぞ</li>
+          </ul>
+        </article>
+        <article class="s-card alt reveal">
+          <span class="label">通年</span>
+          <h3>七五三・成人式・卒入学のヘアセット</h3>
+          <p>お子さまの七五三から、成人式、卒業式・入学式まで。着付けとヘアセットをまとめてお任せいただけます。親子そろってのご予約もどうぞ。</p>
+          <ul>
+            <li>料金：5,500円〜（税込）</li>
+            <li>早朝のご予約もご相談ください</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. お子さま連れの方へ -->
+<section id="kids" aria-labelledby="kids-title">
+  <div class="container kids">
+    <div class="ph r-4x3 sage reveal">
+      <img src="img/photo-12.jpg" alt="木のテーブルと椅子、絵本棚のあるキッズスペース。横にベビーカー" width="1448" height="1086" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="reveal">
+      <div class="sec-head">
+        <span class="en">With Kids</span>
+        <h2 id="kids-title">お子さま連れの方へ</h2>
+        <p>ママ・パパが美容室でゆっくり過ごせるように、店内の一角にキッズスペースをつくりました。</p>
+      </div>
+      <ul class="kids-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 11h16M6 11v8m12-8v8M8 11V7h8v4" stroke-linecap="round" stroke-linejoin="round"/></svg>絵本とおもちゃのあるキッズスペース</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M3 6h3l2 9h10l2-6H8" stroke-linecap="round" stroke-linejoin="round"/></svg>ベビーカーのまま入店できます</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 10h16" stroke-linecap="round"/></svg>授乳・おむつ替えスペースあり</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 17h14l-1.5-5h-11zM7 12l1.5-4h7L17 12" stroke-linejoin="round"/><circle cx="8" cy="18.5" r="1.4"/><circle cx="16" cy="18.5" r="1.4"/></svg>店舗前に無料駐車場5台</li>
+      </ul>
+      <p class="note">お子さまのカットも一緒にどうぞ。ご予約のときに「子ども連れ」とお伝えいただければ、席や時間帯を調整します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. はじめての方へ -->
+<section class="bg-alt" id="flow" aria-labelledby="flow-title">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="en">First Visit</span>
+      <h2 id="flow-title">はじめての方へ</h2>
+      <p>ご予約から、お帰りまでの流れをご紹介します。</p>
+    </div>
+    <ol class="flow">
+      <li class="reveal"><span class="step">STEP<b>1</b></span><h3>ご予約</h3><p>LINEまたはお電話でご予約ください。ご希望のメニューが決まっていなくても大丈夫です。</p></li>
+      <li class="reveal"><span class="step">STEP<b>2</b></span><h3>カウンセリング</h3><p>お悩みやご希望、普段のお手入れ方法をうかがいます。料金も施術前にお伝えします。</p></li>
+      <li class="reveal"><span class="step">STEP<b>3</b></span><h3>施術</h3><p>カウンセリングを担当したスタイリストが、そのまま最後まで担当します。</p></li>
+      <li class="reveal"><span class="step">STEP<b>4</b></span><h3>仕上げ・アドバイス</h3><p>おうちでの乾かし方やスタイリングのコツをお伝えします。次回の目安もご案内します。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 10. よくある質問 -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="en">FAQ</span>
+      <h2 id="faq-title">よくある質問</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>駐車場はありますか？</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>店舗前に無料駐車場が5台分あります。満車のときはお電話ください。</p></div>
+      </details>
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>子どもを連れて行っても大丈夫ですか？</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>もちろんです。キッズスペースと授乳・おむつ替えスペースがあります。ご予約時に「子ども連れ」とお伝えいただけるとスムーズです。</p></div>
+      </details>
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>当日の予約はできますか？</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>空きがあれば当日でもご予約いただけます。完全予約制のため、ご来店前に必ずLINEかお電話でご連絡ください。</p></div>
+      </details>
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>支払い方法を教えてください。</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>現金、PayPay、クレジットカードがご利用いただけます。</p></div>
+      </details>
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>白髪染めと白髪ぼかしは何が違うのですか？</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>白髪染めは白髪をしっかり暗く染める方法です。白髪ぼかしはハイライトで白髪をなじませるため、伸びてきても境目が目立ちにくく、染める間隔をあけやすくなります。カウンセリングでどちらが合うかご相談ください。</p></div>
+      </details>
+      <details>
+        <summary><span class="q" aria-hidden="true">Q</span>施術にはどのくらい時間がかかりますか？</summary>
+        <div class="a-body"><span class="a" aria-hidden="true">A</span><p>目安は、カットが約1時間、カット＋カラーが約2時間、白髪ぼかしハイライトや縮毛矯正が約3時間です。髪の長さや状態によって前後します。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. アクセス・店舗情報 -->
+<section class="bg-alt" id="access" aria-labelledby="access-title">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="en">Access</span>
+      <h2 id="access-title">アクセス・店舗情報</h2>
+    </div>
+    <div class="access">
+      <div class="access-media reveal">
+        <div class="ph r-4x3">
+          <img src="img/photo-13.jpg" alt="白い壁と木の扉の平屋の店舗外観。店の前に駐車スペース" width="1448" height="1086" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="map">
+          <svg viewBox="0 0 400 260" role="img" aria-labelledby="map-title">
+            <title id="map-title">店舗周辺のイラスト地図（イメージ）。大通りの角を曲がった住宅地の中に店舗と駐車場があります。</title>
+            <rect width="400" height="260" fill="#EEF0E9"/>
+            <!-- 山 -->
+            <path d="M0 60 L60 18 L110 50 L170 10 L240 55 L300 22 L400 62 L400 0 L0 0Z" fill="#DDE3D6"/>
+            <!-- 川 -->
+            <path d="M330 0 C310 70 350 120 320 180 C300 220 320 245 310 260" stroke="#C9DCE0" stroke-width="16" fill="none"/>
+            <!-- 道路 -->
+            <rect x="0" y="150" width="400" height="22" fill="#FFFFFF"/>
+            <rect x="170" y="60" width="16" height="200" fill="#FFFFFF"/>
+            <rect x="60" y="92" width="200" height="10" fill="#FFFFFF"/>
+            <line x1="0" y1="161" x2="400" y2="161" stroke="#DDD5CA" stroke-width="1.5" stroke-dasharray="8 6"/>
+            <!-- 周辺の区画 -->
+            <g fill="#E3DED5"><rect x="20" y="110" width="40" height="30" rx="3"/><rect x="196" y="110" width="44" height="30" rx="3"/><rect x="20" y="186" width="60" height="40" rx="3"/><rect x="200" y="186" width="50" height="50" rx="3"/><rect x="260" y="110" width="40" height="30" rx="3"/></g>
+            <!-- 学校 -->
+            <rect x="92" y="184" width="64" height="48" rx="3" fill="#D8E0D2"/>
+            <text x="124" y="213" font-size="13" text-anchor="middle" fill="#5B6B57" font-family="sans-serif">小学校</text>
+            <!-- 店舗 -->
+            <rect x="120" y="108" width="40" height="34" rx="4" fill="#A55F42"/>
+            <rect x="70" y="110" width="44" height="32" rx="3" fill="#FFFFFF" stroke="#B8ADA0"/>
+            <text x="92" y="130" font-size="12" text-anchor="middle" fill="#3A3632" font-family="sans-serif">P 5台</text>
+            <!-- ピン -->
+            <g transform="translate(140 104)">
+              <path d="M0 0 C-12 -14 -12 -30 0 -30 C12 -30 12 -14 0 0Z" fill="#3A3632"/>
+              <circle cy="-20" r="4.5" fill="#FFFFFF"/>
+            </g>
+            <text x="140" y="136" font-size="11" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif">そよぎ</text>
+            <text x="16" y="168" font-size="13" fill="#6B645D" font-family="sans-serif">大通り</text>
+            <text x="352" y="120" font-size="13" fill="#6B645D" font-family="sans-serif">川</text>
+          </svg>
+          <p class="map-note">地図はイメージです（架空の場所）</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p style="font-family:var(--f-head);font-size:20px;letter-spacing:.1em;margin-bottom:18px;">hair room そよぎ</p>
+        <dl class="shop-info">
+          <dt>住所</dt><dd>〒792-0000<br>愛媛県新居浜市そよかぜ町2丁目8-15<span class="tag">架空</span></dd>
+          <dt>電話</dt><dd>0897-00-0000<span class="tag">ダミー</span></dd>
+          <dt>営業時間</dt><dd>9:00〜18:00（最終受付17:00）</dd>
+          <dt>定休日</dt><dd>毎週月曜日・第3火曜日</dd>
+          <dt>駐車場</dt><dd>店舗前に無料5台</dd>
+          <dt>席数</dt><dd>セット面3席・シャンプー台1台</dd>
+          <dt>ご予約</dt><dd>完全予約制（LINE・お電話）</dd>
+          <dt>お支払い</dt><dd>現金・PayPay・クレジットカード</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. 予約CTA -->
+<section class="reserve" id="reserve" aria-labelledby="reserve-title">
+  <div class="bgimg" aria-hidden="true"><img src="img/photo-01.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="container reveal">
+    <span class="en">Reservation</span>
+    <h2 id="reserve-title">ご予約・ご相談は<br>お気軽にどうぞ</h2>
+    <p>LINEなら24時間ご予約を受け付けています。</p>
+    <div class="cta-row">
+      <a class="btn btn-cta" href="#" data-dummy>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/></svg>
+        LINEで予約
+      </a>
+      <a class="btn btn-light" href="#" data-dummy>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z" stroke-linejoin="round"/></svg>
+        電話で予約
+      </a>
+    </div>
+    <p class="hours">営業時間 9:00〜18:00（最終受付17:00）／定休日 毎週月曜・第3火曜</p>
+  </div>
+</section>
+
+</main>
+
+<!-- 13. フッター -->
+<footer class="footer">
+  <div class="container">
+    <a class="logo" href="#top"><span class="en">hair room</span><span class="ja">そよぎ</span></a>
+    <p class="footer-notice" role="note">
+      <strong>このサイトは、愛媛東予Worksが制作したホームページのサンプルです。</strong><br>
+      「hair room そよぎ」は実在しない架空の美容室です。掲載している店舗名・住所・電話番号・人物・料金はすべて架空のもので、予約やお問い合わせはできません。写真はAIで生成したイメージです。
+    </p>
+    <div class="footer-bottom">
+      <p>制作：<a href="https://ehime-toyoworks.hp-web.workers.dev/" rel="noopener">愛媛東予Works</a></p>
+      <p><small>© 2026 hair room そよぎ（架空の店舗）</small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- SP固定バー -->
+<nav class="fixed-bar" aria-label="予約">
+  <a class="fb-line" href="#" data-dummy>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/></svg>LINE予約
+  </a>
+  <a class="fb-tel" href="#" data-dummy>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z" stroke-linejoin="round"/></svg>電話
+  </a>
+</nav>
+
+<!-- トースト -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  /* 上部固定エリア（サンプル帯＋ヘッダー）の実際の高さをCSS変数に反映 */
+  var top = document.querySelector('.site-top');
+  function setTopH(){ document.documentElement.style.setProperty('--top-h', top.offsetHeight + 'px'); }
+  setTopH();
+  if('ResizeObserver' in window){ new ResizeObserver(setTopH).observe(top); } else { window.addEventListener('resize', setTopH); }
+
+  /* サンプル用：予約ボタンを押したらトースト表示 */
+  var toast = document.getElementById('toast');
+  var timer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(timer);
+    timer = setTimeout(function(){ toast.classList.remove('is-show'); }, 3200);
+  }
+  document.querySelectorAll('[data-dummy]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      showToast('サンプルサイトのため予約はできません（架空の店舗です）');
+    });
+  });
+
+  /* SPメニュー */
+  var btn = document.querySelector('.menu-btn');
+  var drawer = document.getElementById('drawer');
+  function setMenu(open){
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    drawer.classList.toggle('is-open', open);
+    drawer.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  btn.addEventListener('click', function(){ setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && drawer.classList.contains('is-open')){ setMenu(false); btn.focus(); } });
+  window.matchMedia('(min-width:1024px)').addEventListener('change', function(m){ if(m.matches) setMenu(false); });
+
+  /* ふわっと表示 */
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin:'0px 0px -8% 0px', threshold:0.08 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

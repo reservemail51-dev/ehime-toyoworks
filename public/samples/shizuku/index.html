@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>しずく洋菓子店（Pâtisserie Shizuku）｜愛媛県西条市の洋菓子店【架空店舗の制作サンプル】</title>
+<meta name="description" content="※愛媛東予Worksの制作サンプルです。掲載の店舗・住所・電話番号・商品はすべて架空です。うちぬきの水と東予の果物でつくる、西条の小さな洋菓子店。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="しずく洋菓子店（Pâtisserie Shizuku）｜愛媛県西条市の洋菓子店【架空店舗の制作サンプル】">
+<meta property="og:description" content="※愛媛東予Worksの制作サンプルです。掲載の店舗・住所・電話番号・商品はすべて架空です。うちぬきの水と東予の果物でつくる、西条の小さな洋菓子店。">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://ehime-toyoworks.hp-web.workers.dev/samples/shizuku/">
+<meta property="og:image" content="https://ehime-toyoworks.hp-web.workers.dev/samples/shizuku/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#FAF6F0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "しずく洋菓子店（Pâtisserie Shizuku）",
+  "description": "※架空の店舗です（愛媛東予Worksの制作サンプル）。うちぬきの水と愛媛の果物を使った、西条の町の洋菓子店。",
+    "telephone": "0897-00-0000",
+  "priceRange": "¥",
+  "servesCuisine": "洋菓子",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "793-0000",
+    "addressRegion": "愛媛県",
+    "addressLocality": "西条市",
+    "streetAddress": "しずく町1-8（架空）",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    }
+  ],
+  "foundingDate": "2016"
+}
+</script>
+
+<style>
+:root{
+  --bg:#FAF6F0;
+  --surface:#FFFFFF;
+  --text:#3B2A22;
+  --text-sub:#6E5A4E;
+  --accent:#E07B39;
+  --accent-strong:#B5571D;
+  --accent-ink:#A94F17;
+  --accent-soft:#FBE9DC;
+  --sub:#CFE3E6;
+  --sub-soft:#EAF3F4;
+  --sub-ink:#2F6670;
+  --line:#E8DED2;
+  --radius-lg:24px;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 6px 24px rgba(59,42,34,.07);
+  --shadow-sm:0 2px 10px rgba(59,42,34,.06);
+  --font-head:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+  --font-en:"Cormorant Garamond",Georgia,serif;
+  --header-h:64px;
+  --drop:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 32'%3E%3Cpath d='M12 2C12 2 3 13.5 3 20.5a9 9 0 0 0 18 0C21 13.5 12 2 12 2z' fill='none' stroke='%23C9A88A' stroke-width='1.3'/%3E%3C/svg%3E");
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:16px;line-height:1.85;letter-spacing:.03em;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-ink)}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.45;margin:0;letter-spacing:.06em}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.container{width:min(1120px,100% - 32px);margin-inline:auto}
+section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
+
+/* ---------- 画像（CSSグラデーションのフォールバック付き） ---------- */
+.ph{
+  background:
+    var(--img,none) var(--pos,center)/cover no-repeat,
+    var(--drop) center/40px no-repeat,
+    linear-gradient(135deg,#F5EADD 0%,#EDDCC8 55%,#DDEBEC 100%);
+  border-radius:var(--radius);
+}
+
+/* ---------- サンプル帯 ---------- */
+.sample-band{
+  background:var(--text);color:#FFF8F0;font-size:12.5px;line-height:1.6;
+  padding:8px 16px;text-align:center;letter-spacing:.02em;
+}
+.sample-band strong{color:#FFD9BD;font-weight:700}
+
+/* ---------- ヘッダー ---------- */
+.header{
+  position:sticky;top:0;z-index:50;height:var(--header-h);
+  background:rgba(250,246,240,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;
+}
+.header.is-scrolled{border-bottom-color:var(--line);box-shadow:0 2px 12px rgba(59,42,34,.05)}
+.header__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.logo svg{width:26px;height:34px;flex:none}
+.logo__ja{font-family:var(--font-head);font-weight:700;font-size:19px;letter-spacing:.1em;line-height:1.2;display:block}
+.logo__en{font-family:var(--font-en);font-style:italic;font-size:13px;color:var(--text-sub);letter-spacing:.06em;line-height:1.2;display:block}
+.nav-toggle{
+  width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:var(--surface);
+  display:grid;place-items:center;cursor:pointer;
+}
+.nav-toggle span{display:block;width:18px;height:1.5px;background:var(--text);position:relative;transition:background .2s}
+.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--text);transition:transform .25s}
+.nav-toggle span::before{top:-6px}.nav-toggle span::after{top:6px}
+.nav-toggle[aria-expanded="true"] span{background:transparent}
+.nav-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.nav{
+  position:fixed;inset:var(--header-h) 0 auto 0;background:var(--bg);
+  border-bottom:1px solid var(--line);padding:8px 16px 24px;
+  transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s;
+  max-height:calc(100dvh - var(--header-h));overflow:auto;
+}
+.nav.is-open{opacity:1;transform:none;visibility:visible}
+.nav ul{display:grid}
+.nav a{display:flex;justify-content:space-between;align-items:baseline;padding:14px 4px;border-bottom:1px dashed var(--line);text-decoration:none;color:var(--text);font-weight:500}
+.nav a small{font-family:var(--font-en);font-style:italic;color:var(--text-sub);font-size:14px}
+.nav .nav__cta{margin-top:16px;border:0;justify-content:center;background:var(--accent-strong);color:#fff;border-radius:999px}
+.nav .nav__cta small{display:none}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:50px;padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:700;letter-spacing:.06em;
+  border:1.5px solid transparent;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn--primary{background:var(--accent-strong);color:#fff;box-shadow:0 6px 16px rgba(181,87,29,.25)}
+.btn--primary:hover{background:#A24C17}
+.btn--ghost{background:var(--surface);color:var(--text);border-color:var(--text)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative}
+.hero__media{aspect-ratio:4/3;--pos:72% center;border-radius:0}
+.hero__body{position:relative;padding:28px 0 8px}
+.hero__badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--accent-ink);
+  background:var(--accent-soft);padding:4px 14px;border-radius:999px;margin-bottom:14px;
+}
+.hero h1{font-size:clamp(28px,7.6vw,52px);letter-spacing:.08em;line-height:1.4}
+.hero h1 .br{display:block}
+.hero__lead{margin-top:14px;color:var(--text-sub);font-size:15.5px}
+.hero__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero__btns .btn{flex:1 1 200px}
+.hero__en{
+  font-family:var(--font-en);font-style:italic;color:var(--accent-ink);font-size:17px;letter-spacing:.08em;margin-bottom:6px;
+}
+
+/* ---------- セクション共通 ---------- */
+.section{padding:72px 0}
+.section--tint{background:var(--surface)}
+.section--water{background:var(--sub-soft)}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head .en{
+  font-family:var(--font-en);font-style:italic;font-size:20px;color:var(--accent-ink);letter-spacing:.1em;
+  display:inline-flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:6px;
+}
+.sec-head .en svg{width:44px;height:8px}
+.sec-head h2{font-size:clamp(23px,5.6vw,32px)}
+.sec-head p.desc{margin-top:14px;color:var(--text-sub);font-size:15px}
+.note{font-size:13px;color:var(--text-sub)}
+
+/* ---------- お知らせ ---------- */
+.news{padding:40px 0 8px}
+.news__box{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px 20px;border:1px solid var(--line)}
+.news__title{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.news__title h2{font-size:19px}
+.news__title span{font-family:var(--font-en);font-style:italic;color:var(--accent-ink);font-size:17px}
+.news__list li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:14px 0;border-top:1px dashed var(--line)}
+.news__list li:first-child{border-top:0}
+.news__list time{font-size:13px;color:var(--text-sub);letter-spacing:.04em}
+.news__tag{justify-self:start;font-size:11.5px;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--sub);color:var(--sub-ink)}
+.news__tag--hot{background:var(--accent-soft);color:var(--accent-ink)}
+.news__list p{grid-column:1/-1;font-size:15px}
+
+/* ---------- こだわり ---------- */
+.concept__img{aspect-ratio:3/2;margin-bottom:32px;box-shadow:var(--shadow)}
+.concept__grid{display:grid;gap:18px}
+.concept__item{background:var(--surface);border-radius:var(--radius);padding:26px 22px;border:1px solid var(--line);position:relative}
+.concept__icon{
+  width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px;
+  background:var(--sub-soft);color:var(--sub-ink);
+}
+.concept__icon svg{width:30px;height:30px}
+.concept__item:nth-child(2) .concept__icon{background:var(--accent-soft);color:var(--accent-ink)}
+.concept__item:nth-child(3) .concept__icon{background:#F3EBDD;color:#7A5A2E}
+.concept__label{font-family:var(--font-en);font-style:italic;font-size:15px;color:var(--text-sub);letter-spacing:.08em}
+.concept__item h3{font-size:19px;margin:2px 0 8px}
+.concept__item p{font-size:15px;color:var(--text-sub)}
+
+/* ---------- ケーキ ---------- */
+.cakes__showcase{aspect-ratio:4/3;margin-bottom:28px;box-shadow:var(--shadow)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;border:1px solid var(--line)}
+.card__img{aspect-ratio:1;border-radius:0;position:relative}
+.card__badge{
+  position:absolute;top:10px;left:10px;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;
+  background:rgba(255,255,255,.92);color:var(--accent-ink);
+}
+.card__badge--water{color:var(--sub-ink)}
+.card__body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:15.5px;letter-spacing:.04em}
+.kw{word-break:keep-all;overflow-wrap:anywhere}
+.card p{font-size:13px;color:var(--text-sub);line-height:1.7;flex:1}
+.price{font-weight:700;font-size:17px;color:var(--text);letter-spacing:.02em}
+.price small{font-size:11.5px;font-weight:500;color:var(--text-sub);margin-left:2px}
+
+/* ---------- 季節 ---------- */
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:var(--surface);padding:6px;border-radius:999px;border:1px solid var(--line);max-width:520px;margin:0 auto 26px}
+.tab{
+  border:0;background:transparent;border-radius:999px;padding:10px 0;cursor:pointer;font-weight:700;line-height:1.3;
+  display:flex;flex-direction:column;align-items:center;color:var(--text-sub);transition:background .2s,color .2s;
+}
+.tab small{font-family:var(--font-en);font-style:italic;font-weight:400;font-size:12.5px}
+.tab[aria-selected="true"]{background:var(--text);color:#fff}
+.panel{display:grid;gap:22px;align-items:center}
+.panel[hidden]{display:none}
+.panel__img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+.panel__period{display:inline-block;font-size:13px;font-weight:700;color:var(--sub-ink);background:var(--sub);padding:2px 12px;border-radius:999px;margin-bottom:10px}
+.panel h3{font-size:22px;margin-bottom:10px}
+.panel__text{color:var(--text-sub);font-size:15px;margin-bottom:16px}
+.menu-list li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.menu-list li span:first-child{font-weight:500}
+.menu-list li span:last-child{font-weight:700;white-space:nowrap}
+.relay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 16px;position:relative}
+.relay li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 8px;text-align:center;position:relative}
+.relay li:not(:last-child)::after{
+  content:"";position:absolute;right:-8px;top:50%;width:8px;height:2px;background:var(--accent);
+}
+.relay b{display:block;font-family:var(--font-head);font-size:15.5px}
+.relay span{font-size:12px;color:var(--text-sub)}
+.relay i{display:block;width:22px;height:22px;border-radius:50%;margin:0 auto 6px;background:radial-gradient(circle at 35% 35%,#FFC48C,#E07B39 70%)}
+.relay li:nth-child(2) i{background:radial-gradient(circle at 35% 35%,#FFD79A,#E79A3B 70%)}
+.relay li:nth-child(3) i{background:radial-gradient(circle at 35% 35%,#FFB27A,#D8652A 70%)}
+
+/* ---------- ギフト ---------- */
+.gift{display:grid;gap:26px}
+.gift__img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.chips li{font-size:13.5px;padding:4px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.gift__lead{color:var(--text-sub);font-size:15px;margin-bottom:12px}
+.gift__group{background:var(--surface);border-radius:var(--radius);padding:6px 20px;border:1px solid var(--line);margin-bottom:14px}
+.gift__group h3{font-size:16px;padding-top:14px}
+.gift__noshi{
+  display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--radius);background:var(--accent-soft);
+  font-size:14.5px;font-weight:500;
+}
+.gift__noshi svg{width:28px;height:28px;color:var(--accent-ink);flex:none}
+
+/* ---------- 予約 ---------- */
+.order-sizes{display:grid;gap:22px;margin-bottom:44px}
+.order-sizes__img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.size{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 8px;text-align:center}
+.size__ring-wrap{height:58px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.size__ring-wrap .size__ring{margin:0}
+.size__ring{
+  margin:0 auto 8px;align-self:center;border-radius:50%;border:2px solid var(--accent);background:var(--accent-soft);
+}
+.size:nth-child(1) .size__ring{width:38px;height:38px}
+.size:nth-child(2) .size__ring{width:46px;height:46px}
+.size:nth-child(3) .size__ring{width:54px;height:54px}
+.size h3{font-size:19px}
+.size p{font-size:12.5px;color:var(--text-sub);line-height:1.6}
+.size .price{display:block;margin-top:6px;font-size:16px}
+.sub-head{font-family:var(--font-head);font-size:19px;text-align:center;margin-bottom:20px}
+.steps{display:grid;gap:12px;counter-reset:step;margin-bottom:44px;position:relative}
+.step{
+  display:grid;grid-template-columns:52px 1fr;gap:4px 14px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;position:relative;
+}
+.step__num{
+  grid-row:1/3;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:var(--text);color:#fff;font-family:var(--font-en);font-style:italic;font-size:24px;
+}
+.step h3{font-size:16.5px}
+.step p{font-size:13.5px;color:var(--text-sub);line-height:1.6}
+.step:not(:last-child)::after{
+  content:"";position:absolute;left:43px;bottom:-13px;width:2px;height:14px;background:var(--accent);
+}
+.methods{display:grid;gap:12px;margin-bottom:44px}
+.method{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--text);
+  transition:border-color .2s,transform .2s;
+}
+.method:hover{border-color:var(--accent);transform:translateY(-1px)}
+.method .method__icon{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--sub-soft);color:var(--sub-ink);flex:none}
+.method .method__icon svg{width:22px;height:22px}
+.method b{display:block;font-size:16px}
+.method span{font-size:13px;color:var(--text-sub);line-height:1.5;display:block}
+.form-card{background:var(--surface);border-radius:var(--radius-lg);padding:26px 20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.form-card h3{font-size:19px;text-align:center;margin-bottom:4px}
+.form-card > .note{text-align:center;margin-bottom:22px}
+.form-grid{display:grid;gap:18px}
+.field label,.field legend{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px;padding:0}
+.req{font-size:11px;font-weight:700;color:#fff;background:var(--accent-strong);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.opt{font-size:11px;font-weight:700;color:var(--text-sub);background:var(--line);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.field input[type="text"],.field input[type="tel"],.field input[type="date"],.field select,.field textarea{
+  width:100%;min-height:50px;padding:10px 14px;border:1.5px solid var(--line);border-radius:var(--radius-sm);background:var(--bg);
+  transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%233B2A22' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:12px;padding-right:38px;
+}
+.field textarea{min-height:84px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.field .hint{font-size:12.5px;color:var(--text-sub);margin-top:4px}
+fieldset.field{border:0;margin:0;padding:0;min-width:0}
+.radios{display:flex;gap:10px;flex-wrap:wrap}
+.radios label{
+  display:flex;align-items:center;gap:8px;font-weight:500;margin:0;padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;background:var(--bg);
+}
+.radios input{accent-color:var(--accent-strong);width:18px;height:18px;margin:0}
+.radios label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.form-submit{margin-top:8px;width:100%}
+
+/* ---------- 店主より ---------- */
+.message{display:grid;gap:26px;align-items:center}
+.message__img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+.message__body h2{font-size:clamp(22px,5.4vw,28px);margin-bottom:16px}
+.message__body p{font-size:15.5px;line-height:2.05}
+.message__sign{margin-top:18px;text-align:right;font-family:var(--font-head);font-size:15px}
+.message__sign span{font-family:var(--font-en);font-style:italic;color:var(--text-sub);margin-left:8px}
+
+/* ---------- ギャラリー ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.gallery__item{aspect-ratio:1;border-radius:10px}
+.gallery__foot{text-align:center;margin-top:24px}
+.btn svg.ig{width:20px;height:20px}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:780px;margin-inline:auto;display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.faq summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;
+  padding:18px 18px;font-weight:700;font-size:15.5px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .q{font-family:var(--font-en);font-style:italic;font-size:22px;color:var(--accent-ink);line-height:1}
+.faq summary .plus{width:24px;height:24px;border-radius:50%;background:var(--sub-soft);position:relative;flex:none}
+.faq summary .plus::before,.faq summary .plus::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.5px;background:var(--sub-ink);transform:translate(-50%,-50%);transition:transform .25s}
+.faq summary .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.faq .answer{padding:0 18px 20px 52px;color:var(--text-sub);font-size:15px}
+
+/* ---------- 店舗情報 ---------- */
+.access{display:grid;gap:24px}
+.access__img{aspect-ratio:4/3;box-shadow:var(--shadow)}
+.info{background:var(--surface);border-radius:var(--radius);border:1px solid var(--line);padding:6px 20px}
+.info div{display:grid;grid-template-columns:6.5em 1fr;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.info div:last-child{border-bottom:0}
+.info dt{font-weight:700}
+.info dd{margin:0}
+.map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#EEF4EF;position:relative}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font-size:12.5px;color:var(--text-sub);padding:8px 14px;background:var(--surface);border-top:1px solid var(--line)}
+
+/* ---------- フッター ---------- */
+.footer{background:var(--text);color:#F3E9DF;padding:52px 0 40px;margin-top:0}
+.footer .logo{color:#fff}
+.footer .logo__en{color:#CDBBAC}
+.footer__info{margin-top:16px;font-size:14px;line-height:1.9;color:#E3D6CA}
+.footer__nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:24px 0;font-size:14px}
+.footer__nav a{color:#F3E9DF;text-decoration:none}
+.footer__nav a:hover{text-decoration:underline}
+.footer__sample{
+  border:1px solid rgba(255,255,255,.25);border-radius:var(--radius-sm);padding:14px 16px;font-size:13px;line-height:1.75;color:#F3E9DF;
+}
+.footer__sample a{color:#FFD9BD;font-weight:700}
+.footer__copy{margin-top:22px;font-size:12px;color:#BFAE9F;text-align:center}
+
+/* ---------- 下部固定CTA（スマホ） ---------- */
+.fixed-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,240,.95);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform .3s;
+}
+.fixed-cta.is-show{transform:none}
+.fixed-cta .btn{min-height:48px;padding:10px 12px;font-size:15px}
+.footer{padding-bottom:calc(40px + 76px + env(safe-area-inset-bottom))}
+
+/* ---------- トースト ---------- */
+.toast{
+  position:fixed;left:50%;bottom:96px;z-index:100;transform:translate(-50%,16px);opacity:0;visibility:hidden;
+  width:min(420px,calc(100% - 32px));background:var(--text);color:#fff;border-radius:var(--radius-sm);
+  padding:14px 18px;font-size:14.5px;line-height:1.6;box-shadow:0 10px 30px rgba(0,0,0,.2);text-align:center;
+  transition:opacity .25s,transform .25s,visibility .25s;
+}
+.toast.is-show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* ---------- 装飾 ---------- */
+.wave{display:block;width:100%;height:22px;color:var(--line)}
+
+/* ---------- フェードイン ---------- */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.is-visible{opacity:1;transform:none}
+
+/* ---------- タブレット以上 ---------- */
+@media (min-width:640px){
+  .cards{grid-template-columns:repeat(3,1fr);gap:18px}
+  .card__body{padding:16px 18px 20px}
+  .card h3{font-size:17px}
+  .card p{font-size:14px}
+  .concept__grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(4,1fr);gap:16px}
+  .step{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 14px}
+  .step__num{grid-row:auto;margin-bottom:6px}
+  .step:not(:last-child)::after{left:auto;right:-13px;top:50%;bottom:auto;width:12px;height:2px}
+  .methods{grid-template-columns:repeat(3,1fr)}
+  .form-grid{grid-template-columns:1fr 1fr}
+  .form-grid .full{grid-column:1/-1}
+  .form-card{padding:36px 36px}
+  .gallery{gap:10px}
+  .news__list li{grid-template-columns:7.5em auto 1fr;align-items:center}
+  .news__list p{grid-column:auto}
+}
+
+/* ---------- PC ---------- */
+@media (min-width:960px){
+  :root{--header-h:76px}
+  body{font-size:16.5px}
+  .footer{padding-bottom:40px}
+  .nav-toggle{display:none}
+  .nav{position:static;opacity:1;visibility:visible;transform:none;background:none;border:0;padding:0;max-height:none;overflow:visible}
+  .nav ul{display:flex;align-items:center;gap:26px}
+  .nav a{padding:0;border:0;font-size:15px;flex-direction:column;align-items:center;line-height:1.3}
+  .nav a small{font-size:12.5px}
+  .nav a:not(.nav__cta):hover{color:var(--accent-ink)}
+  .nav .nav__cta{margin:0 0 0 6px;padding:12px 22px;flex-direction:row}
+  .fixed-cta{display:none}
+  .toast{bottom:32px}
+  .logo__ja{font-size:21px}
+
+  .hero{min-height:min(84vh,760px);display:flex;align-items:center}
+  .hero__media{position:absolute;inset:0;aspect-ratio:auto;--pos:right center}
+  .hero__media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(250,246,240,.97) 0%,rgba(250,246,240,.9) 32%,rgba(250,246,240,.35) 55%,rgba(250,246,240,0) 70%);
+  }
+  .hero__body{padding:60px 0;max-width:560px}
+  .hero__lead{font-size:17px}
+  .hero__btns .btn{flex:0 0 auto}
+
+  .section{padding:104px 0}
+  .sec-head{margin-bottom:52px}
+  .concept__img{aspect-ratio:21/8}
+  .cakes__showcase{aspect-ratio:21/8;margin-bottom:40px}
+  .concept__grid{gap:24px}
+  .concept__item{padding:32px 28px}
+  .cards{gap:24px}
+  .panel{grid-template-columns:1.15fr 1fr;gap:48px}
+  .gift{grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .gift__img{position:sticky;top:calc(var(--header-h) + 24px)}
+  .step{align-content:start}
+  .map{position:sticky;top:calc(var(--header-h) + 24px)}
+  .order-sizes{grid-template-columns:1fr 1.1fr;align-items:center;gap:40px}
+  .sizes{gap:16px}
+  .size{padding:22px 12px}
+  .form-card{max-width:860px;margin-inline:auto;padding:44px 52px}
+  .message{grid-template-columns:1fr 1.1fr;gap:56px}
+  .gallery{grid-template-columns:repeat(6,1fr)}
+  .access{grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .access__side{display:grid;gap:24px}
+  .footer__top{display:flex;justify-content:space-between;gap:40px;align-items:flex-start}
+  .footer__nav{margin:0;max-width:440px;justify-content:flex-end}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+:root{--i-chiffon:url(img/photo-01.webp);--i-exterior:url(img/photo-02.webp);--i-gateau-chocolat:url(img/photo-03.webp);--i-gift-box:url(img/photo-04.webp);--i-hero:url(img/photo-05.webp);--i-ingredients:url(img/photo-06.webp);--i-patissier-hands:url(img/photo-07.webp);--i-pudding:url(img/photo-08.webp);--i-roll:url(img/photo-09.webp);--i-season-autumn:url(img/photo-10.webp);--i-season-spring:url(img/photo-11.webp);--i-season-summer:url(img/photo-12.webp);--i-season-winter:url(img/photo-13.webp);--i-shortcake:url(img/photo-14.webp);--i-showcase:url(img/photo-15.webp);--i-tart-madonna:url(img/photo-16.webp);--i-whole-cake:url(img/photo-17.webp);}
+</style>
+</head>
+<body>
+
+<!-- 1. サンプル表記 -->
+<div class="sample-band" role="note">
+  <strong>※このサイトは愛媛東予Worksの制作サンプルです。</strong>掲載の店舗・住所・電話番号・商品はすべて架空のものです。
+</div>
+
+<!-- 2. ヘッダー -->
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a href="#top" class="logo" aria-label="しずく洋菓子店 トップへ">
+      <svg viewBox="0 0 26 34" aria-hidden="true">
+        <path d="M13 1.5C13 1.5 2 14.5 2 22a11 11 0 0 0 22 0C24 14.5 13 1.5 13 1.5z" fill="#E07B39"/>
+        <path d="M8 21.5a5 5 0 0 0 4 5" fill="none" stroke="#FFF3E8" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="logo__ja">しずく洋菓子店</span>
+        <span class="logo__en">Pâtisserie Shizuku</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く">
+      <span></span>
+    </button>
+    <nav class="nav" id="global-nav" aria-label="メインメニュー">
+      <ul>
+        <li><a href="#concept">こだわり<small>Concept</small></a></li>
+        <li><a href="#cakes">ケーキ<small>Cakes</small></a></li>
+        <li><a href="#season">季節のおすすめ<small>Season</small></a></li>
+        <li><a href="#gift">焼き菓子・ギフト<small>Gift</small></a></li>
+        <li><a href="#access">店舗情報<small>Access</small></a></li>
+        <li><a href="#order" class="nav__cta">ホールケーキのご予約<small>Order</small></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 3. ヒーロー -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__media ph" style="--img:var(--i-hero)" role="img" aria-label="木のカウンターに並ぶ柑橘のタルト、いちごのショートケーキ、瓶入りのプリン"></div>
+    <div class="container hero__body">
+      <p class="hero__en">Pâtisserie Shizuku — since 2016</p>
+      <p class="hero__badge">おかげさまで10周年</p>
+      <h1 id="hero-title"><span class="br">うちぬきの水と、</span><span class="br">東予の果物で。</span></h1>
+      <p class="hero__lead">西条の小さな洋菓子店です。<br>毎日のおやつも、特別な日のケーキも。</p>
+      <div class="hero__btns">
+        <a href="#cakes" class="btn btn--ghost">ケーキを見る</a>
+        <a href="#order" class="btn btn--primary">ホールケーキのご予約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. お知らせ -->
+  <section class="news" id="news" aria-labelledby="news-title">
+    <div class="container">
+      <div class="news__box reveal">
+        <div class="news__title"><h2 id="news-title">お知らせ</h2><span>News</span></div>
+        <ul class="news__list">
+          <li>
+            <time datetime="2026-10-05">2026.10.05</time>
+            <span class="news__tag">営業時間</span>
+            <p>秋祭り期間中（10月中旬）は 9:00〜17:00 で営業します。差し入れ用の焼き菓子もご用意しています。</p>
+          </li>
+          <li>
+            <time datetime="2026-10-01">2026.10.01</time>
+            <span class="news__tag news__tag--hot">10周年</span>
+            <p>10周年記念の焼き菓子セットを数量限定で販売中です。</p>
+          </li>
+          <li>
+            <time datetime="2026-09-25">2026.09.25</time>
+            <span class="news__tag">季節のケーキ</span>
+            <p>紅まどんなのタルトは12月上旬から始まる予定です。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. こだわり -->
+  <section class="section" id="concept" aria-labelledby="concept-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Concept
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="concept-title" class="kw">しずく洋菓子店の<wbr>こだわり</h2>
+        <p class="desc">西条の水と、愛媛の果物と麦。<br>身近な素材で、毎日食べたくなるお菓子をつくっています。</p>
+      </div>
+      <div class="concept__img ph reveal" style="--img:var(--i-ingredients)" role="img" aria-label="木の台に並べた柑橘、麦の粒、小麦粉、卵、水の入ったピッチャー"></div>
+      <div class="concept__grid">
+        <article class="concept__item reveal">
+          <div class="concept__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.5S5 10.6 5 15.3a7 7 0 0 0 14 0C19 10.6 12 2.5 12 2.5z"/><path d="M9 15.5a3.2 3.2 0 0 0 2.6 3" stroke-linecap="round"/></svg>
+          </div>
+          <p class="concept__label">01 — Water</p>
+          <h3>水：うちぬきの水で仕込む</h3>
+          <p>西条の湧き水「うちぬき」で、プリンとゼリーを仕込んでいます。まろやかな水だから、素材の味がすっと伝わります。</p>
+        </article>
+        <article class="concept__item reveal">
+          <div class="concept__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 6V13.5M12 13.5l5.3-5.3M12 13.5l5.3 5.3M12 13.5H19.5M12 13.5l-5.3 5.3M12 13.5H4.5M12 13.5L6.7 8.2M12 13.5V21" stroke-width="1"/><path d="M12 6c1-2.4 3-3.3 5-3" stroke-linecap="round"/></svg>
+          </div>
+          <p class="concept__label">02 — Fruits</p>
+          <h3>果物：愛媛の柑橘と季節の果物</h3>
+          <p>冬は紅まどんな・甘平・せとか、春はいちご、秋は柿。愛媛の旬の果物を、いちばんおいしい時期に使います。</p>
+        </article>
+        <article class="concept__item reveal">
+          <div class="concept__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V7"/><path d="M12 9c-2.6 0-4-1.6-4-4 2.6 0 4 1.6 4 4zM12 9c2.6 0 4-1.6 4-4-2.6 0-4 1.6-4 4zM12 14c-2.6 0-4-1.6-4-4 2.6 0 4 1.6 4 4zM12 14c2.6 0 4-1.6 4-4-2.6 0-4 1.6-4 4zM12 19c-2.6 0-4-1.6-4-4 2.6 0 4 1.6 4 4zM12 19c2.6 0 4-1.6 4-4-2.6 0-4 1.6-4 4z"/><path d="M12 7V3"/></svg>
+          </div>
+          <p class="concept__label">03 — Barley</p>
+          <h3>麦：愛媛県産はだか麦</h3>
+          <p>生産量日本一の愛媛県産はだか麦を、サブレに練り込みました。ぷちっとした食感と香ばしさが自慢です。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave" viewBox="0 0 1200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11c50-10 100-10 150 0s100 10 150 0 100-10 150 0 100 10 150 0 100-10 150 0 100 10 150 0 100-10 150 0 100 10 150 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+
+  <!-- 6. 定番のケーキ -->
+  <section class="section" id="cakes" aria-labelledby="cakes-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Cakes
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="cakes-title">定番のケーキ</h2>
+        <p class="desc">ショーケースにいつも並んでいる、おなじみの顔ぶれです。</p>
+      </div>
+      <div class="cakes__showcase ph reveal" style="--img:var(--i-showcase)" role="img" aria-label="ケーキが並ぶガラスのショーケース"></div>
+      <ul class="cards">
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-shortcake)" role="img" aria-label="いちごのショートケーキ"></div>
+          <div class="card__body">
+            <h3 class="kw">いちごの<wbr>ショートケーキ</h3>
+            <p>ふんわりスポンジに、甘さひかえめの生クリームといちごをたっぷり。</p>
+            <span class="price">480円<small>（税込）</small></span>
+          </div>
+        </li>
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-tart-madonna)" role="img" aria-label="柑橘を敷きつめた紅まどんなのタルト">
+            <span class="card__badge">冬季限定</span>
+          </div>
+          <div class="card__body">
+            <h3 class="kw">紅まどんなの<wbr>タルト</h3>
+            <p>ぷるんとやわらかな紅まどんなを、さくさくのタルトにぜいたくに。</p>
+            <span class="price">620円<small>（税込）</small></span>
+          </div>
+        </li>
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-pudding)" role="img" aria-label="ガラス瓶入りのうちぬきプリン">
+            <span class="card__badge card__badge--water">看板商品</span>
+          </div>
+          <div class="card__body">
+            <h3 class="kw">うちぬきプリン</h3>
+            <p>うちぬきの水でなめらかに蒸し上げた、昔ながらのカスタードプリン。</p>
+            <span class="price">380円<small>（税込）</small></span>
+          </div>
+        </li>
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-gateau-chocolat)" role="img" aria-label="生クリームを添えたガトーショコラ"></div>
+          <div class="card__body">
+            <h3 class="kw">濃厚<wbr>ガトーショコラ</h3>
+            <p>しっとり濃厚。ゆるめに泡立てた生クリームを添えて。</p>
+            <span class="price">450円<small>（税込）</small></span>
+          </div>
+        </li>
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-roll)" role="img" aria-label="フルーツを巻いたロールケーキの断面"></div>
+          <div class="card__body">
+            <h3 class="kw">季節の<wbr>ロールケーキ</h3>
+            <p>その時期の果物を巻き込んだ、ふわふわのロールケーキ。</p>
+            <span class="price">420円<small>（税込）</small></span>
+          </div>
+        </li>
+        <li class="card reveal">
+          <div class="card__img ph" style="--img:var(--i-chiffon)" role="img" aria-label="ホイップクリームを添えた紅茶のシフォンケーキ"></div>
+          <div class="card__body">
+            <h3 class="kw">和紅茶の<wbr>シフォンケーキ</h3>
+            <p>和紅茶の茶葉を練り込んだ、やさしい香りのシフォン。</p>
+            <span class="price">400円<small>（税込）</small></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. 季節のおすすめ -->
+  <section class="section section--water" id="season" aria-labelledby="season-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Season
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="season-title">季節のおすすめ</h2>
+        <p class="desc">愛媛の旬にあわせて、ショーケースの顔ぶれが変わります。</p>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="季節を選ぶ">
+        <button class="tab" role="tab" id="tab-spring" aria-controls="panel-spring" aria-selected="false" tabindex="-1" data-season="spring">春<small>Spring</small></button>
+        <button class="tab" role="tab" id="tab-summer" aria-controls="panel-summer" aria-selected="false" tabindex="-1" data-season="summer">夏<small>Summer</small></button>
+        <button class="tab" role="tab" id="tab-autumn" aria-controls="panel-autumn" aria-selected="true" tabindex="0" data-season="autumn">秋<small>Autumn</small></button>
+        <button class="tab" role="tab" id="tab-winter" aria-controls="panel-winter" aria-selected="false" tabindex="-1" data-season="winter">冬<small>Winter</small></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-spring" aria-labelledby="tab-spring" tabindex="0" hidden>
+        <div class="panel__img ph" style="--img:var(--i-season-spring)" role="img" aria-label="いちごをぎっしりのせたタルト"></div>
+        <div>
+          <span class="panel__period">3月〜5月ごろ</span>
+          <h3>あまおとめのタルト</h3>
+          <p class="panel__text">愛媛生まれのいちご「あまおとめ」を、タルトにぎっしり。甘さと酸味のバランスがよく、春いちばん人気のケーキです。</p>
+          <ul class="menu-list">
+            <li><span>あまおとめのタルト</span><span>650円</span></li>
+            <li><span>いちごのロールケーキ</span><span>450円</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-summer" aria-labelledby="tab-summer" tabindex="0" hidden>
+        <div class="panel__img ph" style="--img:var(--i-season-summer)" role="img" aria-label="白桃のムースと果物入りの透明なゼリー"></div>
+        <div>
+          <span class="panel__period">6月〜8月ごろ</span>
+          <h3 class="kw">白桃の<wbr>ムースと、<wbr>うちぬき水の<wbr>ゼリー</h3>
+          <p class="panel__text">暑い季節は、冷たくてのどごしのいいお菓子を。うちぬきの水でつくる透きとおったゼリーは、夏の手土産にも好評です。</p>
+          <ul class="menu-list">
+            <li><span>白桃のムース</span><span>520円</span></li>
+            <li><span>うちぬき水のフルーツゼリー</span><span>380円</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-autumn" aria-labelledby="tab-autumn" tabindex="0">
+        <div class="panel__img ph" style="--img:var(--i-season-autumn)" role="img" aria-label="柿のタルトと和栗のモンブラン"></div>
+        <div>
+          <span class="panel__period">9月〜11月ごろ</span>
+          <h3 class="kw">西条の柿の<wbr>タルトと、<wbr>和栗の<wbr>モンブラン</h3>
+          <p class="panel__text">秋は西条の柿と、ほっくりした和栗の季節。お祭りの集まりや、ご近所への差し入れにもどうぞ。</p>
+          <ul class="menu-list">
+            <li><span>西条の柿のタルト</span><span>580円</span></li>
+            <li><span>和栗のモンブラン</span><span>560円</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-winter" aria-labelledby="tab-winter" tabindex="0" hidden>
+        <div class="panel__img ph" style="--img:var(--i-season-winter)" role="img" aria-label="3種類の柑橘を使ったタルトやケーキ"></div>
+        <div>
+          <span class="panel__period">12月〜3月ごろ</span>
+          <h3>愛媛の柑橘リレー</h3>
+          <p class="panel__text">冬から春先にかけて、旬の柑橘をバトンのようにつないでいきます。時期ごとに違う香りと甘さをお楽しみください。</p>
+          <ol class="relay" aria-label="柑橘が切り替わる順番">
+            <li><i aria-hidden="true"></i><b>紅まどんな</b><span>12月〜</span></li>
+            <li><i aria-hidden="true"></i><b>甘平</b><span>1月〜2月</span></li>
+            <li><i aria-hidden="true"></i><b>せとか</b><span>2月〜3月</span></li>
+          </ol>
+          <ul class="menu-list">
+            <li><span>柑橘のタルト（その時期の柑橘で）</span><span>620円</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 焼き菓子・ギフト -->
+  <section class="section" id="gift" aria-labelledby="gift-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Gift
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="gift-title">焼き菓子・ギフト</h2>
+      </div>
+      <div class="gift">
+        <div class="gift__img ph reveal" style="--img:var(--i-gift-box)" role="img" aria-label="クラフト箱に詰めた焼き菓子のギフトと水色のリボン"></div>
+        <div class="reveal">
+          <p class="gift__lead">日持ちのする焼き菓子は、手土産や贈りものにぴったり。店主の妻がひとつずつ焼き上げています。</p>
+          <ul class="chips" aria-label="おすすめの用途">
+            <li>手土産</li><li>出産内祝い</li><li>お祭りの差し入れ</li><li>お中元・お歳暮</li>
+          </ul>
+          <div class="gift__group">
+            <h3>焼き菓子</h3>
+            <ul class="menu-list">
+              <li><span>はだか麦のサブレ</span><span>1枚 150円</span></li>
+              <li><span>はだか麦のサブレ 8枚箱</span><span>1,300円</span></li>
+              <li><span>フィナンシェ</span><span>220円</span></li>
+              <li style="border-bottom:0"><span>マドレーヌ</span><span>200円</span></li>
+            </ul>
+          </div>
+          <div class="gift__group">
+            <h3>焼き菓子ギフトボックス</h3>
+            <ul class="menu-list">
+              <li><span>小箱（6個入り）</span><span>1,800円</span></li>
+              <li><span>中箱（10個入り）</span><span>3,000円</span></li>
+              <li style="border-bottom:0"><span>大箱（18個入り）</span><span>5,000円</span></li>
+            </ul>
+          </div>
+          <p class="gift__noshi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M12 8C10 4 6 4 6.5 6.5S12 8 12 8zM12 8c2-4 6-4 5.5-1.5S12 8 12 8z"/></svg>
+            熨斗（のし）・メッセージカードは無料で承ります。
+          </p>
+          <p class="note" style="margin-top:10px">価格はすべて税込です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ホールケーキのご予約 -->
+  <section class="section section--tint" id="order" aria-labelledby="order-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Order
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="order-title">ホールケーキのご予約</h2>
+        <p class="desc">お誕生日や記念日のケーキは、3日前までのご予約で確実にご用意します。</p>
+      </div>
+
+      <div class="order-sizes">
+        <div class="order-sizes__img ph reveal" style="--img:var(--i-whole-cake)" role="img" aria-label="チョコプレートをのせたいちごのホールケーキ"></div>
+        <div class="reveal">
+          <ul class="sizes">
+            <li class="size">
+              <div class="size__ring-wrap" aria-hidden="true"><div class="size__ring"></div></div>
+              <h3>4号</h3>
+              <p>直径12cm<br>2〜4名さま</p>
+              <span class="price">2,800円〜</span>
+            </li>
+            <li class="size">
+              <div class="size__ring-wrap" aria-hidden="true"><div class="size__ring"></div></div>
+              <h3>5号</h3>
+              <p>直径15cm<br>4〜6名さま</p>
+              <span class="price">3,600円〜</span>
+            </li>
+            <li class="size">
+              <div class="size__ring-wrap" aria-hidden="true"><div class="size__ring"></div></div>
+              <h3>6号</h3>
+              <p>直径18cm<br>6〜8名さま</p>
+              <span class="price">4,600円〜</span>
+            </li>
+          </ul>
+          <p class="note" style="margin-top:12px">※価格はいちごのショートケーキの場合（税込）。ケーキの種類によって変わります。メッセージプレート・ろうそくは無料です。</p>
+        </div>
+      </div>
+
+      <h3 class="sub-head reveal">ご予約の流れ</h3>
+      <ol class="steps">
+        <li class="step reveal"><span class="step__num" aria-hidden="true">1</span><h3 class="kw">3日前までに<wbr>ご連絡</h3><p>電話・LINE・フォームのいずれかで</p></li>
+        <li class="step reveal"><span class="step__num" aria-hidden="true">2</span><h3 class="kw">サイズ・<wbr>メッセージを<wbr>決める</h3><p>ケーキの種類やプレートの文字も</p></li>
+        <li class="step reveal"><span class="step__num" aria-hidden="true">3</span><h3 class="kw">ご来店・<wbr>お受け取り</h3><p>ご希望の日時にお店へ</p></li>
+        <li class="step reveal"><span class="step__num" aria-hidden="true">4</span><h3>お支払い</h3><p>お受け取りのときにお支払いください</p></li>
+      </ol>
+
+      <h3 class="sub-head reveal">ご予約方法</h3>
+      <div class="methods">
+        <a href="#" class="method reveal" data-sample="tel">
+          <span class="method__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>
+          <span><b>お電話</b><span>0897-00-0000（10:00〜18:00）</span></span>
+        </a>
+        <a href="#" class="method reveal" data-sample="line">
+          <span class="method__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3C6.5 3 2.5 6.6 2.5 11c0 3.9 3.2 7.1 7.5 7.8V22l3.5-3.1C18.4 18.5 21.5 15.1 21.5 11 21.5 6.6 17.5 3 12 3z"/></svg></span>
+          <span><b>LINE</b><span>24時間受付・翌営業日にお返事</span></span>
+        </a>
+        <a href="#order-form" class="method reveal">
+          <span class="method__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+          <span><b>予約フォーム</b><span>下のフォームから送信</span></span>
+        </a>
+      </div>
+
+      <div class="form-card reveal" id="order-form">
+        <h3>ご予約フォーム</h3>
+        <p class="note">※サンプルサイトのため、実際には送信されません。</p>
+        <form id="reserve-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-date">受取日<span class="req">必須</span></label>
+              <input type="date" id="f-date" name="date" required>
+              <p class="hint">3日後以降の日付を選んでください（火曜・第3水曜は定休日）</p>
+            </div>
+            <div class="field">
+              <label for="f-time">受取時間<span class="req">必須</span></label>
+              <select id="f-time" name="time" required>
+                <option value="">選んでください</option>
+                <option>10:00〜12:00</option>
+                <option>12:00〜14:00</option>
+                <option>14:00〜16:00</option>
+                <option>16:00〜18:00</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-size">サイズ<span class="req">必須</span></label>
+              <select id="f-size" name="size" required>
+                <option value="">選んでください</option>
+                <option>4号（2〜4名）</option>
+                <option>5号（4〜6名）</option>
+                <option>6号（6〜8名）</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-kind">ケーキの種類<span class="req">必須</span></label>
+              <select id="f-kind" name="kind" required>
+                <option value="">選んでください</option>
+                <option>いちごのショートケーキ</option>
+                <option>濃厚ガトーショコラ</option>
+                <option>季節のフルーツタルト</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-plate">プレートのメッセージ<span class="opt">任意</span></label>
+              <input type="text" id="f-plate" name="plate" maxlength="20" placeholder="例：はるちゃん 3さい おめでとう">
+              <p class="hint">20文字まで</p>
+            </div>
+            <fieldset class="field full">
+              <legend>アレルギーの有無<span class="req">必須</span></legend>
+              <div class="radios">
+                <label><input type="radio" name="allergy" value="なし" required> なし</label>
+                <label><input type="radio" name="allergy" value="あり"> あり</label>
+              </div>
+              <div id="allergy-detail" hidden style="margin-top:10px">
+                <label for="f-allergy" class="sr-only">アレルギーの内容</label>
+                <textarea id="f-allergy" name="allergy_detail" placeholder="食材の名前をご記入ください。対応できるかどうか、お店からご連絡します。"></textarea>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="f-name">お名前<span class="req">必須</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="例：西条 花子">
+            </div>
+            <div class="field">
+              <label for="f-tel">電話番号<span class="req">必須</span></label>
+              <input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" required placeholder="例：090-0000-0000">
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary form-submit" style="margin-top:26px">この内容で予約を申し込む</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 店主より -->
+  <section class="section" id="message" aria-labelledby="message-title">
+    <div class="container message">
+      <div class="message__img ph reveal" style="--img:var(--i-patissier-hands)" role="img" aria-label="ケーキにクリームを絞るパティシエの手元"></div>
+      <div class="message__body reveal">
+        <div class="sec-head" style="text-align:left;margin-bottom:12px">
+          <p class="en" style="align-items:flex-start">Message
+            <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </p>
+        </div>
+        <h2 id="message-title">店主より</h2>
+        <p>はじめまして。西条の町の小さな洋菓子店、しずく洋菓子店です。神戸のお店で修業したあと、生まれ育ったこの町に戻り、2016年にお店をひらきました。うちぬきの水で仕込むプリン、冬に並ぶ紅まどんなのタルト、妻が焼くはだか麦のサブレ。毎日のおやつにも、特別な日のお祝いにも寄りそえるお菓子でありたいと思っています。お散歩のついでに、気軽にのぞいてみてください。</p>
+        <p class="message__sign">店主・店主の妻<span>Shizuku</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. ギャラリー -->
+  <section class="section section--tint" id="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Gallery
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="gallery-title">お店の日々</h2>
+        <p class="desc">新作や、その日の焼き上がりはInstagramでお知らせしています。</p>
+      </div>
+      <ul class="gallery reveal">
+        <li class="gallery__item ph" style="--img:var(--i-whole-cake)" role="img" aria-label="いちごのホールケーキ"></li>
+        <li class="gallery__item ph" style="--img:var(--i-season-autumn)" role="img" aria-label="柿のタルトとモンブラン"></li>
+        <li class="gallery__item ph" style="--img:var(--i-gift-box)" role="img" aria-label="焼き菓子のギフトボックス"></li>
+        <li class="gallery__item ph" style="--img:var(--i-exterior);--pos:30% center" role="img" aria-label="お店の外観"></li>
+        <li class="gallery__item ph" style="--img:var(--i-season-summer)" role="img" aria-label="白桃のムースとフルーツゼリー"></li>
+        <li class="gallery__item ph" style="--img:var(--i-pudding)" role="img" aria-label="うちぬきプリン"></li>
+      </ul>
+      <div class="gallery__foot">
+        <a href="#" class="btn btn--ghost" data-sample="instagram">
+          <svg class="ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagramはこちら
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. よくある質問 -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">FAQ
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="faq-title">よくある質問</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary><span class="q" aria-hidden="true">Q</span>アレルギーに対応したケーキはありますか？<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">ほとんどの商品に卵・乳・小麦を使っています。同じ工房でつくっているため、完全に取りのぞくことはできませんが、原材料は店頭でご案内しています。ご予約のときに、お気軽にご相談ください。</p>
+        </details>
+        <details>
+          <summary><span class="q" aria-hidden="true">Q</span>保冷剤はつけてもらえますか？<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">はい、無料でおつけします。お持ち歩きの時間をお伝えください。生ケーキは、お持ち歩き1時間ほどを目安にお召し上がりください。</p>
+        </details>
+        <details>
+          <summary><span class="q" aria-hidden="true">Q</span>駐車場はありますか？<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">お店の前に4台分ございます。満車のときは、少しだけお待ちいただくことがあります。</p>
+        </details>
+        <details>
+          <summary><span class="q" aria-hidden="true">Q</span>予約なしで、当日にホールケーキは買えますか？<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">4号・5号のいちごのショートケーキを、店頭に数台ご用意している日もあります。数に限りがあるため、確実にご用意するには3日前までのご予約がおすすめです。</p>
+        </details>
+        <details>
+          <summary><span class="q" aria-hidden="true">Q</span>キャッシュレス決済は使えますか？<span class="plus" aria-hidden="true"></span></summary>
+          <p class="answer">現金のほか、クレジットカード、交通系IC、QRコード決済がご利用いただけます。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. 店舗情報 -->
+  <section class="section section--water" id="access" aria-labelledby="access-title">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="en">Access
+          <svg viewBox="0 0 44 8" aria-hidden="true"><path d="M1 4c4-4 7-4 10.5 0s7 4 10.5 0 7-4 10.5 0 7 4 10.5 0" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </p>
+        <h2 id="access-title">店舗情報</h2>
+      </div>
+      <div class="access">
+        <div class="access__side">
+          <div class="access__img ph reveal" style="--img:var(--i-exterior)" role="img" aria-label="白い壁と水色のオーニングのお店の外観"></div>
+          <dl class="info reveal">
+            <div><dt>店名</dt><dd>しずく洋菓子店<br><span class="note">Pâtisserie Shizuku</span></dd></div>
+            <div><dt>住所</dt><dd>〒793-0000<br>愛媛県西条市しずく町1-8（架空）</dd></div>
+            <div><dt>電話</dt><dd><a href="#" data-sample="tel">0897-00-0000</a>（架空）</dd></div>
+            <div><dt>営業時間</dt><dd>10:00〜18:00<br><span class="note">売り切れしだい終了します</span></dd></div>
+            <div><dt>定休日</dt><dd>火曜日・第3水曜日</dd></div>
+            <div><dt>駐車場</dt><dd>店舗前に4台</dd></div>
+            <div><dt>ご利用</dt><dd>テイクアウト専門（イートインはありません）</dd></div>
+          </dl>
+        </div>
+        <figure class="map reveal" style="margin:0">
+          <svg viewBox="0 0 400 360" role="img" aria-label="お店の周辺のイメージ地図">
+            <rect width="400" height="360" fill="#EEF4EF"/>
+            <!-- 田んぼ・公園 -->
+            <rect x="24" y="24" width="120" height="86" rx="10" fill="#E2EDD9"/>
+            <rect x="262" y="236" width="112" height="96" rx="10" fill="#E2EDD9"/>
+            <circle cx="292" cy="268" r="9" fill="#CFE0C3"/><circle cx="318" cy="292" r="12" fill="#CFE0C3"/><circle cx="344" cy="262" r="8" fill="#CFE0C3"/>
+            <!-- 川 -->
+            <path d="M-10 300C60 280 90 230 150 220S260 200 300 150 360 70 420 60" fill="none" stroke="#CFE3E6" stroke-width="22" stroke-linecap="round"/>
+            <path d="M-10 300C60 280 90 230 150 220S260 200 300 150 360 70 420 60" fill="none" stroke="#B7D5DA" stroke-width="2" stroke-dasharray="6 8"/>
+            <!-- 道路 -->
+            <path d="M0 150H400" stroke="#fff" stroke-width="20"/>
+            <path d="M0 150H400" stroke="#E8DED2" stroke-width="1.5" stroke-dasharray="10 10"/>
+            <path d="M210 0V360" stroke="#fff" stroke-width="14"/>
+            <path d="M80 150V360" stroke="#fff" stroke-width="10"/>
+            <!-- 建物 -->
+            <rect x="232" y="78" width="40" height="30" rx="4" fill="#E6DED3"/>
+            <rect x="286" y="84" width="30" height="24" rx="4" fill="#E6DED3"/>
+            <rect x="110" y="176" width="36" height="28" rx="4" fill="#E6DED3"/>
+            <rect x="232" y="176" width="34" height="24" rx="4" fill="#E6DED3"/>
+            <!-- 駐車場 -->
+            <rect x="150" y="98" width="44" height="34" rx="6" fill="#fff" stroke="#E8DED2"/>
+            <text x="172" y="117" text-anchor="middle" font-size="15" font-weight="700" fill="#2F6670" font-family="sans-serif">P</text>
+            <!-- ピン -->
+            <g transform="translate(176 66)">
+              <path d="M0-30C0-30-14-13-14-3a14 14 0 0 0 28 0C14-13 0-30 0-30z" fill="#E07B39"/>
+              <circle cx="0" cy="-4" r="5" fill="#fff"/>
+            </g>
+            <g font-family="'Zen Maru Gothic',sans-serif" font-weight="700">
+              <rect x="112" y="6" width="128" height="26" rx="13" fill="#3B2A22"/>
+              <text x="176" y="24" text-anchor="middle" font-size="13" fill="#fff">しずく洋菓子店</text>
+              <text x="24" y="134" font-size="12" fill="#6E5A4E">大通り</text>
+              <text x="64" y="266" font-size="12" fill="#2F6670">川</text>
+              <text x="318" y="322" text-anchor="middle" font-size="12" fill="#5E7A52">公園</text>
+              <text x="172" y="128" text-anchor="middle" font-size="9.5" fill="#2F6670">4台</text>
+            </g>
+          </svg>
+          <figcaption>※架空の住所のため、地図はイメージです。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 14. フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="#top" class="logo" aria-label="しずく洋菓子店 トップへ">
+          <svg viewBox="0 0 26 34" aria-hidden="true">
+            <path d="M13 1.5C13 1.5 2 14.5 2 22a11 11 0 0 0 22 0C24 14.5 13 1.5 13 1.5z" fill="#E07B39"/>
+            <path d="M8 21.5a5 5 0 0 0 4 5" fill="none" stroke="#FFF3E8" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span><span class="logo__ja">しずく洋菓子店</span><span class="logo__en">Pâtisserie Shizuku</span></span>
+        </a>
+        <p class="footer__info">〒793-0000 愛媛県西条市しずく町1-8（架空）<br>TEL 0897-00-0000（架空）<br>10:00〜18:00／火曜日・第3水曜日 定休</p>
+      </div>
+      <ul class="footer__nav">
+        <li><a href="#concept">こだわり</a></li>
+        <li><a href="#cakes">ケーキ</a></li>
+        <li><a href="#season">季節のおすすめ</a></li>
+        <li><a href="#gift">焼き菓子・ギフト</a></li>
+        <li><a href="#order">ご予約</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#access">店舗情報</a></li>
+      </ul>
+    </div>
+    <p class="footer__sample" style="margin-top:28px">
+      ※このサイトは、ホームページ制作の実績紹介のためにつくった<strong>架空のお店のサンプルサイト</strong>です。店舗名・住所・電話番号・人物・商品・価格はすべて架空のもので、実在の店舗とは関係ありません。<br>
+      制作：<a href="https://ehime-toyoworks.hp-web.workers.dev/" target="_blank" rel="noopener">愛媛東予Works</a>
+    </p>
+    <p class="footer__copy">© 2026 しずく洋菓子店（架空）</p>
+  </div>
+</footer>
+
+<!-- 15. スマホ用 固定CTA -->
+<div class="fixed-cta" aria-label="お問い合わせ">
+  <a href="#" class="btn btn--ghost" data-sample="tel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+    電話する
+  </a>
+  <a href="#order" class="btn btn--primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    予約する
+  </a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  /* トースト */
+  var toast = document.getElementById('toast'), toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('is-show'); }, 3200);
+  }
+
+  /* サンプルリンク（電話・LINE・Instagram） */
+  var sampleMsg = {
+    tel: 'サンプルサイトのため発信されません。',
+    line: 'サンプルサイトのため、LINEは開きません。',
+    instagram: 'サンプルサイトのため、Instagramは開きません。'
+  };
+  document.querySelectorAll('[data-sample]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      showToast(sampleMsg[el.dataset.sample] || 'サンプルサイトのため動作しません。');
+    });
+  });
+
+  /* ハンバーガーメニュー */
+  var toggle = document.querySelector('.nav-toggle'), nav = document.getElementById('global-nav');
+  function setNav(open){
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    nav.classList.toggle('is-open', open);
+  }
+  toggle.addEventListener('click', function(){ setNav(toggle.getAttribute('aria-expanded') !== 'true'); });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setNav(false); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true'){ setNav(false); toggle.focus(); }
+  });
+
+  /* スクロール時：ヘッダーの線・固定CTAの表示 */
+  var header = document.querySelector('.header'), cta = document.querySelector('.fixed-cta');
+  function onScroll(){
+    var y = window.scrollY;
+    header.classList.toggle('is-scrolled', y > 10);
+    cta.classList.toggle('is-show', y > 360);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* 季節タブ（今の季節を最初に表示） */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(tab, focus){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if(focus) tab.focus();
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ selectTab(tab); });
+    tab.addEventListener('keydown', function(e){
+      var n = null;
+      if(e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if(e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if(e.key === 'Home') n = tabs[0];
+      if(e.key === 'End') n = tabs[tabs.length - 1];
+      if(n){ e.preventDefault(); selectTab(n, true); }
+    });
+  });
+  var m = new Date().getMonth() + 1;
+  var current = (m >= 3 && m <= 5) ? 'spring' : (m >= 6 && m <= 8) ? 'summer' : (m >= 9 && m <= 11) ? 'autumn' : 'winter';
+  selectTab(document.querySelector('[data-season="' + current + '"]'));
+
+  /* 予約フォーム */
+  var dateInput = document.getElementById('f-date');
+  var min = new Date(); min.setDate(min.getDate() + 3);
+  dateInput.min = min.getFullYear() + '-' + String(min.getMonth() + 1).padStart(2, '0') + '-' + String(min.getDate()).padStart(2, '0');
+
+  var detail = document.getElementById('allergy-detail');
+  document.querySelectorAll('input[name="allergy"]').forEach(function(r){
+    r.addEventListener('change', function(){ detail.hidden = !(r.value === 'あり' && r.checked); });
+  });
+
+  document.getElementById('reserve-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){
+      var bad = this.querySelector(':invalid');
+      if(bad){ bad.focus(); }
+      showToast('未入力の項目があります。※サンプルサイトのため、入力しても送信はされません。');
+      return;
+    }
+    showToast('サンプルサイトのため送信されません。ご覧いただきありがとうございます。');
+  });
+
+  /* スクロールでふわっと表示 */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

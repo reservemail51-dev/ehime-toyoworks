@@ -30,6 +30,27 @@
 */
 window.WORKS = [
   {
+    id: "soyogi",
+    title: "hair room そよぎ",
+    type: "sample",
+    industry: "美容室",
+    area: "架空の店舗（新居浜市という設定）",
+    plan: "1ページ",
+    year: 2026,
+    pickup: true,
+    thumb: "images/works/soyogi/thumb.webp",
+    images: ["images/works/soyogi/pc.webp", "images/works/soyogi/sp.webp"],
+    url: "samples/soyogi/",
+    summary: "【架空の店舗】新居浜の小さな美容室、という設定でつくった1ページのサンプルサイト。",
+    points: [
+      "LINE予約のボタンを、画面の上と下（スマホ）のどちらからも押せるように",
+      "カット・カラー・ケア・ヘアセットに分けた、見やすい料金表",
+      "「白髪ぼかし」「クセ毛を活かす」など、悩みごとのタグを付けたスタイルギャラリー",
+      "秋祭りの早朝ヘアセットや七五三など、地域の行事に合わせた季節の案内",
+      "お子さま連れの方への案内と、「はじめての方へ」の4ステップ"
+    ]
+  },
+  {
     id: "tomoshibi",
     title: "ともしび珈琲",
     type: "sample",
@@ -58,7 +79,7 @@ window.WORKS = [
     area: "架空の店舗（新居浜市という設定）",
     plan: "1ページ",
     year: 2026,
-    pickup: true,
+    pickup: false,
     thumb: "images/works/kohaku/thumb.webp",
     images: ["images/works/kohaku/pc.webp", "images/works/kohaku/sp.webp"],
     url: "samples/kohaku/",
@@ -90,6 +111,48 @@ window.WORKS = [
       "コースと飲み放題、宴会の人数をひと目でわかるように",
       "スマホでは画面の下に「電話する」「予約する」ボタンを固定",
       "日時・人数・席の希望まで入れられる予約フォーム"
+    ]
+  },
+  {
+    id: "shizuku",
+    title: "しずく洋菓子店",
+    type: "sample",
+    industry: "洋菓子店",
+    area: "架空の店舗（西条市という設定）",
+    plan: "1ページ",
+    year: 2026,
+    pickup: false,
+    thumb: "images/works/shizuku/thumb.webp",
+    images: ["images/works/shizuku/pc.webp", "images/works/shizuku/sp.webp"],
+    url: "samples/shizuku/",
+    summary: "【架空の店舗】うちぬきの水と東予の果物でお菓子をつくる、西条の洋菓子店という設定の1ページのサンプルサイト。",
+    points: [
+      "春・夏・秋・冬で切りかえて見られる、季節のおすすめ",
+      "受取日・サイズ・メッセージ・アレルギーまで入れられる、ホールケーキの予約フォーム",
+      "予約からお受け取りまでを4つの手順でわかりやすく",
+      "手土産・内祝い・お祭りの差し入れなど、用途から選べる焼き菓子ギフト",
+      "スマホでは画面の下に「電話する」「予約する」ボタンを固定"
+    ]
+  },
+  {
+    id: "mizunowa",
+    title: "みずのわベーカリー",
+    type: "sample",
+    industry: "パン屋",
+    area: "架空の店舗（西条市という設定）",
+    plan: "1ページ",
+    year: 2026,
+    pickup: false,
+    thumb: "images/works/mizunowa/thumb.webp",
+    images: ["images/works/mizunowa/pc.webp", "images/works/mizunowa/sp.webp"],
+    url: "samples/mizunowa/",
+    summary: "【架空の店舗】西条のうちぬき水でパンを焼く町のパン屋、という設定でつくった1ページのサンプルサイト。",
+    points: [
+      "開いた時間に合わせて「営業中・本日17:00まで」などを自動で表示",
+      "焼きたてをねらえる、時間ごとの焼き上がりスケジュール",
+      "定番・季節限定・ドリンクを切りかえて見られるパンの紹介",
+      "前日までの取り置き予約を3つの手順で案内",
+      "定休日・臨時休業がわかる営業カレンダーと、スマホ下部の電話・LINE・アクセスボタン"
     ]
   }
 ];

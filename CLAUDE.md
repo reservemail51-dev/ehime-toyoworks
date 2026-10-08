@@ -33,4 +33,4 @@
 
 ## 公開前にやること
 - 【仮】を全部埋める（`grep -rn "【" public` で確認）。
-- フォームの送信先URLを `contact.html`・`hearing.html` の `action` に入れ、送信後にそれぞれ `thanks.html`・`hearing-thanks.html` を表示する設定をフォームサービス側で行う。
+- フォームは SSGform。送信先は `contact.html`＝`https://ssgform.com/s/UbwntFaPOD0A`、`hearing.html`＝`https://ssgform.com/s/BKMfJ7OaGpqR`（2026年10月に反映済み）。設定内容は `docs/SSGform設定シート.md`。公開後にテスト送信する。

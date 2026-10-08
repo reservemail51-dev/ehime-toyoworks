@@ -19,12 +19,12 @@ ehime.toyoworks@gmail.com
 
 送信後転送先URL
 ```
-https://ehime-toyoworks.reservemail51.workers.dev/thanks.html
+https://ehime-toyoworks.hp-web.workers.dev/thanks.html
 ```
 
 許可ホスト（https:// は付けない）
 ```
-ehime-toyoworks.reservemail51.workers.dev
+ehime-toyoworks.hp-web.workers.dev
 ```
 
 自動返信メール：**オン**
@@ -53,7 +53,7 @@ ehime.toyoworks@gmail.com
 先に答えていただくと、無料デモのご用意が早くなります。
 
 ▼かんたん質問シート
-https://ehime-toyoworks.reservemail51.workers.dev/hearing.html
+https://ehime-toyoworks.hp-web.workers.dev/hearing.html
 
 ※このメールは自動で送信しています。
 ※お心当たりのない場合は、お手数ですがこのメールを削除してください。
@@ -79,12 +79,12 @@ ehime.toyoworks@gmail.com
 
 送信後転送先URL
 ```
-https://ehime-toyoworks.reservemail51.workers.dev/hearing-thanks.html
+https://ehime-toyoworks.hp-web.workers.dev/hearing-thanks.html
 ```
 
 許可ホスト（https:// は付けない）
 ```
-ehime-toyoworks.reservemail51.workers.dev
+ehime-toyoworks.hp-web.workers.dev
 ```
 
 自動返信メール：なし（オフのままでOK）

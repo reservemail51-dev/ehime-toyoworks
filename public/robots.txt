@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ehime-toyoworks.reservemail51.workers.dev/sitemap.xml
+Sitemap: https://ehime-toyoworks.hp-web.workers.dev/sitemap.xml

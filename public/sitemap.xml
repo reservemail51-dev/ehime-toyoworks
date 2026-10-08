@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 独自ドメインに変えたら、URLをまとめて書き換えてください -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/service.html</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/works.html</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/flow.html</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/faq.html</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://ehime-toyoworks.reservemail51.workers.dev/contact.html</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/service.html</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/works.html</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/flow.html</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/faq.html</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://ehime-toyoworks.hp-web.workers.dev/contact.html</loc><lastmod>2026-10-08</lastmod></url>
 </urlset>

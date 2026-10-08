@@ -30,4 +30,4 @@
 
 ## 公開前チェック
 - お問い合わせフォーム・質問シートの送信先を設定し、テスト送信する
-- 独自ドメインにしたら、`public/` 内の `ehime-toyoworks.reservemail51.workers.dev` をまとめて新しいドメインに書き換える
+- 独自ドメインにしたら、`public/` 内の `ehime-toyoworks.hp-web.workers.dev` をまとめて新しいドメインに書き換える

@@ -6,7 +6,7 @@
 - 静的な HTML / CSS / JavaScript のみ。ビルドツール・フレームワーク禁止。日本語サイト。
 - 共通CSSは `public/css/style.css`、共通JSは `public/js/main.js`。色・フォントは `:root` のトークンを使う（直書きしない）。
 - ヘッダー・フッターは各ページにコピーで持つ。変更するときは全ページを一括で直す。
-- 公開は GitHub → Cloudflare（Workers の静的アセット。URL：https://ehime-toyoworks.reservemail51.workers.dev/）。設定はリポジトリ直下の `wrangler.jsonc`（name は Cloudflare 上の Worker 名と同じ `ehime-toyoworks`）。旧メモの「Cloudflare Pages」は同じ意味で読み替える。**公開されるのは `public/` フォルダだけ**（ビルドコマンドなし、ビルド出力ディレクトリ `public`）。ページ・CSS・JS・画像・データはすべて `public/` の中に置く。`docs/`・`tools/`・説明書はリポジトリ直下に置き、公開しない。
+- 公開は GitHub → Cloudflare（Workers の静的アセット。URL：https://ehime-toyoworks.hp-web.workers.dev/）。設定はリポジトリ直下の `wrangler.jsonc`（name は Cloudflare 上の Worker 名と同じ `ehime-toyoworks`）。旧メモの「Cloudflare Pages」は同じ意味で読み替える。**公開されるのは `public/` フォルダだけ**（ビルドコマンドなし、ビルド出力ディレクトリ `public`）。ページ・CSS・JS・画像・データはすべて `public/` の中に置く。`docs/`・`tools/`・説明書はリポジトリ直下に置き、公開しない。
 - `public/_headers` でセキュリティ用ヘッダーとキャッシュを設定。サイト全体の検索よけ（noindex）は2026年10月8日に外した（検索に出る状態）。`hearing.html`・`thanks.html`・`hearing-thanks.html`・`404.html` は各ページの meta で noindex。
 - スマホファースト。幅360pxで横スクロールが出ないこと。本文16px以上、ボタン高さ48px以上。
 - 画像は WebP（実績のスクリーンショットは jpg でも可）、`width`/`height`・日本語 `alt`・`loading="lazy"`（ファーストビューを除く）。

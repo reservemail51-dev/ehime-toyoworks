@@ -1,0 +1,8 @@
+# パソコンが自動でつくるファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 作業用の道具を動かしたときにできるもの
+node_modules/
+package-lock.json

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!-- SNSシェア画像（images/ogp.png）のひな形。文言を変えたら
+     node tools/screenshot.mjs --ogp で 1200×630 の画像を書き出します。 -->
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Zen+Maru+Gothic:wght@700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  .ogp { width: 1200px; height: 630px; position: relative; background: url(../public/images/ogp-bg.jpg) center/cover; font-family: "Zen Maru Gothic", sans-serif; color: #33302B; }
+  .ogp__in { position: absolute; left: 88px; top: 196px; }
+  .area { font-family: "Klee One", cursive; font-weight: 600; font-size: 30px; color: #3E7C8C; transform: rotate(-2deg); display: inline-block; margin-bottom: 14px; }
+  h1 { margin: 0; font-size: 56px; line-height: 1.4; letter-spacing: .06em; font-weight: 700; }
+  .mk { background: linear-gradient(transparent 70%, rgba(233,130,58,.55) 70%, rgba(233,130,58,.55) 92%, transparent 92%); }
+  .name { margin-top: 30px; font-size: 38px; letter-spacing: .1em; display: flex; align-items: center; gap: 16px; }
+  .name::before { content: ""; width: 44px; height: 3px; background: #33302B; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="ogp">
+  <div class="ogp__in">
+    <div class="area">新居浜・西条・四国中央・今治</div>
+    <h1>お店のこと、<br><span class="mk">ちゃんと伝わる</span><br>ホームページを。</h1>
+    <div class="name">愛媛東予Works</div>
+  </div>
+</div>
+</body>
+</html>

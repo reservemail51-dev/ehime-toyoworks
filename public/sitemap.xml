@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 【example.com】を実際のドメインに置き換えてください -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://【example.com】/</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/service.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/works.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/flow.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/faq.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/contact.html</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://【example.com】/privacy.html</loc><lastmod>2026-09-26</lastmod></url>
+</urlset>

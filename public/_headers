@@ -17,8 +17,3 @@
 
 /data/*
   Cache-Control: public, max-age=300
-
-# ▼公開準備中は、検索に出ないようにしています。
-# 【仮】をすべて埋めて本番公開するときに、この下の2行（/* と X-Robots-Tag の行）を消してください。
-/*
-  X-Robots-Tag: noindex

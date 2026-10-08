@@ -7,7 +7,7 @@
 - 共通CSSは `public/css/style.css`、共通JSは `public/js/main.js`。色・フォントは `:root` のトークンを使う（直書きしない）。
 - ヘッダー・フッターは各ページにコピーで持つ。変更するときは全ページを一括で直す。
 - 公開は GitHub → Cloudflare（Workers の静的アセット。URL：https://ehime-toyoworks.reservemail51.workers.dev/）。設定はリポジトリ直下の `wrangler.jsonc`（name は Cloudflare 上の Worker 名と同じ `ehime-toyoworks`）。旧メモの「Cloudflare Pages」は同じ意味で読み替える。**公開されるのは `public/` フォルダだけ**（ビルドコマンドなし、ビルド出力ディレクトリ `public`）。ページ・CSS・JS・画像・データはすべて `public/` の中に置く。`docs/`・`tools/`・説明書はリポジトリ直下に置き、公開しない。
-- `public/_headers` でセキュリティ用ヘッダーとキャッシュを設定。公開準備中は末尾の `X-Robots-Tag: noindex` で検索に出さない（本番公開時に削除）。
+- `public/_headers` でセキュリティ用ヘッダーとキャッシュを設定。サイト全体の検索よけ（noindex）は2026年10月8日に外した（検索に出る状態）。`hearing.html`・`thanks.html`・`hearing-thanks.html`・`404.html` は各ページの meta で noindex。
 - スマホファースト。幅360pxで横スクロールが出ないこと。本文16px以上、ボタン高さ48px以上。
 - 画像は WebP（実績のスクリーンショットは jpg でも可）、`width`/`height`・日本語 `alt`・`loading="lazy"`（ファーストビューを除く）。
 - 未確定の情報は【仮】のまま残す。価格には `<!-- PRICE -->` コメントを付ける。
@@ -23,6 +23,7 @@
 5. `voice`（お客様の声）は実際にもらったものだけ。
 
 ## 補足
+- LINE公式アカウントの友だち追加URL：`https://lin.ee/RsPD66x`（全ページのLINEボタン・自動返信の文面に反映済み）。
 - 制作の料金はプラン1つ（5,000円〜・税込）。ライト／スタンダード／しっかりの3プランは廃止した。実績データの `plan` は「1ページ」などの規模を書く。
 - プライバシーポリシーのページは置かない方針（2026年10月に削除）。代わりに、お問い合わせフォームと質問シートの送信ボタンの上に「いただいた内容は、ご相談へのお返事とホームページづくりのためだけに使い…」という利用目的の一文を置いている。
 - 自己紹介（about.html・トップの「つくっている人」）は、いったん掲載しない方針。ナビにも入れていない。

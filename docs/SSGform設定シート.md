@@ -60,8 +60,8 @@ https://ehime-toyoworks.reservemail51.workers.dev/hearing.html
 
 愛媛東予Works
 メール：ehime.toyoworks@gmail.com
+LINE：https://lin.ee/RsPD66x
 ```
-（LINE公式アカウントのURLが決まったら、最後に「LINE：https://lin.ee/〇〇〇〇」の1行を足します）
 
 ---
 

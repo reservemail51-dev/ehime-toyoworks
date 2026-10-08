@@ -85,6 +85,7 @@
           "<span>" + esc(w.industry) + (w.area && w.area !== "架空" ? "・" + esc(w.area) : "") + "</span>" +
         "</div>" +
         "<h3>" + esc(w.title) + "</h3>" +
+        (w.type === "sample" ? '<p class="work-card__fict">※実在しない架空の店舗です</p>' : "") +
         "<p>" + esc(w.summary) + "</p>" +
       "</a>"
     );

@@ -404,6 +404,9 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.5; let
 .badge--client { color: #9A4C12; background: rgba(233,130,58,.12); }
 .badge--design { color: #4F6B33; background: rgba(143,175,107,.14); }
 .works-empty { color: var(--ink-soft); }
+.work-card .work-card__fict { font-size: .82rem; color: var(--setouchi-deep); margin-top: .2em; }
+.fictional-note { margin-top: 16px; background: rgba(62,124,140,.08); border: 2px dashed var(--setouchi); border-radius: 12px; padding: .9em 1.1em; font-size: .95rem; }
+.fictional-note strong { display: block; color: var(--setouchi-deep); }
 .works-foot { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
 
 /* =========================================================

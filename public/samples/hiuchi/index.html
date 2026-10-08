@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 架空の店舗（制作サンプル）のため、検索エンジンに登録させない -->
+<meta name="robots" content="noindex, nofollow">
+<title>酒と肴 ひうち｜新居浜の居酒屋（架空の店舗・制作サンプル）</title>
+<meta name="description" content="【制作サンプル】燧灘の地魚と東予の地酒を楽しむ、新居浜の居酒屋「酒と肴 ひうち」。※愛媛東予Worksが制作した架空の店舗のサンプルサイトです。店舗名・住所・電話番号・メニューはすべて架空です。">
+<meta name="theme-color" content="#1c1917">
+
+<meta property="og:url" content="https://ehime-toyoworks.hp-web.workers.dev/samples/hiuchi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="酒と肴 ひうち（制作サンプル）">
+<meta property="og:title" content="酒と肴 ひうち｜架空の居酒屋サイト（制作サンプル）">
+<meta property="og:description" content="愛媛東予Worksの制作サンプルです。店舗名・住所・電話番号・メニュー等はすべて架空です。">
+<meta property="og:image" content="https://ehime-toyoworks.hp-web.workers.dev/samples/hiuchi/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho+B1:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "酒と肴 ひうち（架空の店舗）",
+  "description": "架空の店舗（制作サンプル）です。愛媛東予Worksが制作実績として作成したサンプルサイトで、店舗名・住所・電話番号・メニュー等はすべて架空です。",
+  "servesCuisine": ["居酒屋", "和食", "郷土料理"],
+  "priceRange": "¥4,000〜¥5,000",
+  "telephone": "0897-00-0000",
+  "image": "https://ehime-toyoworks.hp-web.workers.dev/samples/hiuchi/img/ogp.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "792-0000",
+    "addressRegion": "愛媛県",
+    "addressLocality": "新居浜市",
+    "streetAddress": "灯町2-8-5（架空の住所）",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "17:30",
+    "closes": "23:00"
+  }],
+  "acceptsReservations": true,
+  "paymentAccepted": "現金, クレジットカード, PayPay"
+}
+</script>
+
+<style>
+/* =========================================================
+   デザイントークン
+   ここの値を差し替えれば、別の店舗向けに再スキンできます
+   ========================================================= */
+:root {
+  /* 配色 */
+  --sumi: #1c1917;        /* 墨：暗い背景・本文 */
+  --kogecha: #3b2a20;     /* 焦茶：木・暗めの面 */
+  --akari: #e0a458;       /* 灯り：暗い背景の上のアクセント */
+  --akari-deep: #8a5a1f;  /* 灯り（濃）：明るい背景の上のアクセント文字 */
+  --kinari: #f4ede1;      /* 生成り：本文セクション背景 */
+  --kinari-2: #ebe2d2;    /* 生成り（濃）：交互の背景 */
+  --washi: #fbf8f2;       /* 和紙：カード・入力欄 */
+  --enji: #8c2f2b;        /* 臙脂：差し色（少しだけ） */
+  --kokuban: #2b332e;     /* 黒板 */
+  --chalk: #efebe2;       /* チョーク */
+  --chalk-yellow: #f1d98c;
+  --line: #d6c8b2;        /* 罫線 */
+  --muted: #6b5f53;       /* 補足テキスト */
+
+  /* 文字 */
+  --font-mincho: "Shippori Mincho B1", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --font-gothic: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-hand: "Klee One", "Zen Kaku Gothic New", sans-serif;
+
+  /* レイアウト */
+  --container: 1120px;
+  --gutter: 20px;
+  --radius: 4px;
+  --header-offset: 110px;
+  --section-pad: clamp(72px, 10vw, 128px);
+}
+
+/* ---------- ベース ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--kinari);
+  color: var(--sumi);
+  font-family: var(--font-gothic);
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: .04em;
+  overflow-x: hidden;
+}
+@media (min-width: 768px) { body { font-size: 16px; } }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--font-mincho); font-weight: 600; line-height: 1.5; margin: 0; letter-spacing: .08em; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--akari); outline-offset: 3px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+section[id] { scroll-margin-top: var(--header-offset); }
+
+/* ---------- 画像枠（画像が無い段階でも崩れないプレースホルダー） ---------- */
+.ph {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 30% 25%, rgba(224,164,88,.55), transparent 60%),
+    linear-gradient(135deg, #5a3f2c 0%, #3b2a20 55%, #1c1917 100%);
+}
+.ph > img, .ph > picture, .ph > picture > img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.ph--dish {
+  background:
+    radial-gradient(60% 60% at 50% 55%, rgba(244,237,225,.35), transparent 70%),
+    radial-gradient(120% 90% at 30% 25%, rgba(224,164,88,.6), transparent 60%),
+    linear-gradient(160deg, #6b4a31, #2d211a);
+}
+.img-note {
+  font-size: 11px; color: var(--muted); letter-spacing: .06em;
+}
+
+/* =========================================================
+   1. 架空表記の帯 + 2. ヘッダー（ひとまとめで上部に固定）
+   ========================================================= */
+.topfix { position: sticky; top: 0; z-index: 50; }
+.demo-bar {
+  background: var(--enji);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .03em;
+  text-align: center;
+  padding: 6px 12px;
+}
+.demo-bar strong { font-weight: 700; }
+@media (min-width: 768px) { .demo-bar { font-size: 12px; padding: 7px 16px; } }
+
+.site-header {
+  background: rgba(28,25,23,.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--kinari);
+  border-bottom: 1px solid rgba(224,164,88,.18);
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.logo-mark {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--akari);
+  border-radius: 50%;
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  color: var(--akari);
+  font-size: 17px;
+  line-height: 1;
+  box-shadow: 0 0 14px rgba(224,164,88,.25);
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+.logo-text small { font-size: 10px; letter-spacing: .2em; color: rgba(244,237,225,.65); }
+.logo-text span { font-family: var(--font-mincho); font-weight: 700; font-size: 19px; letter-spacing: .14em; }
+
+.gnav ul { display: flex; gap: 4px; align-items: center; }
+.gnav a {
+  display: block; padding: 8px 12px;
+  text-decoration: none; font-size: 14px; letter-spacing: .1em;
+  color: rgba(244,237,225,.88);
+  transition: color .2s;
+}
+.gnav a:hover { color: var(--akari); }
+.gnav .gnav-cta a {
+  margin-left: 8px;
+  border: 1px solid var(--akari);
+  color: var(--akari);
+  border-radius: 2px;
+  padding: 7px 16px;
+}
+.gnav .gnav-cta a:hover { background: var(--akari); color: var(--sumi); }
+
+.menu-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  background: none; border: 0; padding: 0;
+  position: relative;
+}
+.menu-toggle span {
+  position: absolute; left: 11px; right: 11px; height: 1.5px;
+  background: var(--kinari); transition: transform .25s, opacity .2s;
+}
+.menu-toggle span:nth-child(1) { top: 15px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 27px; }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 959px) {
+  .menu-toggle { display: block; }
+  .gnav {
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: rgba(28,25,23,.98);
+    border-bottom: 1px solid rgba(224,164,88,.2);
+    max-height: 0; overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .gnav.is-open { max-height: 80vh; }
+  .gnav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--gutter) 20px; }
+  .gnav li { border-bottom: 1px solid rgba(244,237,225,.08); }
+  .gnav a { padding: 14px 4px; font-size: 15px; }
+  .gnav .gnav-cta { border: 0; padding-top: 14px; }
+  .gnav .gnav-cta a { margin: 0; text-align: center; padding: 12px; }
+}
+
+/* =========================================================
+   3. ヒーロー
+   ========================================================= */
+.hero {
+  position: relative;
+  background: var(--sumi);
+  color: var(--kinari);
+  min-height: calc(100svh - 96px);
+  display: flex;
+  overflow: hidden;
+}
+.hero .ph { position: absolute; inset: 0; }
+.hero-shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(20,17,15,.62) 0%, rgba(20,17,15,0) 34%),
+    linear-gradient(to top, rgba(20,17,15,.85) 0%, rgba(20,17,15,0) 40%);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  width: 100%;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 36px var(--gutter) 28px;
+  gap: 32px;
+}
+.hero-catch {
+  font-size: clamp(28px, 8.4vw, 40px);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: .12em;
+  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+}
+.hero-catch .line { display: block; }
+.hero-sub {
+  margin-top: 14px;
+  font-family: var(--font-mincho);
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: .12em;
+  color: rgba(244,237,225,.9);
+  text-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+.hero-actions { display: flex; flex-direction: column; gap: 12px; }
+.hero-hours {
+  font-size: 12px; letter-spacing: .12em; color: rgba(244,237,225,.82);
+}
+.hero-hours b { color: var(--akari); font-weight: 500; margin-right: .6em; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px;
+  padding: 12px 28px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: .14em;
+  transition: background .2s, color .2s, border-color .2s, box-shadow .2s;
+}
+.btn-akari {
+  background: var(--akari); color: var(--sumi);
+  box-shadow: 0 0 24px rgba(224,164,88,.35);
+}
+.btn-akari:hover { background: #ebb772; box-shadow: 0 0 32px rgba(224,164,88,.5); }
+.btn-ghost { border-color: rgba(244,237,225,.5); color: var(--kinari); background: rgba(28,25,23,.3); }
+.btn-ghost:hover { border-color: var(--akari); color: var(--akari); }
+.btn-sumi { background: var(--sumi); color: var(--kinari); }
+.btn-sumi:hover { background: var(--kogecha); }
+.btn .arrow { font-size: .85em; transition: transform .2s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+@media (max-width: 767px) {
+  .hero { min-height: calc(100svh - 104px - 58px); }
+}
+@media (min-width: 768px) {
+  .hero { min-height: min(calc(100vh - 92px), 880px); }
+  .hero-shade {
+    background:
+      linear-gradient(to left, rgba(20,17,15,.8) 0%, rgba(20,17,15,.45) 32%, rgba(20,17,15,0) 58%),
+      linear-gradient(to top, rgba(20,17,15,.6) 0%, rgba(20,17,15,0) 30%);
+  }
+  .hero-inner {
+    max-width: var(--container); margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    padding: 56px 40px 48px;
+    gap: 32px;
+  }
+  .hero-copy {
+    grid-column: 2; grid-row: 1;
+    align-self: center; justify-self: end;
+    writing-mode: vertical-rl;
+  }
+  .hero-catch { font-size: clamp(34px, 3.6vw, 48px); letter-spacing: .2em; line-height: 1.75; }
+  .hero-catch .line { white-space: nowrap; }
+  .hero-catch .line + .line { padding-inline-start: 1.4em; }
+  .hero-sub {
+    margin: 0; margin-block-start: 28px;
+    padding-inline-start: 7.5em;
+    font-size: 15px; line-height: 2.3; letter-spacing: .24em; white-space: nowrap;
+  }
+  .hero-actions {
+    grid-column: 1 / -1; grid-row: 2; justify-self: end;
+    flex-direction: row; align-items: center; gap: 28px;
+  }
+}
+
+/* =========================================================
+   セクション共通（PC：縦書き見出し／スマホ：横書き）
+   ========================================================= */
+.section { padding: var(--section-pad) 0; position: relative; }
+.section--alt { background: var(--kinari-2); }
+.section--dark { background: var(--kogecha); color: var(--kinari); }
+
+.sec-layout { display: grid; gap: 36px; }
+.sec-layout > *, .panel > *, .info > *, .reserve > * { min-width: 0; }
+.sec-head { display: flex; flex-direction: column; gap: 6px; }
+.sec-kicker {
+  font-family: var(--font-gothic);
+  font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--akari-deep);
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-kicker::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+.sec-title { font-size: clamp(26px, 6.6vw, 34px); letter-spacing: .16em; }
+.sec-lead { margin-top: 10px; color: var(--muted); font-size: 14px; }
+.section--dark .sec-kicker { color: var(--akari); }
+.section--dark .sec-lead { color: rgba(244,237,225,.72); }
+
+@media (min-width: 960px) {
+  .sec-layout { grid-template-columns: 96px 1fr; gap: 56px; align-items: start; }
+  .sec-head {
+    writing-mode: vertical-rl;
+    flex-direction: row;
+    gap: 14px;
+    position: sticky; top: calc(var(--header-offset) + 24px);
+    justify-self: center;
+  }
+  .sec-kicker { font-size: 11px; }
+  .sec-kicker::before { width: 1px; height: 28px; }
+  .sec-title { font-size: 34px; letter-spacing: .3em; }
+  .sec-lead { display: none; }
+  .sec-lead-pc { display: block !important; }
+}
+.sec-lead-pc { display: none; color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+.section--dark .sec-lead-pc { color: rgba(244,237,225,.72); }
+
+/* フェードイン（控えめ） */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* =========================================================
+   4. お知らせ
+   ========================================================= */
+.news { background: var(--washi); border-top: 1px solid var(--line); }
+.news .container { padding-top: 28px; padding-bottom: 28px; }
+.news-wrap { display: grid; gap: 14px; }
+.news-label {
+  font-family: var(--font-mincho); font-weight: 600; font-size: 17px; letter-spacing: .2em;
+  display: flex; align-items: center; gap: 10px;
+}
+.news-label::before { content: ""; width: 8px; height: 8px; background: var(--enji); border-radius: 50%; }
+.news-list details { border-bottom: 1px solid var(--line); }
+.news-list details:first-child { border-top: 1px solid var(--line); }
+.news-list summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 4px 14px; align-items: center;
+  padding: 14px 2px;
+}
+.news-list summary::-webkit-details-marker { display: none; }
+.news-date { font-size: 12px; color: var(--muted); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.news-title { font-size: 14px; font-weight: 500; grid-column: 1 / 3; }
+.news-plus { grid-row: 1 / 3; grid-column: 3; width: 18px; height: 18px; position: relative; }
+.news-plus::before, .news-plus::after {
+  content: ""; position: absolute; left: 3px; right: 3px; top: 8px; height: 1.5px; background: var(--akari-deep);
+  transition: transform .25s;
+}
+.news-plus::after { transform: rotate(90deg); }
+details[open] .news-plus::after { transform: rotate(0); }
+.news-body { padding: 0 2px 16px; font-size: 14px; color: #3e352d; }
+@media (min-width: 768px) {
+  .news-wrap { grid-template-columns: 150px 1fr; gap: 24px; align-items: start; }
+  .news-label { padding-top: 12px; }
+  .news-list summary { grid-template-columns: 110px 1fr auto; }
+  .news-title { grid-column: 2; font-size: 15px; }
+  .news-plus { grid-row: 1; }
+}
+
+/* =========================================================
+   5. こだわり
+   ========================================================= */
+.kodawari-list { display: grid; gap: 56px; }
+.kodawari-item { display: grid; gap: 22px; align-items: center; }
+.kodawari-item .ph { aspect-ratio: 4 / 3; border-radius: var(--radius); }
+.kodawari-num {
+  font-family: var(--font-mincho); color: var(--enji); font-size: 13px; letter-spacing: .3em;
+  display: block; margin-bottom: 8px;
+}
+.kodawari-item h3 { font-size: clamp(21px, 5.4vw, 26px); letter-spacing: .12em; margin-bottom: 14px; }
+.kodawari-item p { color: #3e352d; }
+@media (min-width: 768px) {
+  .kodawari-item { grid-template-columns: 1.1fr 1fr; gap: 48px; }
+  .kodawari-item:nth-child(even) .ph { order: 2; }
+  .kodawari-item .ph { aspect-ratio: 5 / 4; }
+}
+
+/* =========================================================
+   6. 本日のおすすめ（黒板）
+   ========================================================= */
+.board-section {
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(224,164,88,.14), transparent 70%),
+    var(--sumi);
+  color: var(--kinari);
+}
+.board-section .sec-kicker { color: var(--akari); }
+.board-section .sec-lead, .board-section .sec-lead-pc { color: rgba(244,237,225,.7); }
+.board {
+  position: relative;
+  border: 12px solid #5b3f2b;
+  border-image: linear-gradient(135deg, #6e4d33, #4a3223 40%, #6a4a31 70%, #3f2b1e) 1;
+  background:
+    radial-gradient(ellipse at 20% 15%, rgba(255,255,255,.07), transparent 45%),
+    radial-gradient(ellipse at 85% 80%, rgba(255,255,255,.05), transparent 50%),
+    repeating-linear-gradient(8deg, rgba(255,255,255,.012) 0 2px, transparent 2px 6px),
+    var(--kokuban);
+  box-shadow: 0 24px 50px rgba(0,0,0,.45), inset 0 0 60px rgba(0,0,0,.35);
+  padding: 28px 22px 26px;
+  font-family: var(--font-hand);
+  color: var(--chalk);
+}
+.board-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.board-title { font-family: var(--font-hand); font-weight: 600; font-size: clamp(24px, 6vw, 30px); letter-spacing: .14em; }
+.board-date { font-size: 15px; color: var(--chalk-yellow); }
+.board-list li {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px dashed rgba(239,235,226,.22);
+  font-size: 17px;
+}
+.board-list .name { flex: 1; }
+.board-list .name small { display: block; font-size: 13px; color: rgba(239,235,226,.68); margin-top: 2px; }
+.board-list .price { color: var(--chalk-yellow); white-space: nowrap; font-weight: 600; }
+.board-list .tag {
+  display: inline-block; font-size: 12px; color: #f2b9a9; border: 1px solid rgba(242,185,169,.7);
+  border-radius: 999px; padding: 0 8px; margin-left: 6px; vertical-align: 2px;
+}
+.board-memo {
+  margin-top: 18px; font-size: 15px; color: var(--chalk-yellow);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.board-memo svg { flex: none; margin-top: 4px; }
+.board-chalk {
+  position: absolute; right: 18px; bottom: -8px; width: 54px; height: 10px;
+  background: #f4f1ea; border-radius: 2px; transform: rotate(-4deg);
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+}
+.board-note { margin-top: 26px; font-size: 13px; color: rgba(244,237,225,.7); }
+@media (min-width: 768px) {
+  .board { padding: 40px 48px 36px; }
+  .board-list { columns: 2; column-gap: 48px; }
+  .board-list li { break-inside: avoid; }
+}
+
+/* =========================================================
+   7. お品書き（タブ）
+   ========================================================= */
+.tabs {
+  display: flex; gap: 6px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+  margin: 0 calc(var(--gutter) * -1) 28px; padding: 0 var(--gutter);
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none;
+  background: none; border: 0;
+  padding: 12px 14px 13px;
+  font-family: var(--font-mincho); font-weight: 600; font-size: 15px; letter-spacing: .12em;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+.tab[aria-selected="true"] { color: var(--sumi); border-bottom-color: var(--enji); }
+.tab:hover { color: var(--sumi); }
+@media (min-width: 768px) { .tabs { margin: 0 0 36px; padding: 0; } .tab { padding: 12px 20px 14px; font-size: 16px; } }
+
+.panel { display: grid; gap: 28px; }
+.panel[hidden] { display: none; }
+.panel-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.panel-photos .ph { aspect-ratio: 1; border-radius: var(--radius); }
+.panel-photos.single { grid-template-columns: 1fr; }
+.panel-photos.single .ph { aspect-ratio: 4 / 3; }
+.panel-photos.single.tall .ph { aspect-ratio: 4 / 5; max-height: 520px; }
+.panel-photos figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.panel-photos figure { margin: 0; }
+@media (min-width: 768px) {
+  .panel { grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items: start; }
+}
+
+.menu-group + .menu-group { margin-top: 28px; }
+.menu-group h3 {
+  font-size: 16px; letter-spacing: .2em; color: var(--akari-deep);
+  padding-bottom: 8px; margin-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.dish { padding: 14px 0; border-bottom: 1px dotted var(--line); }
+.dish-row { display: flex; align-items: baseline; gap: 10px; }
+.dish-name { font-family: var(--font-mincho); font-weight: 600; font-size: 16px; letter-spacing: .06em; flex: 0 1 auto; min-width: 0; }
+.dish-name small, .dish-badge { white-space: nowrap; display: inline-block; }
+.dish-name small { font-family: var(--font-gothic); font-weight: 400; font-size: 12px; color: var(--muted); margin-left: 6px; letter-spacing: .04em; }
+.dish-dots { flex: 1; border-bottom: 1px dotted #b9a88f; transform: translateY(-4px); min-width: 16px; }
+.dish-price { font-family: var(--font-mincho); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dish-price small { font-size: 12px; margin-left: 1px; }
+.dish-desc { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.75; }
+.dish-badge {
+  display: inline-block; font-family: var(--font-gothic); font-size: 11px; font-weight: 500;
+  color: var(--enji); border: 1px solid var(--enji); border-radius: 2px;
+  padding: 0 6px; margin-left: 6px; vertical-align: 2px; letter-spacing: .06em;
+}
+.menu-note { margin-top: 22px; font-size: 12px; color: var(--muted); }
+.driver-note {
+  margin-top: 22px; padding: 16px 18px;
+  background: var(--washi); border: 1px solid var(--line); border-left: 3px solid var(--akari);
+  font-size: 14px;
+}
+.driver-note strong { font-family: var(--font-mincho); display: block; margin-bottom: 2px; letter-spacing: .1em; }
+
+/* =========================================================
+   8. コース・ご宴会
+   ========================================================= */
+.course-list { display: grid; gap: 20px; }
+.course {
+  background: var(--washi);
+  border: 1px solid var(--line);
+  padding: 28px 22px 24px;
+  position: relative;
+}
+.course::before {
+  content: ""; position: absolute; inset: 6px; border: 1px solid rgba(214,200,178,.6); pointer-events: none;
+}
+.course-name { font-size: 21px; letter-spacing: .14em; }
+.course-meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.course-price {
+  font-family: var(--font-mincho); font-weight: 700; font-size: 30px; letter-spacing: .04em;
+  margin: 14px 0 16px; color: var(--sumi);
+}
+.course-price small { font-size: 14px; font-weight: 500; margin-left: 4px; }
+.course-items { counter-reset: c; border-top: 1px solid var(--line); padding-top: 12px; }
+.course-items li { font-size: 14px; padding: 4px 0 4px 2.2em; position: relative; }
+.course-items li::before {
+  counter-increment: c; content: counter(c, cjk-ideographic);
+  position: absolute; left: 0; color: var(--akari-deep); font-family: var(--font-mincho); font-size: 13px; width: 1.8em; text-align: center;
+}
+.course-flag {
+  position: absolute; top: -1px; right: 18px;
+  background: var(--enji); color: #fff; font-size: 11px; letter-spacing: .12em;
+  padding: 6px 8px 8px; writing-mode: vertical-rl; line-height: 1.2;
+}
+.nomihoudai {
+  margin-top: 20px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px;
+  padding: 18px 22px;
+  background: var(--sumi); color: var(--kinari);
+}
+.nomihoudai b { font-family: var(--font-mincho); font-size: 17px; letter-spacing: .14em; font-weight: 600; }
+.nomihoudai .price { font-family: var(--font-mincho); color: var(--akari); font-size: 22px; font-weight: 700; }
+.nomihoudai p { font-size: 13px; color: rgba(244,237,225,.75); width: 100%; }
+.scenes { margin-top: 32px; }
+.scenes-title { font-family: var(--font-mincho); font-weight: 600; font-size: 17px; letter-spacing: .14em; margin-bottom: 12px; }
+.scene-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.scene-tags li {
+  font-size: 13px; padding: 6px 14px; border-radius: 999px;
+  background: var(--washi); border: 1px solid var(--line);
+}
+.scenes p { margin-top: 14px; font-size: 14px; color: #3e352d; }
+@media (min-width: 768px) {
+  .course-list { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .course { padding: 36px 32px 30px; }
+  .nomihoudai p { width: auto; }
+}
+
+/* =========================================================
+   9. 店内
+   ========================================================= */
+.seats { display: grid; gap: 30px; }
+.seat .ph { aspect-ratio: 3 / 2; border-radius: var(--radius); }
+.seat-cap { margin-top: 16px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.seat-cap h3 { font-size: 20px; letter-spacing: .14em; }
+.seat-count { font-family: var(--font-mincho); font-size: 15px; color: var(--akari-deep); }
+.seat-count b { font-size: 26px; font-weight: 700; margin: 0 2px; color: var(--sumi); }
+.seat p { margin-top: 6px; font-size: 14px; color: #3e352d; }
+.kashikiri {
+  margin-top: 30px; padding: 20px 22px;
+  border: 1px solid var(--akari-deep);
+  display: flex; gap: 16px; align-items: center;
+}
+.kashikiri .num { font-family: var(--font-mincho); font-weight: 700; font-size: 34px; line-height: 1; color: var(--enji); white-space: nowrap; }
+.kashikiri .num small { font-size: 14px; margin-left: 2px; }
+.kashikiri p { font-size: 14px; }
+.kashikiri strong { font-family: var(--font-mincho); letter-spacing: .1em; display: block; font-size: 16px; }
+@media (min-width: 768px) { .seats { grid-template-columns: 1fr 1fr; gap: 28px; } }
+
+/* =========================================================
+   10. 大将より
+   ========================================================= */
+.taisho-section {
+  background:
+    radial-gradient(70% 70% at 80% 30%, rgba(224,164,88,.12), transparent 70%),
+    var(--kogecha);
+  color: var(--kinari);
+}
+.taisho { display: grid; gap: 32px; align-items: center; }
+.taisho .ph { aspect-ratio: 4 / 5; border-radius: var(--radius); max-width: 440px; width: 100%; }
+.taisho-letter h3 { font-size: clamp(22px, 5.6vw, 28px); letter-spacing: .14em; line-height: 1.7; margin-bottom: 22px; }
+.taisho-letter p { font-family: var(--font-mincho); font-size: 15px; line-height: 2.2; letter-spacing: .08em; color: rgba(244,237,225,.9); }
+.taisho-letter p + p { margin-top: 1.2em; }
+.taisho-sign { margin-top: 26px; text-align: right; font-family: var(--font-mincho); letter-spacing: .2em; color: var(--akari); }
+.taisho-sign small { display: block; font-size: 12px; color: rgba(244,237,225,.6); letter-spacing: .12em; }
+.taisho-section .img-note { color: rgba(244,237,225,.55); margin-top: 8px; }
+.okami {
+  margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(244,237,225,.16);
+  font-size: 14px; color: rgba(244,237,225,.8);
+}
+.okami b { color: var(--akari); font-family: var(--font-mincho); font-weight: 600; letter-spacing: .12em; margin-right: .6em; }
+@media (min-width: 768px) {
+  .taisho { grid-template-columns: minmax(260px, 0.8fr) 1.2fr; gap: 56px; }
+}
+
+/* =========================================================
+   11. よくある質問
+   ========================================================= */
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list details:first-child { border-top: 1px solid var(--line); }
+.faq-list summary {
+  list-style: none; cursor: pointer;
+  display: flex; gap: 14px; align-items: center;
+  padding: 18px 4px;
+  font-weight: 500;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-q, .faq-a {
+  flex: none; display: grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  font-family: var(--font-mincho); font-weight: 700; font-size: 14px;
+}
+.faq-q { background: var(--sumi); color: var(--akari); }
+.faq-a { background: var(--akari); color: var(--sumi); }
+.faq-list summary .t { flex: 1; }
+.faq-list summary .news-plus { flex: none; }
+.faq-body { display: flex; gap: 14px; padding: 0 4px 20px; font-size: 14px; color: #3e352d; }
+.faq-body p { padding-top: 3px; }
+
+/* =========================================================
+   12. 店舗情報
+   ========================================================= */
+.info { display: grid; gap: 32px; }
+.info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.info-table th, .info-table td { text-align: left; vertical-align: top; padding: 14px 4px; border-bottom: 1px solid var(--line); }
+.info-table tr:first-child th, .info-table tr:first-child td { border-top: 1px solid var(--line); }
+.info-table th { width: 6.2em; font-family: var(--font-mincho); font-weight: 600; letter-spacing: .12em; white-space: nowrap; color: var(--akari-deep); }
+.info-table td small { display: block; font-size: 12px; color: var(--muted); }
+.fict-tag {
+  display: inline-block; font-size: 11px; color: #fff; background: var(--enji);
+  padding: 1px 7px; border-radius: 2px; margin-left: 6px; vertical-align: 1px; letter-spacing: .06em;
+}
+.fict-box {
+  margin-top: 20px; padding: 14px 16px;
+  background: rgba(140,47,43,.07); border: 1px solid rgba(140,47,43,.35);
+  font-size: 13px; color: #5b2320; line-height: 1.8;
+}
+.fict-box strong { display: block; font-size: 14px; }
+
+/* ダミー地図（CSSのみ） */
+.map {
+  position: relative; aspect-ratio: 4 / 3; overflow: hidden;
+  background: #e9e0cd;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 12px;
+}
+.map-sea {
+  position: absolute; left: -5%; right: -5%; top: -10%; height: 30%;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 58%, rgba(255,255,255,.35) 60%, transparent 64%) 0 0 / 28px 14px,
+    #b9ccc9;
+  transform: rotate(-4deg);
+}
+.map-sea-label {
+  position: absolute; left: 8%; top: 5%; font-family: var(--font-mincho); letter-spacing: .5em; color: #4f6a67; font-size: 13px;
+}
+.map-river {
+  position: absolute; left: 70%; top: 12%; width: 16px; height: 110%;
+  background: #b9ccc9; transform: rotate(14deg); transform-origin: top;
+}
+.map-road { position: absolute; background: #fbf8f2; box-shadow: 0 0 0 1px #d8cbb4; }
+.map-road.main { left: -5%; right: -5%; top: 62%; height: 14px; transform: rotate(-4deg); }
+.map-road.v1 { left: 36%; top: 18%; bottom: -5%; width: 9px; }
+.map-road.v2 { left: 58%; top: 26%; bottom: -5%; width: 7px; transform: rotate(3deg); }
+.map-road.h1 { left: 10%; right: 30%; top: 40%; height: 7px; transform: rotate(-3deg); }
+.map-block { position: absolute; background: #ddd2bd; border-radius: 2px; }
+.map-rail {
+  position: absolute; left: -5%; right: -5%; bottom: 10%; height: 5px;
+  background: repeating-linear-gradient(90deg, #6b5f53 0 14px, #fbf8f2 14px 28px);
+  box-shadow: 0 0 0 1px #6b5f53; transform: rotate(-4deg);
+}
+.map-label { position: absolute; font-size: 11px; color: #5b5047; letter-spacing: .08em; white-space: nowrap; }
+.map-pin {
+  position: absolute; left: 44%; top: 44%;
+  transform: translate(-50%, -100%);
+  display: flex; flex-direction: column; align-items: center;
+}
+.map-pin .flag {
+  background: var(--enji); color: #fff; font-family: var(--font-mincho); font-weight: 600;
+  padding: 4px 10px; border-radius: 2px; font-size: 13px; letter-spacing: .12em; white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.map-pin .stem { width: 2px; height: 14px; background: var(--enji); }
+.map-pin .dot { width: 10px; height: 10px; background: var(--enji); border: 2px solid #fff; border-radius: 50%; margin-top: -2px; }
+.map-p {
+  position: absolute; left: 50%; top: 50%;
+  width: 20px; height: 20px; border-radius: 3px; background: #2f5e8c; color: #fff;
+  display: grid; place-items: center; font-weight: 700; font-size: 12px; font-family: var(--font-gothic);
+}
+.map-stamp {
+  position: absolute; right: 10px; bottom: 10px;
+  background: rgba(28,25,23,.82); color: var(--kinari); font-size: 11px; padding: 4px 10px; border-radius: 2px; letter-spacing: .08em;
+}
+@media (min-width: 900px) { .info { grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: start; } }
+
+/* =========================================================
+   13. ご予約
+   ========================================================= */
+.reserve-section { background: var(--kinari-2); }
+.reserve { display: grid; gap: 28px; }
+.reserve-tel {
+  background: var(--sumi); color: var(--kinari);
+  padding: 28px 24px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.reserve-tel h3 { font-size: 18px; letter-spacing: .2em; }
+.reserve-tel .num {
+  font-family: var(--font-mincho); font-weight: 700; font-size: 32px; letter-spacing: .08em; color: var(--akari);
+  background: none; border: 0; padding: 0; line-height: 1.3;
+}
+.reserve-tel small { font-size: 12px; color: rgba(244,237,225,.72); }
+.reserve-tel .btn { width: 100%; max-width: 320px; margin-top: 10px; }
+.reserve-tel .fict { font-size: 11px; color: #f2b9a9; }
+
+.form { background: var(--washi); border: 1px solid var(--line); padding: 26px 20px; }
+.form h3 { font-size: 18px; letter-spacing: .2em; margin-bottom: 6px; }
+.form-lead { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+.form-grid { display: grid; gap: 16px; }
+.field label, .field .label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; letter-spacing: .08em; }
+.req { color: var(--enji); font-size: 11px; margin-left: 6px; }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px;
+  padding: 10px 12px;
+  background: #fff; border: 1px solid #cdbfa9; border-radius: 2px;
+  font-size: 16px; /* iOSのズーム防止 */
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--akari-deep); box-shadow: 0 0 0 3px rgba(224,164,88,.25); }
+.radios { display: flex; flex-wrap: wrap; gap: 8px; }
+.radios label {
+  display: inline-flex; align-items: center; gap: 6px; margin: 0;
+  padding: 8px 14px; border: 1px solid #cdbfa9; background: #fff; border-radius: 2px; font-weight: 400; cursor: pointer;
+}
+.radios input { width: auto; min-height: 0; accent-color: var(--enji); }
+.form .btn { width: 100%; margin-top: 8px; }
+.form-fict { margin-top: 12px; font-size: 12px; color: var(--enji); text-align: center; }
+@media (min-width: 768px) {
+  .reserve { grid-template-columns: 0.8fr 1.2fr; align-items: start; }
+  .form { padding: 34px 32px; }
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .field.wide { grid-column: 1 / -1; }
+}
+
+/* =========================================================
+   14. フッター
+   ========================================================= */
+.site-footer {
+  background: var(--sumi); color: rgba(244,237,225,.82);
+  padding: 0 0 36px;
+  font-size: 13px;
+}
+.footer-wave {
+  height: 28px;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 38%, rgba(224,164,88,.22) 40%, transparent 43%, transparent 52%, rgba(224,164,88,.14) 54%, transparent 57%) 0 0 / 40px 20px,
+    var(--sumi);
+  border-top: 1px solid rgba(224,164,88,.25);
+}
+.footer-inner { display: grid; gap: 28px; padding-top: 44px; }
+.footer-logo { font-family: var(--font-mincho); font-weight: 700; font-size: 22px; letter-spacing: .2em; color: var(--kinari); }
+.footer-logo small { display: block; font-size: 11px; font-weight: 500; letter-spacing: .24em; color: var(--akari); }
+.footer-addr { margin-top: 12px; line-height: 1.9; }
+.footer-nav ul { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.footer-nav a { text-decoration: none; }
+.footer-nav a:hover { color: var(--akari); }
+.footer-notice {
+  border: 1px solid rgba(244,237,225,.2); padding: 16px 18px; line-height: 1.8; font-size: 12px;
+}
+.footer-notice strong { color: var(--akari); display: block; font-size: 13px; margin-bottom: 4px; }
+.footer-bottom {
+  margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(244,237,225,.12);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: rgba(244,237,225,.6);
+}
+.footer-bottom a { color: var(--akari); text-decoration: none; }
+@media (min-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-notice { grid-column: 1 / -1; }
+}
+
+/* =========================================================
+   スマホ下部の固定バー
+   ========================================================= */
+.sp-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--sumi);
+  border-top: 1px solid rgba(224,164,88,.3);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.sp-bar a, .sp-bar button {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 58px; border: 0; background: none; color: var(--kinari);
+  text-decoration: none; font-weight: 500; letter-spacing: .14em; font-size: 15px;
+}
+.sp-bar a { background: var(--akari); color: var(--sumi); }
+@media (max-width: 767px) { .site-footer { padding-bottom: calc(36px + 58px + env(safe-area-inset-bottom)); } }
+@media (min-width: 768px) { .sp-bar { display: none; } }
+
+/* トースト */
+.toast {
+  position: fixed; left: 50%; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 60;
+  transform: translate(-50%, 16px);
+  width: max-content; max-width: calc(100% - 32px);
+  background: rgba(28,25,23,.96); color: var(--kinari);
+  border: 1px solid var(--akari);
+  padding: 14px 20px; border-radius: 4px;
+  font-size: 14px; line-height: 1.6; text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s, transform .25s;
+}
+.toast.is-show { opacity: 1; transform: translate(-50%, 0); }
+@media (min-width: 768px) { .toast { bottom: 32px; } }
+
+.icon { width: 18px; height: 18px; flex: none; }
+</style>
+</head>
+<body>
+
+<a class="sr-only" href="#main">本文へスキップ</a>
+
+<!-- 1. 架空表記の帯 ＋ 2. ヘッダー -->
+<div class="topfix">
+  <p class="demo-bar" role="note">
+    このサイトは<strong>愛媛東予Works</strong>の制作サンプルです。店舗名・住所・電話番号・メニュー等はすべて架空です。
+  </p>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#top" aria-label="酒と肴 ひうち トップへ">
+        <span class="logo-mark" aria-hidden="true">燧</span>
+        <span class="logo-text"><small>酒と肴</small><span>ひうち</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="gnav" id="gnav" aria-label="メインメニュー">
+        <ul>
+          <li><a href="#kodawari">こだわり</a></li>
+          <li><a href="#osusume">本日のおすすめ</a></li>
+          <li><a href="#menu">お品書き</a></li>
+          <li><a href="#course">コース・宴会</a></li>
+          <li><a href="#tennai">店内</a></li>
+          <li><a href="#info">店舗情報</a></li>
+          <li class="gnav-cta"><a href="#reserve">ご予約</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+
+<!-- 3. ヒーロー -->
+<section class="hero" id="top" aria-label="メインビジュアル">
+  <div class="ph">
+    <picture>
+      <source media="(min-width: 768px)" srcset="img/photo-02.webp" width="1536" height="1024">
+      <img src="img/photo-03.webp" width="1024" height="1536" alt="雨上がりの夜、藍色ののれんと赤提灯が灯る木造の店先（AI生成のイメージ）" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 class="hero-catch">
+        <span class="sr-only">酒と肴 ひうち ―</span>
+        <span class="line">今日の魚は、</span><span class="line">今朝の燧灘から。</span>
+      </h1>
+      <p class="hero-sub">新居浜の路地で十五年。<br>地の魚と地の酒で、おかえりなさい。</p>
+    </div>
+    <div class="hero-actions">
+      <p class="hero-hours"><b>営業</b>17:30〜23:00　<b>定休</b>日曜</p>
+      <a class="btn btn-akari" href="#reserve">ご予約・お問い合わせ <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. お知らせ -->
+<section class="news" aria-labelledby="news-title">
+  <div class="container">
+    <div class="news-wrap">
+      <h2 class="news-label" id="news-title">お知らせ</h2>
+      <div class="news-list">
+        <details>
+          <summary>
+            <time class="news-date" datetime="2026-09-26">2026.09.26</time>
+            <span class="news-title">秋の味「いもたき」始めました</span>
+            <span class="news-plus" aria-hidden="true"></span>
+          </summary>
+          <p class="news-body">今年も里芋のおいしい季節になりました。鶏と油揚げ、こんにゃくを合わせ、ひと晩寝かせた出汁でことこと炊いています。小さな土鍋でお出しします。</p>
+        </details>
+        <details>
+          <summary>
+            <time class="news-date" datetime="2026-09-20">2026.09.20</time>
+            <span class="news-title">10月 太鼓祭り期間の営業時間について</span>
+            <span class="news-plus" aria-hidden="true"></span>
+          </summary>
+          <p class="news-body">太鼓祭りの期間中は、17:00開店・24:00閉店（料理L.O. 23:00）で営業します。寄り合いや慰労会のご予約はお早めにどうぞ。祭りのあとの一杯、お待ちしています。</p>
+        </details>
+        <details>
+          <summary>
+            <time class="news-date" datetime="2026-09-12">2026.09.12</time>
+            <span class="news-title">忘年会・新年会のご予約受付を始めました</span>
+            <span class="news-plus" aria-hidden="true"></span>
+          </summary>
+          <p class="news-body">座敷は最大16名様、貸切は24名様までご利用いただけます。コースに飲み放題（2時間）もお付けできます。人数やご予算はお気軽にご相談ください。</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. こだわり -->
+<section class="section" id="kodawari" aria-labelledby="kodawari-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Kodawari</p>
+      <h2 class="sec-title" id="kodawari-title">ひうちのこだわり</h2>
+    </div>
+    <div>
+      <p class="sec-lead-pc">燧灘の魚と、東予の季節の味。気取らず、でも手間は惜しまずに。</p>
+      <div class="kodawari-list">
+        <article class="kodawari-item reveal">
+          <div class="ph ph--dish">
+            <img src="img/photo-04.webp" width="800" height="800" loading="lazy" alt="鯛・カンパチ・タコの地魚お造り盛り合わせ（AI生成のイメージ）">
+          </div>
+          <div>
+            <span class="kodawari-num">其の一</span>
+            <h3>燧灘の地魚</h3>
+            <p>大将が毎朝市場へ足を運び、その日いちばんの魚を自分の目で選んでいます。鯛、太刀魚、ほご。瀬戸内の穏やかな海で育った魚は、身がしまって甘みがあります。お造りにするか、煮付けにするか。魚を見てから決めるので、黒板のおすすめは毎日変わります。</p>
+          </div>
+        </article>
+        <article class="kodawari-item reveal">
+          <div class="ph ph--dish">
+            <img src="img/photo-05.webp" width="800" height="800" loading="lazy" alt="里芋・鶏肉・油揚げ・こんにゃくを炊いた土鍋のいもたき（AI生成のイメージ）">
+          </div>
+          <div>
+            <span class="kodawari-num">其の二</span>
+            <h3>東予の味</h3>
+            <p>夏は西条の絹かわなす、秋はいもたき。今治生まれのせんざんきや、鉄板で押し焼きにする焼き鳥も。子どもの頃から食べてきた地元の味を、居酒屋の一品として丁寧に仕立てています。季節が変わると、お品書きも少しずつ入れ替わります。</p>
+          </div>
+        </article>
+        <article class="kodawari-item reveal">
+          <div class="ph">
+            <img src="img/photo-06.webp" width="800" height="1200" loading="lazy" style="object-position: 50% 30%" alt="一升瓶と片口、ぐい呑みが並ぶ白木のカウンター（AI生成のイメージ）">
+          </div>
+          <div>
+            <span class="kodawari-num">其の三</span>
+            <h3>西条の水と酒</h3>
+            <p>〆のごはんは、西条のうちぬきの水で炊いています。お酒は唎酒師の女将が選ぶ東予の地酒を中心に、季節ごとに入れ替え。お料理に合わせた一杯をおすすめします。お車の方には、ノンアルコールもしっかりご用意しています。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 本日のおすすめ（黒板） -->
+<section class="section board-section" id="osusume" aria-labelledby="osusume-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Today's</p>
+      <h2 class="sec-title" id="osusume-title">本日のおすすめ</h2>
+      <p class="sec-lead">その日の仕入れで、大将が黒板に書いています。</p>
+    </div>
+    <div class="reveal">
+      <p class="sec-lead-pc">その日の仕入れで、大将が黒板に書いています。</p>
+      <div class="board">
+        <div class="board-head">
+          <p class="board-title">本日のおすすめ</p>
+          <p class="board-date" id="board-date">秋のある日</p>
+        </div>
+        <ul class="board-list">
+          <li><span class="name">燧灘 太刀魚の塩焼き<small>脂がのってきました</small></span><span class="price">880円</span></li>
+          <li><span class="name">天然鯛のあら炊き<span class="tag">数量限定</span><small>甘辛く、ごはんが欲しくなる味</small></span><span class="price">780円</span></li>
+          <li><span class="name">里芋の唐揚げ<small>外はカリッ、中はねっとり</small></span><span class="price">480円</span></li>
+          <li><span class="name">秋なすと鶏の味噌炒め<small>白ごはんと一緒にどうぞ</small></span><span class="price">650円</span></li>
+          <li><span class="name">新米の塩むすび（2個）<small>うちぬきの水で炊きました</small></span><span class="price">380円</span></li>
+          <li><span class="name">ひやおろし 入荷<span class="tag">秋限定</span><small>東予の蔵より。女将に聞いてください</small></span><span class="price">一合 800円</span></li>
+        </ul>
+        <p class="board-memo">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 12c3-5 8-6 13-3l4-3v12l-4-3c-5 3-10 2-13-3z"/><circle cx="8" cy="11" r=".8" fill="currentColor"/></svg>
+          <span>大将より：今日の太刀魚は立派です。塩だけで焼くのがいちばん！</span>
+        </p>
+        <span class="board-chalk" aria-hidden="true"></span>
+      </div>
+      <p class="board-note">※内容は日によって変わります。売り切れの際はご容赦ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. お品書き -->
+<section class="section" id="menu" aria-labelledby="menu-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Menu</p>
+      <h2 class="sec-title" id="menu-title">お品書き</h2>
+      <p class="sec-lead">定番の肴と、季節の一品。価格はすべて税込です。</p>
+    </div>
+    <div class="reveal">
+      <p class="sec-lead-pc">定番の肴と、季節の一品。価格はすべて税込です。</p>
+
+      <div class="tabs" role="tablist" aria-label="お品書きの分類">
+        <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">お造り</button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">焼き物・揚げ物</button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">季節の一品</button>
+        <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">〆・甘味</button>
+        <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">お飲み物</button>
+      </div>
+
+      <!-- お造り -->
+      <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+        <div class="panel-photos single">
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-04.webp" width="800" height="800" loading="lazy" alt="地魚のお造り盛り合わせ（AI生成のイメージ）"></div>
+            <figcaption>燧灘 地魚のお造り盛り合わせ</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="menu-group">
+            <h3>お造り・魚料理</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">燧灘 地魚のお造り盛り合わせ<small>1人前</small><span class="dish-badge">名物</span></span><span class="dish-dots"></span><span class="dish-price">1,280<small>円〜</small></span></div>
+                <p class="dish-desc">その日の仕入れで3〜4種。2人前以上もお作りします。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">鯛の昆布締め</span><span class="dish-dots"></span><span class="dish-price">880<small>円</small></span></div>
+                <p class="dish-desc">昆布のうまみを移した、しっとりとした鯛。すだちを添えて。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">ほごの煮付け</span><span class="dish-dots"></span><span class="dish-price">時価</span></div>
+                <p class="dish-desc">愛媛で「ほご」と呼ばれるカサゴを、甘辛く丸ごと一尾。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 焼き物・揚げ物 -->
+      <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+        <div class="panel-photos">
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-07.webp" width="800" height="800" loading="lazy" alt="鉄板で押し焼きにした鶏皮の焼き鳥（AI生成のイメージ）"></div>
+            <figcaption>鉄板焼き鳥（皮）</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-08.webp" width="800" height="800" loading="lazy" alt="骨付きの鶏の唐揚げ・せんざんき（AI生成のイメージ）"></div>
+            <figcaption>せんざんき</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="menu-group">
+            <h3>焼き物・揚げ物</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">鉄板焼き鳥（皮）<span class="dish-badge">人気</span></span><span class="dish-dots"></span><span class="dish-price">550<small>円</small></span></div>
+                <p class="dish-desc">串に刺さず、鉄板で押さえて焼く今治スタイル。カリッと香ばしく。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">鉄板焼き鳥（せせり）</span><span class="dish-dots"></span><span class="dish-price">600<small>円</small></span></div>
+                <p class="dish-desc">弾力のある首肉を、塩と黒こしょうでシンプルに。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">せんざんき</span><span class="dish-dots"></span><span class="dish-price">780<small>円</small></span></div>
+                <p class="dish-desc">今治生まれの鶏の唐揚げ。下味をしっかり染みこませて揚げています。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">出汁巻き玉子</span><span class="dish-dots"></span><span class="dish-price">580<small>円</small></span></div>
+                <p class="dish-desc">注文を受けてから焼く、ふわふわの出汁巻き。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 季節の一品 -->
+      <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+        <div class="panel-photos">
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-09.webp" width="800" height="800" loading="lazy" alt="ガラスの器に盛った絹かわなすの揚げびたし（AI生成のイメージ）"></div>
+            <figcaption>絹かわなすの揚げびたし</figcaption>
+          </figure>
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-05.webp" width="800" height="800" loading="lazy" alt="土鍋で炊いたいもたき（AI生成のイメージ）"></div>
+            <figcaption>いもたき</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="menu-group">
+            <h3>季節の一品</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">絹かわなすの揚げびたし<small>夏季</small></span><span class="dish-dots"></span><span class="dish-price">580<small>円</small></span></div>
+                <p class="dish-desc">皮がやわらかい西条の絹かわなすを揚げて、冷たい出汁に。おろし生姜とかつお節で。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">いもたき<small>秋季</small><span class="dish-badge">今が旬</span></span><span class="dish-dots"></span><span class="dish-price">680<small>円</small></span></div>
+                <p class="dish-desc">里芋と鶏、油揚げ、こんにゃくを出汁で炊いた、愛媛の秋の味。</p>
+              </li>
+            </ul>
+          </div>
+          <p class="menu-note">※季節の一品は、その時期の食材で入れ替わります。</p>
+        </div>
+      </div>
+
+      <!-- 〆・甘味 -->
+      <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
+        <div class="panel-photos single">
+          <figure>
+            <div class="ph ph--dish"><img src="img/photo-10.webp" width="800" height="800" loading="lazy" alt="焼いた鯛を一尾のせた土鍋の鯛めし（AI生成のイメージ）"></div>
+            <figcaption>土鍋炊き 鯛めし</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="menu-group">
+            <h3>〆</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">土鍋炊き 鯛めし<small>2〜3人前</small><span class="dish-badge">名物</span></span><span class="dish-dots"></span><span class="dish-price">1,800<small>円</small></span></div>
+                <p class="dish-desc">焼いた鯛を一尾のせて、うちぬきの水で炊き上げます。炊き上がりまで約30分。早めのご注文がおすすめです。</p>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3>甘味</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">自家製 柑橘シャーベット</span><span class="dish-dots"></span><span class="dish-price">400<small>円</small></span></div>
+                <p class="dish-desc">愛媛の柑橘を搾って、さっぱりと。食後の口直しに。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- お飲み物 -->
+      <div class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" tabindex="0" hidden>
+        <div class="panel-photos single tall">
+          <figure>
+            <div class="ph"><img src="img/photo-06.webp" width="800" height="1200" loading="lazy" alt="一升瓶と片口、ぐい呑み（AI生成のイメージ）"></div>
+            <figcaption>東予の地酒は、女将がお料理に合わせて選びます</figcaption>
+          </figure>
+        </div>
+        <div>
+          <div class="menu-group">
+            <h3>お酒</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">生ビール</span><span class="dish-dots"></span><span class="dish-price">580<small>円</small></span></div>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">東予の地酒<small>一合</small></span><span class="dish-dots"></span><span class="dish-price">700<small>円〜</small></span></div>
+                <p class="dish-desc">銘柄は季節ごとに入れ替えています。その日のラインナップは女将まで。</p>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">愛媛の柑橘サワー</span><span class="dish-dots"></span><span class="dish-price">550<small>円</small></span></div>
+                <p class="dish-desc">季節の柑橘を搾って。</p>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3>ノンアルコール</h3>
+            <ul>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">ノンアルコールビール</span><span class="dish-dots"></span><span class="dish-price">450<small>円</small></span></div>
+              </li>
+              <li class="dish">
+                <div class="dish-row"><span class="dish-name">自家製ジンジャーエール</span><span class="dish-dots"></span><span class="dish-price">450<small>円</small></span></div>
+                <p class="dish-desc">生姜をじっくり煮出した、ピリッと辛口。</p>
+              </li>
+            </ul>
+          </div>
+          <p class="driver-note"><strong>お車でお越しの方へ</strong>ノンアルコールも揃えています。お酒を召し上がった方には、お帰りの際に運転代行をお呼びします。</p>
+        </div>
+      </div>
+
+      <p class="menu-note">※価格はすべて税込です。※仕入れの状況により、内容や価格が変わる場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. コース・ご宴会 -->
+<section class="section section--alt" id="course" aria-labelledby="course-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Course</p>
+      <h2 class="sec-title" id="course-title">コース・ご宴会</h2>
+      <p class="sec-lead">2名様から承ります。前日までにご予約ください。</p>
+    </div>
+    <div class="reveal">
+      <p class="sec-lead-pc">2名様から承ります。前日までにご予約ください。</p>
+      <div class="course-list">
+        <article class="course">
+          <h3 class="course-name">ひうちコース</h3>
+          <p class="course-meta">全7品　2名様〜</p>
+          <p class="course-price">3,800<small>円（税込）</small></p>
+          <ol class="course-items">
+            <li>先付</li>
+            <li>燧灘 地魚のお造り</li>
+            <li>季節の一品</li>
+            <li>鉄板焼き鳥</li>
+            <li>せんざんき</li>
+            <li>炊き合わせ</li>
+            <li>〆のごはんと赤だし</li>
+          </ol>
+        </article>
+        <article class="course">
+          <span class="course-flag">要予約</span>
+          <h3 class="course-name">季節のおまかせコース</h3>
+          <p class="course-meta">全8品　2名様〜　前日までに要予約</p>
+          <p class="course-price">5,500<small>円（税込）</small></p>
+          <ol class="course-items">
+            <li>先付・八寸</li>
+            <li>燧灘 地魚のお造り 五種盛り</li>
+            <li>椀物</li>
+            <li>焼き魚（その日の魚で）</li>
+            <li>季節の揚げ物</li>
+            <li>ほごの煮付け</li>
+            <li>土鍋炊き 鯛めし</li>
+            <li>柑橘シャーベット</li>
+          </ol>
+        </article>
+      </div>
+      <div class="nomihoudai">
+        <b>飲み放題（2時間）</b>
+        <span class="price">＋1,800円</span>
+        <p>生ビール・東予の地酒・サワー・ノンアルコールなど。コースにお付けできます。</p>
+      </div>
+      <div class="scenes">
+        <p class="scenes-title">こんな集まりに</p>
+        <ul class="scene-tags">
+          <li>歓送迎会</li>
+          <li>法事のあとのお食事</li>
+          <li>太鼓台の寄り合い・慰労会</li>
+          <li>忘年会・新年会</li>
+          <li>ご家族のお祝い</li>
+        </ul>
+        <p>人数やご予算、苦手な食材などはお気軽にご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 店内 -->
+<section class="section" id="tennai" aria-labelledby="tennai-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Seats</p>
+      <h2 class="sec-title" id="tennai-title">店内</h2>
+      <p class="sec-lead">おひとりでも、ご家族でも。全席禁煙です。</p>
+    </div>
+    <div class="reveal">
+      <p class="sec-lead-pc">おひとりでも、ご家族でも。全席禁煙です。</p>
+      <div class="seats">
+        <article class="seat">
+          <div class="ph"><img src="img/photo-11.webp" width="1200" height="800" loading="lazy" alt="白木のカウンター越しに、料理人が魚をさばく手元（AI生成のイメージ）"></div>
+          <div class="seat-cap">
+            <h3>カウンター</h3>
+            <p class="seat-count"><b>8</b>席</p>
+          </div>
+          <p>大将の手元を眺めながら。仕事帰りのおひとりさまも、どうぞお気軽に。</p>
+        </article>
+        <article class="seat">
+          <div class="ph"><img src="img/photo-12.webp" width="1200" height="800" loading="lazy" alt="座卓と藍色の座布団が並ぶ小上がりの座敷（AI生成のイメージ）"></div>
+          <div class="seat-cap">
+            <h3>小上がり座敷</h3>
+            <p class="seat-count">4卓・<b>16</b>名</p>
+          </div>
+          <p>足をのばしてゆっくりと。お子様連れも歓迎です（20時まで）。</p>
+        </article>
+      </div>
+      <div class="kashikiri">
+        <p class="num">24<small>名</small></p>
+        <p><strong>貸切もできます</strong>最大24名様まで。宴会やお祝いの席にご利用ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 大将より -->
+<section class="section taisho-section" aria-labelledby="taisho-title">
+  <div class="container">
+    <div class="taisho reveal">
+      <div>
+        <div class="ph"><img src="img/photo-13.webp" width="800" height="1200" loading="lazy" alt="厨房で出汁の鍋に向かう料理人の後ろ姿（AI生成のイメージ）"></div>
+        <p class="img-note">※写真はAIで生成したイメージです</p>
+      </div>
+      <div class="taisho-letter">
+        <p class="sec-kicker" style="color: var(--akari); margin-bottom: 12px;">Message</p>
+        <h2 class="sec-title sr-only">大将より</h2>
+        <h3 id="taisho-title">生まれた町で、<br>生まれた海の魚を。</h3>
+        <p>高校を出て大阪へ行き、割烹で十二年、包丁を握ってきました。そのあいだもずっと、いつかは新居浜で店をやりたいと思っていました。</p>
+        <p>祭りのあと、親戚が集まって食べたいもたき。港で分けてもらった小魚の煮付け。店をやるなら、あの頃の味を出したい。そう思って、この路地にのれんを掛けました。</p>
+        <p>毎朝市場で魚を見て、その日いちばんのものを仕入れています。気取った料理はできませんが、仕事帰りに一杯だけでも、どうぞ気軽にのれんをくぐってください。</p>
+        <p class="taisho-sign"><small>酒と肴 ひうち</small>大将</p>
+        <p class="okami"><b>女将より</b>お酒選びはおまかせください。唎酒師として、お料理に合う東予の地酒をご案内します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. よくある質問 -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">FAQ</p>
+      <h2 class="sec-title" id="faq-title">よくある質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary><span class="faq-q" aria-hidden="true">問</span><span class="t">予約は必要ですか？</span><span class="news-plus" aria-hidden="true"></span></summary>
+        <div class="faq-body"><span class="faq-a" aria-hidden="true">答</span><p>ご予約なしでもお入りいただけますが、週末や宴会シーズンは満席になりやすいため、お電話でのご予約をおすすめします。コースは前日までのご予約です。</p></div>
+      </details>
+      <details>
+        <summary><span class="faq-q" aria-hidden="true">問</span><span class="t">子ども連れでも大丈夫ですか？</span><span class="news-plus" aria-hidden="true"></span></summary>
+        <div class="faq-body"><span class="faq-a" aria-hidden="true">答</span><p>はい、20時までは座敷でお子様連れも歓迎しています。全席禁煙です。取り皿や子ども用の食器もご用意しますので、お声がけください。</p></div>
+      </details>
+      <details>
+        <summary><span class="faq-q" aria-hidden="true">問</span><span class="t">駐車場はありますか？</span><span class="news-plus" aria-hidden="true"></span></summary>
+        <div class="faq-body"><span class="faq-a" aria-hidden="true">答</span><p>店の前に4台分ございます。満車の場合は、お電話いただければ近くの駐車場をご案内します。</p></div>
+      </details>
+      <details>
+        <summary><span class="faq-q" aria-hidden="true">問</span><span class="t">運転代行は呼んでもらえますか？</span><span class="news-plus" aria-hidden="true"></span></summary>
+        <div class="faq-body"><span class="faq-a" aria-hidden="true">答</span><p>はい、お帰りの際にお店から運転代行をお呼びします。お会計のときにお気軽にお申し付けください。</p></div>
+      </details>
+      <details>
+        <summary><span class="faq-q" aria-hidden="true">問</span><span class="t">貸切はできますか？</span><span class="news-plus" aria-hidden="true"></span></summary>
+        <div class="faq-body"><span class="faq-a" aria-hidden="true">答</span><p>最大24名様まで貸切でご利用いただけます。人数やご予算、ご希望の日時をお電話でご相談ください。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. 店舗情報 -->
+<section class="section section--alt" id="info" aria-labelledby="info-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Access</p>
+      <h2 class="sec-title" id="info-title">店舗情報</h2>
+    </div>
+    <div class="info reveal">
+      <div>
+        <table class="info-table">
+          <tbody>
+            <tr><th scope="row">店名</th><td>酒と肴 ひうち<span class="fict-tag">架空</span></td></tr>
+            <tr><th scope="row">住所</th><td>〒792-0000<br>愛媛県新居浜市灯町2-8-5<span class="fict-tag">架空</span><small>JR新居浜駅から車で約7分（架空の設定）</small></td></tr>
+            <tr><th scope="row">電話</th><td>0897-00-0000<span class="fict-tag">架空</span></td></tr>
+            <tr><th scope="row">営業時間</th><td>17:30〜23:00<small>料理L.O. 22:00／ドリンクL.O. 22:30</small></td></tr>
+            <tr><th scope="row">定休日</th><td>日曜日<small>月曜が祝日の場合は、日曜営業・月曜休み</small></td></tr>
+            <tr><th scope="row">席数</th><td>カウンター8席、小上がり座敷4卓（16名）<small>貸切は最大24名様</small></td></tr>
+            <tr><th scope="row">ご予算</th><td>お一人様 4,000〜5,000円</td></tr>
+            <tr><th scope="row">お支払い</th><td>現金、クレジットカード、PayPay</td></tr>
+            <tr><th scope="row">駐車場</th><td>店の前に4台<small>お帰りの際は運転代行をお呼びします</small></td></tr>
+            <tr><th scope="row">その他</th><td>全席禁煙／座敷はお子様連れ歓迎（〜20時）</td></tr>
+          </tbody>
+        </table>
+        <div class="fict-box" role="note">
+          <strong>この店舗は実在しません</strong>
+          「酒と肴 ひうち」は、愛媛東予Worksがホームページ制作のサンプルとして作った架空の居酒屋です。店舗名・住所・電話番号・メニュー・価格等はすべて架空で、掲載画像はAIで生成したイメージです。
+        </div>
+      </div>
+      <figure style="margin:0">
+        <div class="map" role="img" aria-label="店舗周辺のイメージ地図（架空）">
+          <div class="map-sea"></div>
+          <span class="map-sea-label">燧 灘</span>
+          <div class="map-river"></div>
+          <div class="map-block" style="left:8%;top:46%;width:22%;height:12%"></div>
+          <div class="map-block" style="left:40%;top:47%;width:14%;height:11%"></div>
+          <div class="map-block" style="left:62%;top:30%;width:20%;height:26%"></div>
+          <div class="map-block" style="left:8%;top:72%;width:24%;height:10%"></div>
+          <div class="map-block" style="left:62%;top:72%;width:28%;height:10%"></div>
+          <div class="map-road main"></div>
+          <div class="map-road h1"></div>
+          <div class="map-road v1"></div>
+          <div class="map-road v2"></div>
+          <div class="map-rail"></div>
+          <span class="map-label" style="left:4%;top:66%">← 至 港</span>
+          <span class="map-label" style="right:4%;bottom:14%">至 新居浜駅 →</span>
+          <span class="map-p" aria-hidden="true">P</span>
+          <div class="map-pin"><span class="flag">ひうち</span><span class="stem"></span><span class="dot"></span></div>
+          <span class="map-stamp">イメージ図・架空の地図です</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 13. ご予約 -->
+<section class="section reserve-section" id="reserve" aria-labelledby="reserve-title">
+  <div class="container sec-layout">
+    <div class="sec-head">
+      <p class="sec-kicker">Reservation</p>
+      <h2 class="sec-title" id="reserve-title">ご予約</h2>
+      <p class="sec-lead">お電話がいちばん確実です。当日のご予約もどうぞ。</p>
+    </div>
+    <div class="reserve reveal">
+      <div class="reserve-tel">
+        <h3>お電話でのご予約</h3>
+        <button type="button" class="num js-dummy-tel" aria-label="0897-00-0000に電話する（サンプルのためつながりません）">0897-00-0000</button>
+        <small>受付 16:00〜23:00（日曜定休）</small>
+        <button type="button" class="btn btn-akari js-dummy-tel">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+          電話をかける
+        </button>
+        <p class="fict">※架空の番号です。サンプルのためつながりません</p>
+      </div>
+
+      <form class="form" id="reserve-form" novalidate>
+        <h3>予約フォーム</h3>
+        <p class="form-lead">翌日以降のご予約はこちらからも。確認のお電話をさせていただきます。</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-name">お名前<span class="req">必須</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="新居浜 太郎">
+          </div>
+          <div class="field">
+            <label for="f-tel">電話番号<span class="req">必須</span></label>
+            <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="090-0000-0000">
+          </div>
+          <div class="field">
+            <label for="f-date">ご来店日<span class="req">必須</span></label>
+            <input id="f-date" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="f-time">お時間</label>
+            <select id="f-time" name="time">
+              <option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option>
+              <option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-people">人数</label>
+            <select id="f-people" name="people">
+              <option>1名</option><option selected>2名</option><option>3名</option><option>4名</option>
+              <option>5〜8名</option><option>9〜16名</option><option>貸切（17〜24名）</option>
+            </select>
+          </div>
+          <div class="field">
+            <span class="label" id="seat-label">お席のご希望</span>
+            <div class="radios" role="radiogroup" aria-labelledby="seat-label">
+              <label><input type="radio" name="seat" value="none" checked>なし</label>
+              <label><input type="radio" name="seat" value="counter">カウンター</label>
+              <label><input type="radio" name="seat" value="zashiki">座敷</label>
+            </div>
+          </div>
+          <div class="field wide">
+            <label for="f-msg">ご要望（コース・アレルギーなど）</label>
+            <textarea id="f-msg" name="message" placeholder="ひうちコース＋飲み放題で、子ども1名います 等"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-sumi">この内容で送信する <span class="arrow" aria-hidden="true">→</span></button>
+        <p class="form-fict">※サンプルのため、実際には送信されません</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 14. フッター -->
+<footer class="site-footer">
+  <div class="footer-wave" aria-hidden="true"></div>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-logo"><small>酒と肴</small>ひうち</p>
+        <p class="footer-addr">〒792-0000 愛媛県新居浜市灯町2-8-5（架空）<br>TEL 0897-00-0000（架空）<br>17:30〜23:00／日曜定休</p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <ul>
+          <li><a href="#kodawari">こだわり</a></li>
+          <li><a href="#osusume">本日のおすすめ</a></li>
+          <li><a href="#menu">お品書き</a></li>
+          <li><a href="#course">コース・宴会</a></li>
+          <li><a href="#tennai">店内</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#info">店舗情報</a></li>
+          <li><a href="#reserve">ご予約</a></li>
+        </ul>
+      </nav>
+      <div class="footer-notice" role="note">
+        <strong>このサイトは制作サンプルです</strong>
+        「酒と肴 ひうち」は実在しない架空の店舗です。店舗名・住所・電話番号・メニュー・価格等はすべて架空のものです。掲載画像はAIで生成したイメージです。
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>制作：<a href="https://ehime-toyoworks.hp-web.workers.dev/" rel="noopener">愛媛東予Works</a>（東予の個人店向けホームページ制作）</p>
+      <p><small>&copy; 2026 酒と肴 ひうち（架空の店舗）</small></p>
+    </div>
+  </div>
+</footer>
+
+<!-- スマホ下部の固定バー -->
+<div class="sp-bar">
+  <button type="button" class="js-dummy-tel">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    電話する
+  </button>
+  <a href="#reserve">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+    予約する
+  </a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+
+  /* 画像が読み込めないときは、プレースホルダー（グラデーション）を見せる */
+  document.querySelectorAll('.ph img').forEach(function (img) {
+    function hide() { img.style.visibility = 'hidden'; }
+    if (img.complete && img.naturalWidth === 0) hide();
+    img.addEventListener('error', hide);
+  });
+
+  /* スマホのハンバーガーメニュー */
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('gnav');
+  function setMenu(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    nav.classList.toggle('is-open', open);
+  }
+  toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  /* トースト */
+  var toast = document.getElementById('toast');
+  var timer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('is-show'); }, 3200);
+  }
+  document.querySelectorAll('.js-dummy-tel').forEach(function (el) {
+    el.addEventListener('click', function () { showToast('サンプルのため実際にはつながりません'); });
+  });
+  document.getElementById('reserve-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    showToast('サンプルのため送信されません');
+  });
+
+  /* お品書きのタブ（矢印キーでも切り替え可） */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function selectTab(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { selectTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); selectTab(next, true); }
+    });
+  });
+
+  /* 黒板の日付（今日の日付を手書き風に） */
+  var d = new Date();
+  var w = '日月火水木金土'.charAt(d.getDay());
+  document.getElementById('board-date').textContent = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + w + '）';
+
+  /* 予約フォームの日付は今日以降 */
+  var dateInput = document.getElementById('f-date');
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  dateInput.min = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+
+  /* スクロールでふんわり表示（控えめ） */
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

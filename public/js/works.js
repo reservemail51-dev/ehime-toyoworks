@@ -78,6 +78,9 @@
     html += '<div class="work-detail__head"><span class="badge badge--' + esc(w.type) + '">' + esc(LABEL[w.type] || "") + "</span>" +
             '<span class="note">' + esc(w.industry) + (w.area && w.area !== "架空" ? "・" + esc(w.area) : "") + "</span></div>";
     html += '<h1 style="font-size:clamp(1.6rem,1.2rem + 1.8vw,2.4rem)">' + esc(w.title) + "</h1>";
+    if (w.type === "sample") {
+      html += '<p class="fictional-note"><strong>このお店は実在しない架空の店舗です。</strong>ホームページの制作例としてつくったサンプルで、店名・住所・電話番号・人物・メニュー・写真などはすべて架空のものです（写真はAIで生成したイメージです）。</p>';
+    }
     html += '<p style="margin-top:.8em">' + esc(w.summary) + "</p>";
     html += '<div class="work-detail__shots">' + shot(imgs[0], 0, "パソコン") + shot(imgs[1], 1, "スマホ") + "</div>";
 
@@ -96,7 +99,7 @@
       "<tr><th>制作年</th><td>" + esc(w.year) + "年</td></tr>" +
       "</tbody></table>";
     if (w.url) {
-      html += '<p style="margin-top:1.2em"><a class="more-link" href="' + esc(w.url) + '" target="_blank" rel="noopener">サイトを見る</a></p>';
+      html += '<p style="margin-top:1.2em"><a class="more-link" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + (w.type === "sample" ? "サンプルサイトを見る（架空の店舗）" : "サイトを見る") + "</a></p>";
     }
     if (w.type === "sample") {
       html += '<p class="sample-note">これは架空のお店を想定してつくったサンプルです。実在のお店とは関係ありません。</p>';

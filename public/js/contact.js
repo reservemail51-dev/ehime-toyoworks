@@ -23,7 +23,6 @@
     var name = form.querySelector("#f-name");
     var mail = form.querySelector("#f-mail");
     var line = form.querySelector("#f-line");
-    var agree = form.querySelector("#f-agree");
     var trap = form.querySelector('input[name="_gotcha"]');
 
     if (trap && trap.value) { e.preventDefault(); return; } // スパム
@@ -34,7 +33,6 @@
     if (mail.value.trim() && !mail.checkValidity()) {
       e.preventDefault(); return showError("メールアドレスの形をご確認ください。", mail);
     }
-    if (!agree.checked) { e.preventDefault(); return showError("プライバシーポリシーへの同意にチェックをお願いします。", agree); }
     if (form.getAttribute("action").indexOf("【") !== -1) {
       e.preventDefault(); return showError("（準備中）フォームの送信先がまだ設定されていません。お手数ですがLINEかメールでご連絡ください。");
     }

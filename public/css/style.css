@@ -777,7 +777,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.5; let
    お問い合わせ
    ========================================================= */
 .ways { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-@media (min-width: 768px) { .ways { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .ways { grid-template-columns: repeat(3, 1fr); } }
 .way { background: #fff; border: 2px solid var(--ink); border-radius: 14px; padding: 22px 22px 20px; display: flex; flex-direction: column; gap: .5em; }
 .way--main { background: #FFF6EC; }
 .way h3 { font-size: 1.15rem; }
@@ -907,3 +907,7 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.5; let
 @media (min-width: 768px) { .plan-cols { grid-template-columns: 1fr 1fr; } }
 .plan__add li::before { content: "＋"; color: var(--mikan); font-weight: 700; }
 .plan__add { color: var(--ink); }
+
+/* お問い合わせ：連絡方法3つ */
+.way__addr { font-family: var(--f-head); font-weight: 700; color: var(--ink); word-break: break-all; }
+.form-purpose { margin: 0; text-align: center; }

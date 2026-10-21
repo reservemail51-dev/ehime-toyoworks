@@ -23,6 +23,7 @@
 5. `voice`（お客様の声）は実際にもらったものだけ。
 
 ## 補足
+- 先着3店舗の「制作費半額キャンペーン」（条件：制作実績として店名と画面を掲載）を掲載中。トップ（ヒーローの一文＋料金の上の囲み `#campaign`）、サービス・料金（制作の料金の上の囲み）、よくある質問（料金の先頭）。`<!-- CAMPAIGN -->` で目印。契約が決まったら「残り〇店舗」をトップとサービス・料金の2か所で更新し、終わったら全部削除する（style.css の末尾のキャンペーン用CSSも）。
 - 全ページ（サンプルサイト含む）の `</body>` 直前に Cloudflare Web Analytics のスクリプトを入れている（Cookieなし・同意表示不要）。新しいページを作るときも入れる。独自ドメインにしたら Web Analytics 側のホスト名も変更する。
 - `public/samples/<id>/` に架空店舗のサンプルサイト本体を置く（`samples/tomoshibi/` ＝ともしび珈琲、`samples/kohaku/` ＝洋食 こはく、`samples/hiuchi/` ＝酒と肴 ひうち、`samples/soyogi/` ＝hair room そよぎ、`samples/shizuku/` ＝しずく洋菓子店、`samples/mizunowa/` ＝みずのわベーカリー）。実績データの `url` から「サイトを見る」でリンクする。実在のお店と間違われないよう、各ページに noindex を入れ、`_headers` でも `/samples/*` を noindex にしている。画像は埋め込み（base64）にせず `img/` に分けて置く。シェア画像は各 `img/ogp.jpg`（1200×630）。`type: "sample"` の実績は、カードに「※実在しない架空の店舗です」、詳細ページの見出し下に架空である旨の囲みが自動で出る。`area` も「架空の店舗（〇〇市という設定）」と書く。
 - `index.html` の head にある `google-site-verification` の meta は Google Search Console の所有確認用。消すと登録が外れるので残す。

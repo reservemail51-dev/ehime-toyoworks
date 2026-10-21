@@ -916,3 +916,18 @@ h1, h2, h3 { font-family: var(--f-head); font-weight: 700; line-height: 1.5; let
 /* お問い合わせ：連絡方法3つ */
 .way__addr { font-family: var(--f-head); font-weight: 700; color: var(--ink); word-break: break-all; }
 .form-purpose { margin: 0; text-align: center; }
+
+/* ---------- 先着3店舗 半額キャンペーン（終わったら削除） ---------- */
+.campaign { position: relative; margin: 0 0 40px; background: #FFF6EC; border: 2px dashed var(--mikan); border-radius: 14px; padding: 36px 22px 26px; }
+@media (min-width: 768px) { .campaign { padding: 40px 40px 30px; } }
+.campaign__label { position: absolute; top: -16px; left: 18px; margin: 0; background: var(--mikan-soft); color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: .1em .9em; font-family: var(--f-hand); font-weight: 600; font-size: .95rem; transform: rotate(-2deg); }
+.campaign__title { font-size: clamp(1.15rem, 1rem + .8vw, 1.45rem); }
+.campaign__lead { margin: .8em 0 0; }
+.campaign__info { margin: 18px 0 0; display: grid; gap: 0; }
+.campaign__info > div { display: grid; grid-template-columns: 5.5em 1fr; gap: 12px; padding: 10px 0; border-top: 1px dashed var(--line); }
+.campaign__info dt { font-weight: 700; }
+.campaign__info dd { margin: 0; }
+.campaign__left { display: inline-block; margin-left: .4em; font-size: .9rem; background: var(--ink); color: #fff; border-radius: 999px; padding: 0 .7em; }
+.campaign__cta { margin: 18px 0 0; }
+.hero__campaign { margin: 12px 0 0; }
+.hero__campaign a { font-weight: 700; color: var(--ink); text-decoration: none; background: linear-gradient(transparent 58%, var(--mikan-soft) 58%); }
